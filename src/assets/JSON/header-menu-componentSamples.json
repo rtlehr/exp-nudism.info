@@ -1,0 +1,38 @@
+[
+    {
+      "id": "basiccommands",
+      "title": "Content",
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/content.html"}]
+    },
+    {
+      "id": "basiccommunication",
+      "title": "Image Display",
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/imageDisplay.html"},{"contentType": "imageDisplay", "contentFile": "page-image-display.json"}]
+    },
+    {
+      "id": "Image Gallery",
+      "title": "Image Gallery",
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/imageGallery.html"},{"contentType": "imageGallery", "contentFile": "page-image-gallery-images.json"}]
+    },
+    {
+      "id": "loopstetments",
+      "title": "Image Slider",
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/imageSlider.html"},{"contentType": "imageSlider", "contentFile": "image-slider-images.json"}]
+    },
+    {
+      "id": "loopstetments",
+      "title": "News",
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/news.html"},{"contentType": "news", "contentFile": "page-news.json"}]
+    },
+    {
+      "id": "loopstetments",
+      "title": "FAQs",
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/faqs.html"},{"contentType": "faq", "contentFile": "page-faq.json"}]
+    },
+    {
+      "id": "loopstetments",
+      "title": "Form Sample",
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/forms.html"},{"contentType": "form", "contentFile": "page-form.json"}]
+    }
+
+  ]

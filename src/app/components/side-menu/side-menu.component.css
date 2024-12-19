@@ -1,0 +1,54 @@
+/* Reset default styling for <menu> */
+menu.vertical-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Remove bullet points */
+    width: 200px; /* Set the menu width */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Ensure no overflow */
+    font-family: Arial, sans-serif; /* Use a clean font */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Style the list */
+  menu.vertical-menu ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style each list item */
+  menu.vertical-menu ul li {
+    border-bottom: 1px solid #ccc; /* Add a divider between items */
+    padding: 5px 0 5px 0;
+    cursor: pointer;
+  }
+  
+  menu.vertical-menu ul li:last-child {
+    border-bottom: none; /* Remove border for the last item */
+  }
+  
+  /* Style the links */
+  menu.vertical-menu ul li a {
+    display: block; /* Make the entire area clickable */
+    text-decoration: none; /* Remove underlines */
+    color: #333; /* Dark text color */
+    padding: 15px; /* Add spacing */
+    background-color: #f9f9f9; /* Light background */
+    transition: all 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover effect for links */
+  menu.vertical-menu ul li a:hover {
+    background-color: #007BFF; /* Blue background on hover */
+    color: #fff; /* White text on hover */
+    font-weight: bold; /* Bold text */
+    padding-left: 20px; /* Subtle left padding animation */
+  }
+  
+  /* Active state (optional) */
+  menu.vertical-menu ul li a.active {
+    background-color: #0056b3; /* Darker blue */
+    color: #fff; /* White text */
+    font-weight: bold; /* Bold text */
+  }
+  

@@ -1,0 +1,50 @@
+<div class="d-flex flex-column min-vh-100">
+  <!-- Header -->
+  <header class="bg-primary text-white text-center py-3"> 
+    <h1>My Angular CMS</h1>
+  </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="headerNavbar" >
+
+          <app-header-menu (parentEvent)="loadContent($event)"/>
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="content-wrapper">
+        
+    @if(showSideBar){
+
+    <div class="bg-secondary text-white p-4 left-menu">
+
+      <app-side-menu [sideMenuToLoad] = "sideMenuToLoad" (sideMenuFileToLoad)="sideMenuFileToLoad($event)"/>
+
+    </div>
+
+    } 
+
+    <!-- Right Content Area -->
+    <div  class="flex-grow-1 bg-light p-4 main-content">
+      <!-- Include Angular main content component -->
+
+      <app-page-generator [pageContent] = "pageContent"/>
+
+
+    </div>
+    
+    
+
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 My Angular App. All rights reserved.</p>
+  </footer>
+</div>

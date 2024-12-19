@@ -1,0 +1,22 @@
+[
+
+    {
+      "id": "home",
+      "title": "Home",
+      "component": "contentPage",
+      "file": "header-menu-home.json"
+    },
+    {
+      "id": "componentSamples",
+      "title": "Component Samples",
+      "component": "contentPage",
+      "file": "header-menu-componentSamples.json"
+    },
+    {
+      "id": "buildASite",
+      "title": "Build A Site",
+      "component": "contentPage",
+      "file": "header-menu-buildASite.json"
+    }
+    
+  ]  

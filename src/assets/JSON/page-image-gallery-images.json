@@ -1,0 +1,21 @@
+[
+    {
+      "src": "./assets/images/motorcycle.png",
+      "title": "Image 1",
+      "description": "This is a short description for Image 1.",
+      "href": "https://example.com/image1"
+    },
+    {
+      "src": "./assets/images/snowtruck.jpg",
+      "title": "Image 1",
+      "description": "This is a short description for Image 1.",
+      "href": "https://example.com/image1"
+    },
+    {
+      "src": "./assets/images/flag.jpeg",
+      "title": "Image 1",
+      "description": "This is a short description for Image 1.",
+      "href": "https://example.com/image1"
+    }
+
+]

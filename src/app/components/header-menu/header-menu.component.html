@@ -1,0 +1,15 @@
+
+
+  <ul class="navbar-nav ms-auto">
+  @for(headerMenuItems of getHeaderMenuItems; track headerMenuItems.id)
+  {
+
+    <li class="nav-item"> 
+
+      <app-header-menu-item [headerMenuItems]="headerMenuItems" (fileToLoad)="fileToLoad($event)" />
+
+    </li>
+
+  }
+
+</ul>

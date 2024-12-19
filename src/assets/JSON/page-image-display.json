@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "src": "./assets/images/flag.jpeg",
+        "largeSrc": "./assets/images/flag.jpeg",
+        "title": "Image 1",
+        "description": "This is the description for Image 1.",
+        "private": "false" 
+    },
+    {
+        "id": "2",
+        "src": "./assets/images/airplane.jpeg",
+        "largeSrc": "./assets/images/airplane.jpeg",
+        "title": "Image 1",
+        "description": "This is the description for Image 1.",
+        "private": "true"
+    },
+    {
+        "id": "3",
+        "src": "./assets/images/motorcycle.png",
+        "largeSrc": "./assets/images/motorcycle.png",
+        "title": "Image 1",
+        "description": "This is the description for Image 1.",
+        "private": "false"
+    }
+  ]

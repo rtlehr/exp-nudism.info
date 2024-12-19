@@ -1,0 +1,94 @@
+[
+    {
+        "id":"1",
+        "name":"name",
+        "onSubmit": "onSubmitAction",
+        "fields": [
+            {
+                "id": "1",
+                "requestedInfo": "Please enter your real name:",
+                "type": "textInput",
+                "fieldId": "myTextInput",
+                "placeholderText": "Enter your real name",
+                "required": false
+            },
+            {
+                "id": "2",
+                "requestedInfo": "Please enter your email:",
+                "type": "emailInput",
+                "fieldId": "myEmailInput",
+                "placeholderText": "Enter A Valid Email",
+                "required": false
+            },
+            {
+                "id": "3",
+                "requestedInfo": "Please enter a date:",
+                "type": "dateInput",
+                "fieldId": "myDateInput",
+                "placeholderText": "Select a date",
+                "required": false
+            },
+            {
+                "id": "4",
+                "requestedInfo": "Please enter a number:",
+                "type": "numberInput",
+                "fieldId": "myNumberInput",
+                "placeholderText": "Select a number",
+                "required": false
+            },
+            {
+                "id": "5",
+                "requestedInfo": "Please enter your password:",
+                "type": "passwordInput",
+                "fieldId": "myPasswordInput",
+                "placeholderText": "Enter your password",
+                "required": false
+            },
+            {
+                "id": "6",
+                "requestedInfo": "Make your choice",
+                "type": "radioButton",
+                "fieldName": "myradioButton",
+                "placeholderText": "Make a choice",
+                "required": true,
+                "options": [
+                    {
+                        "id": "1",
+                        "optionId": "radio1",
+                        "optionText": "Option 1"
+                    },
+                    {
+                        "id": "2",
+                        "optionId": "radio2",
+                        "optionText": "Option 2"
+                    }
+                ]
+            },
+            {
+                "id": "7",
+                "requestedInfo": "Make your choice",
+                "type": "checkbox",
+                "fieldName": "myCheckBox",
+                "placeholderText": "Select all that apply",
+                "required": true,
+                "options": [
+                    {
+                        "id": "1",
+                        "optionId": "checkbox1",
+                        "optionText": "Option 1"
+                    },
+                    {
+                        "id": "2",
+                        "optionId": "checkbox2",
+                        "optionText": "Option 2"
+                    },
+                    {
+                        "id": "2",
+                        "optionId": "checkbox3",
+                        "optionText": "Option 2"
+                    }
+                ]
+            }
+        ]
+    }
+]

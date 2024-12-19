@@ -1,0 +1,19 @@
+<menu class="vertical-menu">
+    
+    <ul class="nav flex-column">
+
+        @for(menuItem of getMenuItems; track menuItem.id) 
+        {
+            <li class="nav-item">
+                <app-side-menu-item 
+                [menuItems]="menuItem" 
+                (sendToAppComponent)="sendToAppComponent($event)" 
+                />
+            </li>
+        }
+
+    </ul>
+
+</menu>
+
+

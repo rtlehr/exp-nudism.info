@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1",
+        "question": "What is your return policy?",
+        "answer": "You can return any item within 30 days of purchase with a receipt."
+    },
+    {
+        "id": "2",
+        "question": "How can I track my order?",
+        "answer": "You can track your order by logging into your account and visiting the 'Orders' section."
+    },
+    {
+        "id": "3",
+        "question": "Do you offer gift cards?",
+        "answer": "Yes, we offer digital and physical gift cards available for purchase online."
+    },
+    {
+        "id": "4",
+        "question": "What payment methods do you accept?",
+        "answer": "We accept major credit cards, PayPal, and Apple Pay."
+    },
+    {
+        "id": "5",
+        "question": "Can I cancel or modify my order?",
+        "answer": "Yes, you can cancel or modify your order within 24 hours of placing it by contacting customer support."
+    }
+]

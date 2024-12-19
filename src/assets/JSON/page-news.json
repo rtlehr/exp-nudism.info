@@ -1,0 +1,23 @@
+[
+    {
+      "id": "1",
+      "title": "Breaking News: Angular Rocks!",
+      "image": "https://via.placeholder.com/150",
+      "date": "December 11, 2024",
+      "content": "Angular has released its latest version with amazing new features and improvements.Angular has released its latest version with amazing new features and improvements.Angular has released its latest version with amazing new features and improvements.Angular has released its latest version with amazing new features and improvements.Angular has released its latest version with amazing new features and improvements.Angular has released its latest version with amazing new features and improvements.Angular has released its latest version with amazing new features and improvements.Angular has released its latest version with amazing new features and improvements."
+    },
+    {
+      "id": "2",
+      "title": "Tech Trends for 2024",
+      "image": "https://via.placeholder.com/150",
+      "date": "December 5, 2024",
+      "content": "Explore the top tech trends of the year, including AI, blockchain, and more."
+    },
+    {
+      "id": "3",
+      "title": "Community Spotlight: Open Source Contributions",
+      "image": "https://via.placeholder.com/150",
+      "date": "November 30, 2024",
+      "content": "Highlighting the most significant contributions from the open-source community this year."
+    }
+  ]

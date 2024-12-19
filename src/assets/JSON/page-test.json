@@ -1,0 +1,12 @@
+[
+    {
+        "id": "imageGalleryPage",
+        "title": "Content",
+        "content": [{"contentType": "news", "contentFile": "page-news.json"},
+                    {"contentType": "faq", "contentFile": "page-faq.json"}]
+    }
+]
+
+
+  
+   

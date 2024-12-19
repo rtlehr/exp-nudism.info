@@ -1,0 +1,22 @@
+.content-wrapper {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .left-menu {
+    min-height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
+
+    .left-menu {
+      width: 100%;
+    }
+
+    .main-content {
+      width: 100%;
+    }
+  }
