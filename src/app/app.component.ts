@@ -4,6 +4,7 @@ import { sideMenuComponent } from "./components/side-menu/side-menu.component";
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
 import { ImageSliderComponent } from './components/image-slider/image-slider.component';
+import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { ImageSliderComponent } from './components/image-slider/image-slider.com
   imports: [sideMenuComponent, 
             HeaderMenuComponent, 
             PageGeneratorComponent,
-            ImageSliderComponent
+            ImageSliderComponent,
+            DisplayLogoComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
