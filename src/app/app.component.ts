@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { sideMenuComponent } from "./components/side-menu/side-menu.component";
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
-import { ImageSliderComponent } from './components/image-slider/image-slider.component';
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
+import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,8 @@ import { DisplayLogoComponent } from './components/display-logo/display-logo.com
   imports: [sideMenuComponent, 
             HeaderMenuComponent, 
             PageGeneratorComponent,
-            ImageSliderComponent,
-            DisplayLogoComponent
+            DisplayLogoComponent,
+            DisplayContactInfoComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
