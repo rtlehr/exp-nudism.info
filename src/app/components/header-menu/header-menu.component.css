@@ -1,5 +1,31 @@
-li
-{
+li {
     padding: 0 10px 0 10px;
     cursor: pointer;
-}
+  }
+  
+  /* Dropdown styles */
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .nav-item .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-item {
+    padding: 8px 16px;
+  }
+  
+  .nav-item .nav-link {
+    cursor: pointer;
+  }
+  
+  .nav-item .dropdown-toggle::after {
+    content: ' ▼';
+    font-size: 0.8em;
+  }
+  

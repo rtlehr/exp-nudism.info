@@ -8,6 +8,7 @@ import { FaqComponent } from '../faq/faq.component';
 import { ImageDisplayComponent } from '../image-display/image-display.component';
 import { FormGeneratorComponent } from '../form-generator/form-generator.component';
 import { ImageSliderComponent } from '../image-slider/image-slider.component';
+import { ContentTabsComponent } from '../content-tabs/content-tabs.component';
 
 @Component({
   selector: 'app-page-generator',
@@ -22,7 +23,8 @@ import { ImageSliderComponent } from '../image-slider/image-slider.component';
     FaqComponent,
     ImageDisplayComponent,
     FormGeneratorComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    ContentTabsComponent
   ],
   templateUrl: './page-generator.component.html',
   styleUrl: './page-generator.component.css'

@@ -1,22 +1,27 @@
 [
-
-    {
-      "id": "home",
-      "title": "Home",
-      "component": "contentPage",
-      "file": "header-menu-home.json" 
-    },
-    {
-      "id": "componentSamples",
-      "title": "Component Samples",
-      "component": "contentPage",
-      "file": "header-menu-componentSamples.json"
-    },
-    {
-      "id": "buildASite",
-      "title": "Build A Site",
-      "component": "contentPage",
-      "file": "header-menu-buildASite.json"
-    }
-    
-  ]  
+  {
+    "id": "home",
+    "title": "Home",
+    "component": "contentPage",
+    "file": "header-menu-home.json"
+  },
+  {
+    "id": "siteInformation",
+    "title": "siteInformation",
+    "component": "na",
+    "subMenu": [
+      {
+        "id": "componentSamples",
+        "title": "Component Samples",
+        "component": "na",
+        "file": "header-menu-componentSamples.json"
+      }
+    ]
+  },
+  {
+    "id": "buildASite",
+    "title": "Build A Site",
+    "component": "contentPage",
+    "file": "header-menu-buildASite.json"
+  }
+]

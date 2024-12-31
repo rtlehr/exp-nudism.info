@@ -2,17 +2,24 @@
 
     @if(!socialOnly)
     {
-
-        @for(contPhysical of getConInfoPhysical; track contPhysical.name) 
-        {
+        <div class="physical">
+            @for(contPhysical of getConInfoPhysical; track contPhysical.name) 
+            {
                 <span class="contPhysical"><strong>{{ contPhysical.name }}: </strong>{{ contPhysical.text }}</span>
-        }
+            }
+        </div>
 
     }
+
+    <ul class="social">
 
     @for(contSocial of getConInfoSocial; track contSocial.name) 
     {
-        <i class="{{ contSocial.icon }}"></i>
+        <li>
+            <a href="{{ contSocial.link }}" target="_blank"><i class="{{ contSocial.icon }}"></i></a>
+        </li>
     }
+
+    </ul>
 
 </div>

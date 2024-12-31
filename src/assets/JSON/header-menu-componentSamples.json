@@ -33,6 +33,11 @@
       "id": "loopstetments",
       "title": "Form Sample",
       "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/forms.html"},{"contentType": "form", "contentFile": "page-form.json"}]
+    },
+    {
+      "id": "tabSample",
+      "title": "Tabs Sample",
+      "content": [{"contentType": "tabs", "contentFile": "page-form.json"}]
     }
 
   ]

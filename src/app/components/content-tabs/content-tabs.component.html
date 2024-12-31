@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <ul class="nav nav-tabs">
+
+    @for(tab of tabsData; track tab.title){
+
+      <li class="nav-item">
+        <a 
+          class="nav-link" 
+          [class.active]="$index === activeTabIndex"
+          (click)="setActiveTab($index)">
+          {{ tab.title }}
+        </a>
+      </li>
+
+    }
+
+    </ul>
+    
+    @for(tab of tabsData; track tab.title){
+
+        <div class="tab-content">
+        <div 
+            *ngIf="$index === activeTabIndex" 
+            class="tab-pane fade show active">
+            <p>{{ tab.content }}</p>
+        </div>
+        </div>
+
+    }
+  </div>
+  

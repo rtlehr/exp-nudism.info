@@ -5,6 +5,7 @@ import { HeaderMenuComponent } from './components/header-menu/header-menu.compon
 import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
+import { ContentTabsComponent } from './components/content-tabs/content-tabs.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { DisplayContactInfoComponent } from './components/display-contact-info/d
             HeaderMenuComponent, 
             PageGeneratorComponent,
             DisplayLogoComponent,
-            DisplayContactInfoComponent
+            DisplayContactInfoComponent,
+            ContentTabsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
