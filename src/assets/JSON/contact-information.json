@@ -1,20 +1,26 @@
-[
-    {
-        "physical": [
-            {
-                "name": "Phone Number",
-                "text": "555-555-5555",
-                "icon": "phone"
-            }
-        ]
-    },
-    {
-        "social": [
-            {
-                "name": "Facebook",
-                "link": "http://www.facebook.com",
-                "icon": "facebook"
-            }
-        ]
-    }
-]
+{
+    "physical": [
+        {
+            "name": "Phone Number",
+            "text": "555-555-5555",
+            "icon": "phone"
+        },
+        {
+            "name": "E-mail",
+            "text": "blah@blahblah.com",
+            "icon": "email"
+        }
+    ],
+    "social": [
+        {
+            "name": "Facebook",
+            "link": "http://www.facebook.com",
+            "icon": "bi bi-facebook"
+        },
+        {
+            "name": "Twitter",
+            "link": "http://www.twitter.com",
+            "icon": "bi bi-twitter-x"
+        }
+    ]
+}

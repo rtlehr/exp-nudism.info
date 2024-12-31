@@ -4,7 +4,7 @@
       "id": "home",
       "title": "Home",
       "component": "contentPage",
-      "file": "header-menu-home.json"
+      "file": "header-menu-home.json" 
     },
     {
       "id": "componentSamples",

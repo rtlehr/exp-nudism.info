@@ -1,1 +1,18 @@
-<p>display-contact-info works!</p>
+<div class="contactInfo">
+
+    @if(!socialOnly)
+    {
+
+        @for(contPhysical of getConInfoPhysical; track contPhysical.name) 
+        {
+                <span class="contPhysical"><strong>{{ contPhysical.name }}: </strong>{{ contPhysical.text }}</span>
+        }
+
+    }
+
+    @for(contSocial of getConInfoSocial; track contSocial.name) 
+    {
+        <i class="{{ contSocial.icon }}"></i>
+    }
+
+</div>
