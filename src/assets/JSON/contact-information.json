@@ -1,0 +1,20 @@
+[
+    {
+        "physical": [
+            {
+                "name": "Phone Number",
+                "text": "555-555-5555",
+                "icon": "phone"
+            }
+        ]
+    },
+    {
+        "social": [
+            {
+                "name": "Facebook",
+                "link": "http://www.facebook.com",
+                "icon": "facebook"
+            }
+        ]
+    }
+]
