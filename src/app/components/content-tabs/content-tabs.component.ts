@@ -9,7 +9,7 @@ import { FaqComponent } from '../faq/faq.component';
 import { FormGeneratorComponent } from '../form-generator/form-generator.component';
 
 @Component({
-  selector: 'app-content-tabs',
+  selector: 'app-content-tabs', 
   standalone: true,
   imports: [MainContentComponent,
     ImageGalleryComponent,
@@ -49,11 +49,26 @@ export class ContentTabsComponent {
 
   loadTabsData(): void {
     this.http.get<any[]>('./assets/JSON/content-tabs.json').subscribe(data => {
+
       this.tabsData = data;
+
+      console.log("this.tabsData: " + this.tabsData.length)
+
     });
   }
 
-  loadTabs(): void {}
+  c:number = 0;
+
+  get getTabContent() 
+  {
+    console.log("count: " + this.c);
+
+    return this.tabsData[this.c].content;
+
+    this.c++;
+
+    
+  }
 
   setActiveTab(index: number): void {
     this.activeTabIndex = index;

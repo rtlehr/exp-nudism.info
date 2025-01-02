@@ -1,15 +1,15 @@
 [
     {
       "title": "Tab 1",
-      "content": "This is the content for Tab 1"
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/content.html"}]
     },
     {
       "title": "Tab 2",
-      "content": "This is the content for Tab 2"
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/imageDisplay.html"},{"contentType": "imageDisplay", "contentFile": "page-image-display.json"}]
     },
     {
       "title": "Tab 3",
-      "content": "This is the content for Tab 3"
+      "content": [{"contentType": "contentPage", "contentFile": "pages/componentSamples/imageGallery.html"},{"contentType": "imageGallery", "contentFile": "page-image-gallery-images.json"}]
     }
   ]
   
