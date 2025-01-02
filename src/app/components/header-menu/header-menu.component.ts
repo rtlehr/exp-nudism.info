@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./header-menu.component.css']
 })
 export class HeaderMenuComponent {
+
+  @Input() menuFile: string = "";
+
   headerMenuItems: any[] = [];
 
   constructor(private http: HttpClient) {}
@@ -17,7 +20,7 @@ export class HeaderMenuComponent {
   @Output() parentEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
-    this.http.get<any[]>('assets/menus/header-menu.json').subscribe(
+    this.http.get<any[]>('assets/' + this.menuFile).subscribe(
       (response) => {
         this.headerMenuItems = response;
       },
