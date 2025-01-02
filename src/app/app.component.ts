@@ -1,11 +1,10 @@
-import { Component, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, Input, ViewChild, AfterViewInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { sideMenuComponent } from "./components/side-menu/side-menu.component";
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
-import { ContentTabsComponent } from './components/content-tabs/content-tabs.component';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +13,7 @@ import { ContentTabsComponent } from './components/content-tabs/content-tabs.com
             HeaderMenuComponent, 
             PageGeneratorComponent,
             DisplayLogoComponent,
-            DisplayContactInfoComponent,
-            ContentTabsComponent
+            DisplayContactInfoComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -24,6 +22,8 @@ import { ContentTabsComponent } from './components/content-tabs/content-tabs.com
 export class AppComponent { 
 
   constructor(private http: HttpClient) {} 
+
+  @Input() menuFile: string = "";
 
   htmlContent!: any;
 
