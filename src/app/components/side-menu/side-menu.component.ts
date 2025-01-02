@@ -39,7 +39,7 @@ export class sideMenuComponent {
   getSideMenu(sideMenuToLoad: String)
   {
 
-    this.http.get<any[]>('assets/JSON/' + sideMenuToLoad).subscribe(
+    this.http.get<any[]>('assets/' + sideMenuToLoad).subscribe(
       (response) => {
         // Success callback: Assign the fetched JSON data to the `menuItems` property
         this.menuItems = response;

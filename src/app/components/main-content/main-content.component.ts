@@ -72,7 +72,7 @@ export class MainContentComponent {
 
   loadContent(fileName: any) {
 
-      this.http.get(`assets/content/${fileName.file}`, { responseType: 'text' }).subscribe({
+      this.http.get(`assets/${fileName.file}`, { responseType: 'text' }).subscribe({
       next: (html) => {
         this.htmlContent = html
       },

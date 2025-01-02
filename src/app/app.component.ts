@@ -38,7 +38,7 @@ export class AppComponent {
   ngOnInit() {
     
     
-    this.http.get<any[]>('assets/JSON/header-menu.json').subscribe(
+    this.http.get<any[]>('assets/menus/header-menu.json').subscribe(
     
       (response) => {
         // Success callback: Assign the fetched JSON data to the `menuItems` property
@@ -65,7 +65,7 @@ export class AppComponent {
 
   loadContent(fileObjectToLoad: any) { 
 
-    this.http.get(`assets/JSON/${fileObjectToLoad.file}`).subscribe({
+    this.http.get(`assets/${fileObjectToLoad.file}`).subscribe({
 
     next: (response) => {
       

@@ -3,18 +3,18 @@
     "id": "home",
     "title": "Home",
     "component": "contentPage",
-    "file": "header-menu-home.json"
+    "file": "content/pages/home/header-menu-home.json"
   },
   {
-    "id": "siteInformation",
-    "title": "siteInformation",
+    "id": "cmsInformation",
+    "title": "CMS Information",
     "component": "na",
     "subMenu": [
       {
         "id": "componentSamples",
         "title": "Component Samples",
         "component": "na",
-        "file": "header-menu-componentSamples.json"
+        "file": "content/pages/componentSamples/header-menu-componentSamples.json"
       }
     ]
   },

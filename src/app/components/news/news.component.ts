@@ -34,7 +34,7 @@ export class NewsComponent {
 
     console.log("contentToLoad: " + contentToLoad);
     
-    this.http.get<any[]>('assets/JSON/' + contentToLoad).subscribe(
+    this.http.get<any[]>('assets/' + contentToLoad).subscribe(
       (response) => {
         // Success callback: Assign the fetched JSON data to the `menuItems` property
         this.news = response;

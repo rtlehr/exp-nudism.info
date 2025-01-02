@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Input, SimpleChanges  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MainContentComponent } from '../main-content/main-content.component';
 import { ImageGalleryComponent } from '../image-gallery/image-gallery.component';
@@ -33,42 +34,37 @@ export class ContentTabsComponent {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
+  @Input() fileToLoad: String = '';
 
-    this.loadTabsData();  
+  ngOnChanges(changes: SimpleChanges): void { 
+
+    if (changes['fileToLoad']) {
+
+      if(changes['fileToLoad'].currentValue != "")
+      {
+        this.loadTabsData(changes['fileToLoad'].currentValue);
+      } 
+
+    } 
 
   }
 
-  get getPageContent() {
-
-    //return this.pageContent;
-
-    return [{"contentType": "contentPage", "contentFile": "pages/componentSamples/imageGallery.html"},{"contentType": "imageGallery", "contentFile": "page-image-gallery-images.json"}];
-
-  }
-
-  loadTabsData(): void {
-    this.http.get<any[]>('./assets/JSON/content-tabs.json').subscribe(data => {
-
-      this.tabsData = data;
-
-      console.log("this.tabsData: " + this.tabsData.length)
-
-    });
-  }
-
-  c:number = 0;
-
-  get getTabContent() 
+  loadTabsData(contentToLoad: String)
   {
-    console.log("count: " + this.c);
-
-    return this.tabsData[this.c].content;
-
-    this.c++;
-
     
+    this.http.get<any[]>('assets/' + contentToLoad).subscribe(
+      (response) => {
+        // Success callback: Assign the fetched JSON data to the `menuItems` property
+        this.tabsData = response;
+      },
+      (error) => {
+        // Error callback: Log an error message if the JSON file cannot be loaded
+        console.error('Error fetching JSON file:', error);
+      }
+    );
+
   }
+
 
   setActiveTab(index: number): void {
     this.activeTabIndex = index;

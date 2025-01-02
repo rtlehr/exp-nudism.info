@@ -1,0 +1,15 @@
+[
+    {
+      "title": "Content",
+      "content": [{"contentType": "contentPage", "contentFile": "content/pages/componentSamples/content/content.html"}]
+    },
+    {
+      "title": "News",
+      "content": [{"contentType": "news", "contentFile": "content/pages/componentSamples/news/page-news.json"}]
+    },
+    {
+      "title": "FAQs",
+      "content": [{"contentType": "faq", "contentFile": "content/pages/componentSamples/faqs/page-faq.json"}]
+    }
+  ]
+  

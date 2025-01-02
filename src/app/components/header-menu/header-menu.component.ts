@@ -17,7 +17,7 @@ export class HeaderMenuComponent {
   @Output() parentEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
-    this.http.get<any[]>('assets/JSON/header-menu.json').subscribe(
+    this.http.get<any[]>('assets/menus/header-menu.json').subscribe(
       (response) => {
         this.headerMenuItems = response;
       },

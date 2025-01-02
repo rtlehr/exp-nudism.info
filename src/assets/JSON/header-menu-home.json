@@ -1,7 +1,0 @@
-[
-    {
-        "id": "imageGalleryPage",
-        "title": "Content",
-        "content": [{"contentType": "contentPage", "contentFile": "pages/home/home-content.html"}]
-    }
-]
