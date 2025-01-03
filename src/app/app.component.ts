@@ -34,27 +34,6 @@ export class AppComponent {
   defaultPage: any [] = [];
   
   pageContent: any [] = [];
-
-  ngOnInit() {
-    
-    
-    this.http.get<any[]>('assets/menus/header-menu.json').subscribe(
-    
-      (response) => {
-        // Success callback: Assign the fetched JSON data to the `menuItems` property
-        this.defaultPage = response;
-
-        this.loadContent({'file':this.defaultPage[0].file, 'component': this.defaultPage[0].component}); 
-
-      },
-      (error) => {
-        // Error callback: Log an error message if the JSON file cannot be loaded 
-        console.error('Error fetching JSON file:', error);
-      }
-    
-    );
-
-  }
   
   sideMenuFileToLoad(fileObjectToLoad: any)
   {

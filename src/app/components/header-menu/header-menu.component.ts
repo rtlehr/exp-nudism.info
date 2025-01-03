@@ -20,14 +20,23 @@ export class HeaderMenuComponent {
   @Output() parentEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
+
     this.http.get<any[]>('assets/' + this.menuFile).subscribe(
       (response) => {
+
         this.headerMenuItems = response;
+
+        let data: any = {'file':this.headerMenuItems[0].file, 'component': this.headerMenuItems[0].component};
+
+        this.parentEvent.emit(data);
+
       },
       (error) => {
-        console.error('Error fetching JSON file:', error);
+        console.error('Error fetching JSON file:', error); 
       }
+
     );
+
   }
 
   get getHeaderMenuItems() {
