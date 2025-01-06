@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header-menu',
@@ -15,7 +16,7 @@ export class HeaderMenuComponent {
 
   headerMenuItems: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private location: Location) {}
 
   @Output() parentEvent = new EventEmitter<string>();
 
@@ -40,10 +41,17 @@ export class HeaderMenuComponent {
   }
 
   get getHeaderMenuItems() {
+
+
     return this.headerMenuItems;
   }
 
-  fileToLoad(data: any) {
+  fileToLoad(event: Event, data: any) {
+
+    event.preventDefault();
+
+    this.location.replaceState('');
+
     this.parentEvent.emit(data);
   }
 

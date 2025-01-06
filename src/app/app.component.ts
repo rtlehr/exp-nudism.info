@@ -1,10 +1,12 @@
-import { Component, Input, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { sideMenuComponent } from "./components/side-menu/side-menu.component";
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
 import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
+import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,8 @@ import { DisplayContactInfoComponent } from './components/display-contact-info/d
             HeaderMenuComponent, 
             PageGeneratorComponent,
             DisplayLogoComponent,
-            DisplayContactInfoComponent
+            DisplayContactInfoComponent,
+            RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -21,7 +24,17 @@ import { DisplayContactInfoComponent } from './components/display-contact-info/d
 
 export class AppComponent { 
 
-  constructor(private http: HttpClient) {} 
+  constructor(private http: HttpClient, private location: Location) {}
+
+  currentUrl: string = '';
+
+  ngOnInit() {
+
+    this.currentUrl = this.location.path();
+
+    console.log("this.currentUrl: " + this.currentUrl);
+
+  }
 
   @Input() menuFile: string = "";
 

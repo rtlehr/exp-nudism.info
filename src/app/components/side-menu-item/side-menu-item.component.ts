@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output} from '@angular/core';
+import { Location } from '@angular/common';
 
 interface MenuItems
 {
@@ -16,12 +17,16 @@ interface MenuItems
 })
 export class sideMenuItemComponent {
 
+  constructor(private location: Location) {}
+
   @Input({required: true}) menuItems!: MenuItems;
 
   @Output() sendToAppComponent = new EventEmitter();
 
   getMenuItemClicked()
   {
+
+    this.location.replaceState('');
 
     this.sendToAppComponent.emit( this.menuItems );
 
