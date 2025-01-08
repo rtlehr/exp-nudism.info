@@ -16,11 +16,14 @@ export class HeaderMenuComponent {
 
   headerMenuItems: any[] = [];
 
-  constructor(private http: HttpClient, private location: Location) {}
+  constructor(private http: HttpClient, private location: Location) {} 
 
   @Output() parentEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
+
+    console.log("headerMenu: ");
+
 
     this.http.get<any[]>('assets/' + this.menuFile).subscribe(
       (response) => {
@@ -38,21 +41,62 @@ export class HeaderMenuComponent {
 
     );
 
+    if(this.location.path() == ""){
+
+      this.http.get<any[]>('assets/' + this.menuFile).subscribe(
+        (response) => {
+
+          this.headerMenuItems = response;
+
+          let data: any = {'file':this.headerMenuItems[0].url};
+
+          this.location.replaceState(this.headerMenuItems[0].url);
+
+          this.parentEvent.emit(this.headerMenuItems[0].url);
+
+        },
+        (error) => {
+          console.error('Error fetching JSON file:', error); 
+        }
+
+      );
+    
+    }
+    else
+    {
+
+      let u = this.location.path().slice(1).split('/');
+
+      this.parentEvent.emit(u[0] + "/" + u[1]);
+
+    }
+
   }
 
   get getHeaderMenuItems() {
-
-
+   
     return this.headerMenuItems;
   }
 
-  fileToLoad(event: Event, data: any) {
+  fileToLoad(event: Event, type: string, headerData: any, submenuData: any = '') {
+
+    let urlString = headerData.url;
+
+    console.log("Header Menu fileToLoad: " + headerData.url);
+
+    if(type == "subMenu")
+    {
+      urlString += "/" + submenuData.url;
+    }
 
     event.preventDefault();
 
-    this.location.replaceState('');
+    this.location.replaceState(urlString);
 
-    this.parentEvent.emit(data);
+    //this.parentEvent.emit(data);
+
+    this.parentEvent.emit(urlString);
+
   }
 
   // Add trackById method to avoid the error

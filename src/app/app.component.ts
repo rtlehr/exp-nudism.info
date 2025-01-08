@@ -6,7 +6,8 @@ import { HeaderMenuComponent } from './components/header-menu/header-menu.compon
 import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
-import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
+import { RouterOutlet} from '@angular/router';
+//import { GetContent } from './utils/getContent';
 
 @Component({
   selector: 'app-root',
@@ -28,13 +29,7 @@ export class AppComponent {
 
   currentUrl: string = '';
 
-  ngOnInit() {
-
-    this.currentUrl = this.location.path();
-
-    console.log("this.currentUrl: " + this.currentUrl);
-
-  }
+  ngOnInit() {}
 
   @Input() menuFile: string = "";
 
@@ -50,14 +45,20 @@ export class AppComponent {
   
   sideMenuFileToLoad(fileObjectToLoad: any)
   {
-
+    
     this.pageContent = fileObjectToLoad.content;
 
   }
 
+  pageURL: string = '';
+
   loadContent(fileObjectToLoad: any) { 
 
-    this.http.get(`assets/${fileObjectToLoad.file}`).subscribe({
+    console.log("fileObjectToLoad: " + fileObjectToLoad);
+
+    this.pageURL = `assets/content/pages/${fileObjectToLoad}/page.json`;
+
+    this.http.get(this.pageURL).subscribe({
 
     next: (response) => {
       
@@ -71,8 +72,9 @@ export class AppComponent {
       }
 
       //Side menu to load
-      this.sideMenuToLoad = fileObjectToLoad.file;
+      this.sideMenuToLoad = `assets/content/pages/${fileObjectToLoad}/page.json`;
 
+      
       this.pageContent = this.htmlContent[0].content;
 
     },

@@ -2,17 +2,21 @@
   {
     "id": "home",
     "title": "Home",
+    "url": "home",
     "component": "contentPage",
     "file": "content/pages/home/header-menu-home.json"
   },
   {
     "id": "cmsInformation",
     "title": "CMS Information",
+    "url": "cms-information",
     "component": "na",
+    "file": "",
     "subMenu": [
       {
         "id": "componentSamples",
         "title": "Component Samples",
+        "url": "component-samples",
         "component": "na",
         "file": "content/pages/componentSamples/header-menu-componentSamples.json"
       }
@@ -21,6 +25,7 @@
   {
     "id": "buildASite",
     "title": "Build A Site",
+    "url": "build-a-site",
     "component": "contentPage",
     "file": "header-menu-buildASite.json"
   }
