@@ -4,80 +4,162 @@ import { Observable } from 'rxjs';
 
 export class GetContent
 {
-    currentUrl: string;
+    currentUrl: string = "";
     
+    pageToLoad: string = "";
+
     urlItems: any[] = [];
 
     headerMenuItems: any[] = [];
 
-    constructor(private http: HttpClient, currentUrl: string) {
+    menuFile: string = "menus/header-menu.json";
 
-      this.currentUrl = currentUrl;
-        
-      this.urlItems = this.currentUrl.split('/');
+    htmlContent: any;
 
-      if(this.currentUrl != "")
-      {
+    showSideBar: boolean = true;
 
-        this.http.get<any[]>('assets/menus/header-menu.json').subscribe(
-            (response) => {
-      
-              this.headerMenuItems = response;
-            
-              //Search for first URL item
-              for(let i = 0; i < this.headerMenuItems.length; i++)
-              {
+    sideMenuToLoad: String = '';
 
-                if(this.headerMenuItems[i].url == this.urlItems[1])
-                {
-                    
-                    this.findURLItems(this.headerMenuItems[i]);
+    pageContent: any [] = [];
 
-                    break;
-
-                }
-            }
-                  
-            },
-            (error) => {
-              console.error('Error fetching JSON file:', error); 
-            }
-      
-          );
-        
-
-      }
-
-    }
+    returnData: any [] = [];
     
-    findURLItems(item: any)
-    {
+    constructor(private http: HttpClient, private location: Location) {
 
-        console.log("item: " + item.url);
+      this.currentUrl = this.location.path();
 
-        if(item.subMenu)
-        {
-            console.log("item has submenu");
+      this.urlItems = this.currentUrl.slice(1).split("/");
 
-            for(let i = 0; i < item.subMenu.length; i++)
-            {
-                console.log("item.subMenu[i].url: " + item.subMenu[i].url);
-
-                if(item.subMenu[i].url == this.urlItems[2])
-                {
-                    console.log("found item.subMenu[i].url: " + item.subMenu[i].file);
-
-                    let data: any = {'file':item.subMenu[i].file, 'component': item.subMenu[i].component};
-
-                    return data;
-
-                }
-            }
+      this.http.get<any[]>('assets/' + this.menuFile).subscribe(
+        (response) => {
+  
+          this.headerMenuItems = response;
+  
+          this.getPage();
+  
+          //this.parentEvent.emit(data);
+  
+        },
+        (error) => {
+          console.error('Error fetching JSON file:', error); 
         }
 
-        return item.file;
-        
-    }
 
-  }
+      )};
+
+      getPage()
+      {
+
+        //If there are no items in the url, load the home page
+        //The HOME PAGE is the first page in the Header Menu File
+        if(this.urlItems[0] == "")
+        {
+          
+          this.location.replaceState(this.headerMenuItems[0].url);
+
+          //let data: any = {'file':this.headerMenuItems[0].file, 'component': this.headerMenuItems[0].component};
+
+        }
+        else
+        {
+
+        }
+        
+        if(this.urlItems.length > 2)
+        {
+          this.currentUrl = "/" + this.urlItems[0] + "/" + this.urlItems[1];
+        }
+
+        this.pageToLoad = `assets/content/pages${this.currentUrl.toLowerCase()}/page.json`;
+
+        this.http.get(this.pageToLoad).subscribe({
+
+          next: (response) => {
+            
+            this.htmlContent = response;
+
+            this.setPageDetails()
+
+            /*
+            this.showSideBar = true;
+
+            if(this.htmlContent.length == 1)
+            {
+              this.showSideBar = false;
+            }
+
+            //Side menu to load
+            this.sideMenuToLoad = this.pageToLoad;
+
+            this.pageContent = this.htmlContent[0].content;
+            */
+
+          },
+          error: (err) => {
+
+            this.htmlContent = '<p>Sorry, the content could not be loaded.</p>';
+
+          }
+
+        });
+
+        //These two are the same
+        //this.pageURL
+        //this.sideMenuToLoad
+
+        //this.pageContent = this comes from the pageURL file
+
+
+
+        //return this.currentUrl
+      }
+
+      setPageDetails()
+      {
+
+        if(this.htmlContent.length == 1)
+        {
+
+          this.pageContent = this.htmlContent[0].content;
+
+        }
+        else
+        {
+          this.sideMenuToLoad = this.pageToLoad;
+
+          if(this.urlItems.length < 3)
+          {
+            this.pageContent = this.htmlContent[0].content;
+          }
+          else
+          {
+
+            for (const item of this.htmlContent) {
+
+              if (item.url === this.urlItems[2]) {
+
+                console.log("Found:", item.title);
+                this.pageContent = item.content;
+                break;
+              }
+            }
+
+
+
+          }
+        }
+
+        console.log("pageContent: ", this.pageContent);
+        console.log("sideMenuToLoad: ", this.sideMenuToLoad);
+
+        this.returnData.push(this.pageContent);
+        this.returnData.push(this.sideMenuToLoad);
+
+        return this.returnData
+
+        //this.parentEvent.emit(this.returnData);
+        
+      }
+    
+    }
   

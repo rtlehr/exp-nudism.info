@@ -25,6 +25,7 @@ export class HeaderMenuComponent {
     console.log("headerMenu: ");
 
 
+    
     this.http.get<any[]>('assets/' + this.menuFile).subscribe(
       (response) => {
 
@@ -40,7 +41,8 @@ export class HeaderMenuComponent {
       }
 
     );
-
+    //I should not need this when I have getContent complete
+    /*
     if(this.location.path() == ""){
 
       this.http.get<any[]>('assets/' + this.menuFile).subscribe(
@@ -70,6 +72,7 @@ export class HeaderMenuComponent {
       this.parentEvent.emit(u[0] + "/" + u[1]);
 
     }
+      */
 
   }
 

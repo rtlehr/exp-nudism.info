@@ -7,7 +7,7 @@ import { PageGeneratorComponent } from './components/page-generator/page-generat
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet} from '@angular/router';
-//import { GetContent } from './utils/getContent';
+import { GetContent } from './utils/getContent';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +29,11 @@ export class AppComponent {
 
   currentUrl: string = '';
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    let getContent = new GetContent(this.http, this.location);
+
+  }
 
   @Input() menuFile: string = "";
 
@@ -54,9 +58,7 @@ export class AppComponent {
 
   loadContent(fileObjectToLoad: any) { 
 
-    console.log("fileObjectToLoad: " + fileObjectToLoad);
-
-    this.pageURL = `assets/content/pages/${fileObjectToLoad}/page.json`;
+    this.pageURL = `assets/content/pages${fileObjectToLoad}/page.json`;
 
     this.http.get(this.pageURL).subscribe({
 
@@ -72,7 +74,7 @@ export class AppComponent {
       }
 
       //Side menu to load
-      this.sideMenuToLoad = `assets/content/pages/${fileObjectToLoad}/page.json`;
+      this.sideMenuToLoad = `assets/content/pages${fileObjectToLoad}/page.json`;
 
       
       this.pageContent = this.htmlContent[0].content;
