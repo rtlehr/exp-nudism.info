@@ -2,6 +2,7 @@ import { Component, Input, SimpleChanges, EventEmitter, Output } from '@angular/
 import { sideMenuItemComponent } from '../side-menu-item/side-menu-item.component'; // Import a custom component used in this component
 import { HttpClient } from '@angular/common/http'; // Import HttpClient to handle HTTP requests
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu', // The HTML tag to use this component
@@ -14,44 +15,38 @@ export class sideMenuComponent {
 
   menuItems: any[] = []
 
-  constructor(private http: HttpClient, private location: Location) {}
+  currentURL: string = '';
+
+  currentURLArray: string[] = [];
+
+  constructor(private http: HttpClient, private location: Location, private router: Router) {}
  
   @Input() sideMenuToLoad: String = '';
 
   ngOnChanges(changes: SimpleChanges): void {
-
-    console.log("sideMenuToLoad: " + changes['sideMenuToLoad'].currentValue);
     
     if (changes['sideMenuToLoad']) {
 
       if(changes['sideMenuToLoad'].currentValue != "")
       {
+       
         this.getSideMenu(changes['sideMenuToLoad'].currentValue);
+
       }
 
     }
 
   }
 
-  ngOnInit(): void {
-
-   // this.getSideMenu(this.sideMenuToLoad); 
-
-   console.log("sideMenuToLoad: ");
-
-  }
-
-  urlpath : string= this.location.path();
+  ngOnInit(): void {}
 
   getSideMenu(sideMenuToLoad: String)
   {
 
     this.http.get<any[]>('' + sideMenuToLoad).subscribe(
       (response) => {
-        // Success callback: Assign the fetched JSON data to the `menuItems` property
+        
         this.menuItems = response;
-
-        this.location.replaceState(this.urlpath + "/" + this.menuItems[0].url);
 
       },
       (error) => {
@@ -71,9 +66,14 @@ export class sideMenuComponent {
   sendToAppComponent(data: any)
   {
     
-    this.location.replaceState(this.urlpath + "/" + data.url);
+    this.currentURLArray = this.router.url.slice(1).split("/");
+
+    this.currentURL = this.currentURLArray[0] + "/" + this.currentURLArray[1];
+
+    this.location.replaceState(this.currentURL + "/" + data.url);
 
     this.sideMenuFileToLoad.emit( data );
+
   }
 
 }

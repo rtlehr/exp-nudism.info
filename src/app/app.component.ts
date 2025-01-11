@@ -7,7 +7,6 @@ import { PageGeneratorComponent } from './components/page-generator/page-generat
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet} from '@angular/router';
-import { GetContent } from './utils/getContent';
 
 @Component({
   selector: 'app-root',
@@ -24,18 +23,16 @@ import { GetContent } from './utils/getContent';
 })
 
 export class AppComponent { 
-
+  
   constructor(private http: HttpClient, private location: Location) {}
 
   currentUrl: string = '';
 
   ngOnInit() {
 
-    let getContent = new GetContent(this.http, this.location);
+    this.initialize();
 
   }
-
-  @Input() menuFile: string = "";
 
   htmlContent!: any;
 
@@ -46,11 +43,18 @@ export class AppComponent {
   defaultPage: any [] = [];
   
   pageContent: any [] = [];
+
+  pageToLoad: string = "";
+  urlItems: string[] = [];
+  headerMenuItems: any[] = [];
+  menuFile: string = "menus/header-menu.json";
+  returnData: any[] = [];
+
   
   sideMenuFileToLoad(fileObjectToLoad: any)
   {
     
-    this.pageContent = fileObjectToLoad.content;
+    this.initialize();
 
   }
 
@@ -58,35 +62,80 @@ export class AppComponent {
 
   loadContent(fileObjectToLoad: any) { 
 
-    this.pageURL = `assets/content/pages${fileObjectToLoad}/page.json`;
+    this.initialize();
+   
+  }
 
-    this.http.get(this.pageURL).subscribe({
+  private initialize(): void {
 
-    next: (response) => {
-      
-      this.htmlContent = response;
+    this.currentUrl = this.location.path();
 
-      this.showSideBar = true;
+    this.urlItems = this.currentUrl.slice(1).split("/");
 
-      if(this.htmlContent.length == 1)
-      {
-        this.showSideBar = false;
-      }
+    this.http.get<any[]>(`assets/${this.menuFile}`).subscribe({
 
-      //Side menu to load
-      this.sideMenuToLoad = `assets/content/pages${fileObjectToLoad}/page.json`;
+      next: (response) => {
+        this.headerMenuItems = response;
+        this.getPage();
+      },
+      error: (err) => console.error('Error fetching JSON file:', err),
+    });
 
-      
-      this.pageContent = this.htmlContent[0].content;
+  }
 
-    },
-    error: (err) => {
+  private getPage(): void {
 
-      this.htmlContent = '<p>Sorry, the content could not be loaded.</p>';
-
+    // Load the home page if no items in the URL
+    if (!this.urlItems[0]) {
+      this.location.replaceState(this.headerMenuItems[0]?.url || "");
+      this.urlItems = this.headerMenuItems[0]?.url?.slice(1).split("/") || [];
     }
 
-  });
+    if (this.urlItems.length > 2) {
+      this.currentUrl = `/${this.urlItems[0]}/${this.urlItems[1]}`;
+    }
+
+    this.pageToLoad = `assets/content/pages${this.currentUrl.toLowerCase()}/page.json`;
+
+    this.http.get<any[]>(this.pageToLoad).subscribe({
+      next: (response) => {
+        this.htmlContent = response;
+        this.setPageDetails();
+      },
+      error: () => {
+        this.htmlContent = '<p>Sorry, the content could not be loaded.</p>';
+        this.pageContent = [this.htmlContent];
+        this.returnData = [this.pageContent, ""];
+      },
+    });
+  }
+
+  private setPageDetails(): void {
+    if (!this.htmlContent || this.htmlContent.length === 0) return;
+
+    if (this.htmlContent.length === 1) {
+      this.pageContent = this.htmlContent[0].content;
+      this.showSideBar = false;
+    } else {
+      this.sideMenuToLoad = this.pageToLoad;
+      this.showSideBar = true;
+
+      if (this.urlItems.length < 3) {
+        this.pageContent = this.htmlContent[0].content;
+        this.location.replaceState(this.currentUrl + "/" + this.htmlContent[0].url);
+      } else {
+        const matchingItem = this.htmlContent.find(
+          (item: any) => item.url === this.urlItems[2]
+        );
+
+        if (matchingItem) {
+          this.pageContent = matchingItem.content;
+        } else {
+          //this.pageContent = '<p>Content not found.</p>';
+        }
+      }
+    }
+
   }
 
 }

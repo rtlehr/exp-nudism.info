@@ -22,9 +22,6 @@ export class HeaderMenuComponent {
 
   ngOnInit(): void {
 
-    console.log("headerMenu: ");
-
-
     
     this.http.get<any[]>('assets/' + this.menuFile).subscribe(
       (response) => {
@@ -41,39 +38,7 @@ export class HeaderMenuComponent {
       }
 
     );
-    //I should not need this when I have getContent complete
-    /*
-    if(this.location.path() == ""){
-
-      this.http.get<any[]>('assets/' + this.menuFile).subscribe(
-        (response) => {
-
-          this.headerMenuItems = response;
-
-          let data: any = {'file':this.headerMenuItems[0].url};
-
-          this.location.replaceState(this.headerMenuItems[0].url);
-
-          this.parentEvent.emit(this.headerMenuItems[0].url);
-
-        },
-        (error) => {
-          console.error('Error fetching JSON file:', error); 
-        }
-
-      );
-    
-    }
-    else
-    {
-
-      let u = this.location.path().slice(1).split('/');
-
-      this.parentEvent.emit(u[0] + "/" + u[1]);
-
-    }
-      */
-
+  
   }
 
   get getHeaderMenuItems() {
@@ -85,8 +50,6 @@ export class HeaderMenuComponent {
 
     let urlString = headerData.url;
 
-    console.log("Header Menu fileToLoad: " + headerData.url);
-
     if(type == "subMenu")
     {
       urlString += "/" + submenuData.url;
@@ -95,8 +58,6 @@ export class HeaderMenuComponent {
     event.preventDefault();
 
     this.location.replaceState(urlString);
-
-    //this.parentEvent.emit(data);
 
     this.parentEvent.emit(urlString);
 
