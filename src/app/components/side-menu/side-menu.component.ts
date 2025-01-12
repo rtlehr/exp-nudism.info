@@ -30,6 +30,14 @@ export class sideMenuComponent {
       if(changes['sideMenuToLoad'].currentValue != "")
       {
        
+        this.currentURL = this.location.path();
+
+        this.currentURLArray = this.currentURL.slice(1).split("/");
+
+        this.currentURL = this.currentURLArray[0] + "/" + this.currentURLArray[1];
+
+        console.log("currentURL: " + this.location.path());
+
         this.getSideMenu(changes['sideMenuToLoad'].currentValue);
 
       }
@@ -38,7 +46,9 @@ export class sideMenuComponent {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   getSideMenu(sideMenuToLoad: String)
   {
@@ -65,10 +75,6 @@ export class sideMenuComponent {
 
   sendToAppComponent(data: any)
   {
-    
-    this.currentURLArray = this.router.url.slice(1).split("/");
-
-    this.currentURL = this.currentURLArray[0] + "/" + this.currentURLArray[1];
 
     this.location.replaceState(this.currentURL + "/" + data.url);
 
