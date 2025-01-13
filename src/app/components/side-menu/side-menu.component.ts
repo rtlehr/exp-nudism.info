@@ -19,7 +19,7 @@ export class sideMenuComponent {
 
   currentURLArray: string[] = [];
 
-  constructor(private http: HttpClient, private location: Location, private router: Router) {}
+  constructor(private http: HttpClient, private location: Location) {}
  
   @Input() sideMenuToLoad: String = '';
 
@@ -35,8 +35,6 @@ export class sideMenuComponent {
         this.currentURLArray = this.currentURL.slice(1).split("/");
 
         this.currentURL = this.currentURLArray[0] + "/" + this.currentURLArray[1];
-
-        console.log("currentURL: " + this.location.path());
 
         this.getSideMenu(changes['sideMenuToLoad'].currentValue);
 
@@ -78,8 +76,8 @@ export class sideMenuComponent {
 
     this.location.replaceState(this.currentURL + "/" + data.url);
 
-    this.sideMenuFileToLoad.emit( data );
-
+    this.sideMenuFileToLoad.emit();
+    
   }
 
 }

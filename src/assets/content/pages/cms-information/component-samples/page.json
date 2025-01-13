@@ -44,6 +44,11 @@
       "url": "tabs",
       "title": "Tabs",
       "content": [{"contentType": "tabs", "contentFile": "content/pages/cms-information/component-samples/tabs/content-tabs.json"}]
+    },
+    {
+      "url": "blog",
+      "title": "Blog Post",
+      "content": [{"contentType": "blog", "contentFile": "assets/content/pages/cms-information/component-samples/blog-post/blog-post.json"}]
     }
 
   ]

@@ -7,17 +7,18 @@ import { PageGeneratorComponent } from './components/page-generator/page-generat
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet} from '@angular/router';
+import { BlogPostComponent } from './components/blog-post/blog-post.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [sideMenuComponent, 
-            HeaderMenuComponent, 
-            PageGeneratorComponent,
-            DisplayLogoComponent,
-            DisplayContactInfoComponent,
-            RouterOutlet
-  ],
+  imports: [sideMenuComponent,
+    HeaderMenuComponent,
+    PageGeneratorComponent,
+    DisplayLogoComponent,
+    DisplayContactInfoComponent,
+    RouterOutlet,
+    BlogPostComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -27,69 +28,38 @@ export class AppComponent {
   constructor(private http: HttpClient, private location: Location) {}
 
   currentUrl: string = '';
+  htmlContent!: any;
+  showSideBar: boolean = true;
+  sideMenuToLoad: String = '';
+  pageContent: any [] = [];
+  pageToLoad: string = "";
+  urlItems: string[] = [];
+  menuFile: string = "menus/header-menu.json";
 
   ngOnInit() {
 
-    this.initialize();
+    this.initializePageState();
 
   }
 
-  htmlContent!: any;
-
-  showSideBar: boolean = true;
-  
-  sideMenuToLoad: String = '';
-
-  defaultPage: any [] = [];
-  
-  pageContent: any [] = [];
-
-  pageToLoad: string = "";
-  urlItems: string[] = [];
-  headerMenuItems: any[] = [];
-  menuFile: string = "menus/header-menu.json";
-  returnData: any[] = [];
-
-  
-  sideMenuFileToLoad(fileObjectToLoad: any)
+  sideMenuFileToLoad(event: any)
   {
-    
-    this.initialize();
+        
+    this.initializePageState();
 
   }
 
-  pageURL: string = '';
+  loadContent(event: any) { 
 
-  loadContent(fileObjectToLoad: any) { 
-
-    this.initialize();
+    this.initializePageState();
    
   }
 
-  private initialize(): void {
+  private initializePageState(): void {
 
     this.currentUrl = this.location.path();
 
     this.urlItems = this.currentUrl.slice(1).split("/");
-
-    this.http.get<any[]>(`assets/${this.menuFile}`).subscribe({
-
-      next: (response) => {
-        this.headerMenuItems = response;
-        this.getPage();
-      },
-      error: (err) => console.error('Error fetching JSON file:', err),
-    });
-
-  }
-
-  private getPage(): void {
-
-    // Load the home page if no items in the URL
-    if (!this.urlItems[0]) {
-      this.location.replaceState(this.headerMenuItems[0]?.url || "");
-      this.urlItems = this.headerMenuItems[0]?.url?.slice(1).split("/") || [];
-    }
 
     if (this.urlItems.length > 2) {
       this.currentUrl = `/${this.urlItems[0]}/${this.urlItems[1]}`;
@@ -97,26 +67,37 @@ export class AppComponent {
 
     this.pageToLoad = `assets/content/pages${this.currentUrl.toLowerCase()}/page.json`;
 
+    this.loadPageContent();
+
+  }
+
+  private loadPageContent(): void {
+
     this.http.get<any[]>(this.pageToLoad).subscribe({
       next: (response) => {
         this.htmlContent = response;
-        this.setPageDetails();
+        this.updatePageDetails();
       },
       error: () => {
         this.htmlContent = '<p>Sorry, the content could not be loaded.</p>';
         this.pageContent = [this.htmlContent];
-        this.returnData = [this.pageContent, ""];
       },
     });
+
   }
 
-  private setPageDetails(): void {
+  private updatePageDetails(): void {
+
     if (!this.htmlContent || this.htmlContent.length === 0) return;
 
+    //If the page only has one content item, display it without the sidebar
     if (this.htmlContent.length === 1) {
       this.pageContent = this.htmlContent[0].content;
       this.showSideBar = false;
-    } else {
+    } 
+    else 
+    //If the page has more than one content item, display the sidebar
+    {
       this.sideMenuToLoad = this.pageToLoad;
       this.showSideBar = true;
 

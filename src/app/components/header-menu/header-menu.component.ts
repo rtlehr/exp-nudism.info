@@ -16,6 +16,10 @@ export class HeaderMenuComponent {
 
   headerMenuItems: any[] = [];
 
+  currentUrl: string = '';
+
+  urlItems: string[] = [];
+
   constructor(private http: HttpClient, private location: Location) {} 
 
   @Output() parentEvent = new EventEmitter<string>();
@@ -28,9 +32,24 @@ export class HeaderMenuComponent {
 
         this.headerMenuItems = response;
 
+        console.log("1 this.headerMenuItems: " + this.headerMenuItems[0].url);
+
         let data: any = {'file':this.headerMenuItems[0].file, 'component': this.headerMenuItems[0].component};
 
-        this.parentEvent.emit(data);
+        this.currentUrl = this.location.path();
+
+        this.urlItems = this.currentUrl.slice(1).split("/");
+    
+        console.log("this.urlItems[0]: " + this.urlItems[0]);
+
+        // Load the home page if no items in the URL
+        if (!this.urlItems[0]) {
+        
+          this.location.replaceState(this.headerMenuItems[0]?.url || "");
+              
+        }
+
+        this.parentEvent.emit();
 
       },
       (error) => {
@@ -38,6 +57,9 @@ export class HeaderMenuComponent {
       }
 
     );
+
+
+
   
   }
 
@@ -59,7 +81,7 @@ export class HeaderMenuComponent {
 
     this.location.replaceState(urlString);
 
-    this.parentEvent.emit(urlString);
+    this.parentEvent.emit();
 
   }
 
