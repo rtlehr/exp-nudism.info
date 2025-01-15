@@ -1,15 +1,15 @@
 [
     {
       "title": "Content",
-      "content": [{"contentType": "contentPage", "contentFile": "content/pages/componentSamples/content/content.html"}]
+      "content": [{"contentType": "contentPage", "contentFile": "content/pages/cms-information/component-samples/content/content.html"}]
     },
     {
       "title": "News",
-      "content": [{"contentType": "news", "contentFile": "content/pages/componentSamples/news/page-news.json"}]
+      "content": [{"contentType": "news", "contentFile": "content/pages/cms-information/component-samples/news/page-news.json"}]
     },
     {
       "title": "FAQs",
-      "content": [{"contentType": "faq", "contentFile": "content/pages/componentSamples/faqs/page-faq.json"}]
+      "content": [{"contentType": "faq", "contentFile": "content/pages/cms-information/component-samples/faqs/page-faq.json"}]
     }
   ]
   
