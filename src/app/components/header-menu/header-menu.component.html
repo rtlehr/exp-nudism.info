@@ -1,6 +1,6 @@
 <ul class="navbar-nav ms-auto">
 
-  @for(headerMenuItem of getHeaderMenuItems; track headerMenuItem.id) 
+  @for(headerMenuItem of getHeaderMenuItems; track headerMenuItem.id)  
   {
     <li class="nav-item" [class.dropdown]="headerMenuItem.subMenu">
       <a *ngIf="!headerMenuItem.subMenu" class="nav-link" (click)="fileToLoad($event, 'header', headerMenuItem)">{{ headerMenuItem.title }}</a>

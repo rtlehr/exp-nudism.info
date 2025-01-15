@@ -7,7 +7,7 @@ import { PageGeneratorComponent } from './components/page-generator/page-generat
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet} from '@angular/router';
-import { BlogPostComponent } from './components/blog-post/blog-post.component';
+import { ConfigService } from './utils/config.service';
 
 @Component({
   selector: 'app-root',
@@ -17,15 +17,14 @@ import { BlogPostComponent } from './components/blog-post/blog-post.component';
     PageGeneratorComponent,
     DisplayLogoComponent,
     DisplayContactInfoComponent,
-    RouterOutlet,
-    BlogPostComponent],
+    RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent { 
   
-  constructor(private http: HttpClient, private location: Location) {}
+  constructor(private http: HttpClient, private location: Location, private configService: ConfigService) {}
 
   currentUrl: string = '';
   htmlContent!: any;
@@ -36,7 +35,19 @@ export class AppComponent {
   urlItems: string[] = [];
   menuFile: string = "menus/header-menu.json";
 
+  config: any;
+
   ngOnInit() {
+
+    this.configService.loadConfig().subscribe({
+      next: (data) => {
+        this.config = data; // Assign the loaded config data
+        console.log(this.config); // Log the config data to verify
+      },
+      error: (err) => {
+        console.error('Failed to load config', err);
+      },
+    });
 
     this.initializePageState();
 

@@ -7,7 +7,7 @@
       <div class="row align-items-start">
 
         <div class="col-lg-2 col-md-2 col-12"> 
-          <app-display-logo [src] = "'myLogo.png'" [width] = "'125px'" [height] = "'125px'"/>
+          <app-display-logo [src] = "'myLogo.png'" [width] = "'125px'" [height] = "'125px'" (parentEvent)="loadContent($event)"/>
         </div>
 
         <div class="col-lg-9 col-md-9 col-12">
@@ -54,12 +54,7 @@
       <!-- Include Angular main content component -->
 
       <app-page-generator [pageContent] = "pageContent"/>
-
-      <app-blog-post />
-      
-      <p><router-outlet /></p>
-
-
+    
     </div>
     
   </div>

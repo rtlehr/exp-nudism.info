@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
+import { ConfigService } from '../../utils/config.service';
 
 @Component({
   selector: 'app-header-menu',
@@ -20,28 +21,28 @@ export class HeaderMenuComponent {
 
   urlItems: string[] = [];
 
-  constructor(private http: HttpClient, private location: Location) {} 
+  config: any;
+
+  constructor(private http: HttpClient, private location: Location, private configService: ConfigService) {} 
 
   @Output() parentEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
 
+    this.config = this.configService.getConfig();
     
-    this.http.get<any[]>('assets/' + this.menuFile).subscribe(
+    this.http.get<any[]>('assets/' + this.config.headerMenuPath).subscribe(
+      
       (response) => {
 
         this.headerMenuItems = response;
 
-        console.log("1 this.headerMenuItems: " + this.headerMenuItems[0].url);
-
-        let data: any = {'file':this.headerMenuItems[0].file, 'component': this.headerMenuItems[0].component};
+        //let data: any = {'file':this.headerMenuItems[0].file, 'component': this.headerMenuItems[0].component};
 
         this.currentUrl = this.location.path();
 
         this.urlItems = this.currentUrl.slice(1).split("/");
     
-        console.log("this.urlItems[0]: " + this.urlItems[0]);
-
         // Load the home page if no items in the URL
         if (!this.urlItems[0]) {
         

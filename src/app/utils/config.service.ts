@@ -1,27 +1,31 @@
+// src/app/config.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConfigService {
-  private config: any;
+  private configData: any;
 
   constructor(private http: HttpClient) {}
 
-  loadConfig(): Promise<void> {
-    return firstValueFrom(this.http.get('/assets/config.json'))
-      .then((data) => {
-        this.config = data;
+  loadConfig(): Observable<any> {
+    return this.http.get('/assets/config/config.json').pipe(
+      catchError((error) => {
+        console.error('Failed to load config.json:', error);
+        return of({}); // Fallback to an empty object if loading fails
       })
-      .catch((error) => {
-        console.error('Failed to load config.json', error);
-        return Promise.reject(error);
-      });
+    );
+  }
+
+  setConfig(data: any): void {
+    this.configData = data;
   }
 
   getConfig(): any {
-    return this.config;
+    return this.configData;
   }
 }
