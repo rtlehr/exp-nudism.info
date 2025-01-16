@@ -1,0 +1,8 @@
+// Override Bootstrap Variables
+$primary: #ff5733; // Change primary color
+$secondary: #33c4ff; // Change secondary color
+$body-bg: #f8f9fa; // Change body background color
+$font-family-sans-serif: 'Roboto', sans-serif; // Change default font
+
+// Import Bootstrap SCSS
+@import "bootstrap/scss/bootstrap";
