@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { RouterTestComponent } from './component/router-test/router-test.component';
+import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
 
 export const routes: Routes = [
-    {path: '**', component: RouterTestComponent}, //http://mysite.com
+    {path: '**', component: PageGeneratorComponent}, //http://mysite.com
 ];
