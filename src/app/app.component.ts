@@ -34,6 +34,7 @@ export class AppComponent {
   pageToLoad: string = "";
   urlItems: string[] = [];
   menuFile: string = "menus/header-menu.json";
+  divId: string = "";
 
   config: any;
 
@@ -45,7 +46,7 @@ export class AppComponent {
         console.log(this.config); // Log the config data to verify
       },
       error: (err) => {
-        console.error('Failed to load config', err);
+        console.error('Failed to load config', err); 
       },
     });
 
@@ -104,6 +105,7 @@ export class AppComponent {
     //If the page only has one content item, display it without the sidebar
     if (this.htmlContent.length === 1) {
       this.pageContent = this.htmlContent[0].content;
+      this.divId = this.htmlContent[0].divId;
       this.showSideBar = false;
     } 
     else 
@@ -114,6 +116,7 @@ export class AppComponent {
 
       if (this.urlItems.length < 3) {
         this.pageContent = this.htmlContent[0].content; 
+        this.divId = this.htmlContent[0].divId;
         this.location.replaceState(this.currentUrl + "/" + this.htmlContent[0].url);
       } else {
         const matchingItem = this.htmlContent.find(
@@ -122,6 +125,7 @@ export class AppComponent {
 
         if (matchingItem) {
           this.pageContent = matchingItem.content;
+          this.divId = matchingItem.divId;
         } else {
           //this.pageContent = '<p>Content not found.</p>';
         }
