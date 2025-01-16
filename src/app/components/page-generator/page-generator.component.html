@@ -1,8 +1,8 @@
-<div [id]="divId" class="full-width-container">
-
-    <div class="centered-container">
+<div [id]="divId" class="baseContentPage">
 
         @for (pageContent of getPageContent; track pageContent.contentFile) {
+
+            <div [id]="divId + '-content' + $index" class="baseContentHolder">
 
                 @if(pageContent.contentType == "contentPage")
                 {
@@ -73,8 +73,8 @@
                     <p>Select a component to display.</p> 
 
                 }
+
+            </div>
             
         }
-
-    </div>
 </div>

@@ -2,14 +2,14 @@
     {
       "url": "content",
       "title": "Content",
-      "divId": "contentType",
+      "divId": "contentType", 
       "content": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/content/content.html"}]
     },
     {
       "url": "image-display",
       "title": "Image Display",
       "divId": "imageDisplyType",
-      "content": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/imageDisplay/imageDisplay.html"},
+      "content": [{"contentType": "contentPage", "divId": "s", "contentFile": "content/pages/cms-information/component-samples/imageDisplay/imageDisplay.html"},
                   {"contentType": "imageDisplay", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/imageDisplay/page-image-display.json"}]
     },
     {

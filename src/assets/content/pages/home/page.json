@@ -2,6 +2,8 @@
     {
         "id": "imageGalleryPage",
         "title": "Content",
-        "content": [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}]
+        "divId": "home",
+        "content": [{"contentType": "contentPage", "divId": "homeContentOne", "contentFile": "content/pages/home/home-content-one.html"},
+                    {"contentType": "contentPage", "divId": "homeContentTwo", "contentFile": "content/pages/home/home-content-two.html"}]
     }
 ]

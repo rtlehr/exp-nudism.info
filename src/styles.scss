@@ -4,5 +4,34 @@ $secondary: #33c4ff; // Change secondary color
 $body-bg: #f8f9fa; // Change body background color
 $font-family-sans-serif: 'Roboto', sans-serif; // Change default font
 
+#home
+{}
+
+#home #home-content0
+{}
+
+#home #home-content0 #homeContentOne
+{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home #home-content1
+{
+    background-color: lightgrey;
+}
+
+#home #home-content1 #homeContentTwo
+{
+   
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
 // Import Bootstrap SCSS
 @import "bootstrap/scss/bootstrap";
+
+

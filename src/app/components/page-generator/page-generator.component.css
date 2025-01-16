@@ -1,16 +1,9 @@
-.full-width-container {
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Centers the inner div horizontally */
-    align-items: center; /* Centers the inner div vertically */
+.baseContentPage
+{
+    padding: 1rem 1rem 1rem 1rem;
 }
 
-.centered-container {
-    width: 50%; /* Set desired width */
-    height: 100%; /* Matches the height of the parent container */
-    flex-direction: column; /* Stacks children vertically */
-    justify-content: flex-start; /* Aligns items to the top (optional) */
-    display: flex;
+.baseContentHolder
+{
+    padding: 1rem 1rem 1rem 1rem;
 }
-
-
