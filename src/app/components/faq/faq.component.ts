@@ -16,6 +16,8 @@ export class FaqComponent {
 
   @Input() fileToLoad: String = '';
 
+  @Input() divId: String = '';
+
   ngOnChanges(changes: SimpleChanges): void { 
 
     if (changes['fileToLoad']) {

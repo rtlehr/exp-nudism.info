@@ -11,7 +11,7 @@ import { BlogPostComponent } from '../blog-post/blog-post.component';
 
 @Component({
   selector: 'app-page-generator',
-  standalone: true,
+  standalone: true, 
   imports: [MainContentComponent,
     ImageGalleryComponent,
     NewsComponent,
@@ -28,6 +28,8 @@ export class PageGeneratorComponent {
 
   
   @Input() pageContent: any[] = [];
+
+  @Input() divId: String = "";
   
   ngOnChanges(changes: SimpleChanges): void { 
 

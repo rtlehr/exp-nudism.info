@@ -113,7 +113,7 @@ export class AppComponent {
       this.showSideBar = true;
 
       if (this.urlItems.length < 3) {
-        this.pageContent = this.htmlContent[0].content;
+        this.pageContent = this.htmlContent[0].content; 
         this.location.replaceState(this.currentUrl + "/" + this.htmlContent[0].url);
       } else {
         const matchingItem = this.htmlContent.find(

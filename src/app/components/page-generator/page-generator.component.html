@@ -1,73 +1,80 @@
-@for (pageContent of getPageContent; track pageContent.contentFile) {
+<div id="testContainer" class="full-width-container">
 
-        @if(pageContent.contentType == "contentPage")
-        {
+    <div class="centered-container">
 
-            <app-main-content [fileToLoad] = "pageContent.contentFile"/>
+        @for (pageContent of getPageContent; track pageContent.contentFile) {
 
+                @if(pageContent.contentType == "contentPage")
+                {
+
+                    <app-main-content [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+
+                }
+
+                @else if(pageContent.contentType == "imageGallery")
+                {
+
+                    <app-image-gallery [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+
+                }
+
+                @else if(pageContent.contentType == "news")
+                {
+
+                    <app-news [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+
+                }
+
+                @else if(pageContent.contentType == "imageDisplay")
+                {
+
+                    <app-image-display [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+
+                }
+
+                @else if(pageContent.contentType == "faq")
+                {
+
+                    <app-faq [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+
+                }
+
+                @else if(pageContent.contentType == "form")
+                {
+
+                    <app-form-generator [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+
+                }
+
+                @else if(pageContent.contentType == "imageSlider")
+                {
+
+                    <app-image-slider [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+
+                }
+
+                @else if(pageContent.contentType == "tabs")
+                {
+                
+                    <app-content-tabs  [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+                
+                }
+
+                @else if(pageContent.contentType == "blog")
+                {
+                
+                    <app-blog-post  [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+                
+                }
+
+                @else
+                {
+
+                    <p>Select a component to display.</p> 
+
+                }
+            
         }
 
-        @else if(pageContent.contentType == "imageGallery")
-        {
-
-            <app-image-gallery [fileToLoad] = "pageContent.contentFile" />
-
-        }
-
-        @else if(pageContent.contentType == "news")
-        {
-
-            <app-news [fileToLoad] = "pageContent.contentFile" />
-
-        }
-
-        @else if(pageContent.contentType == "imageDisplay")
-        {
-
-            <app-image-display [fileToLoad] = "pageContent.contentFile"/>
-
-        }
-
-        @else if(pageContent.contentType == "faq")
-        {
-
-            <app-faq [fileToLoad] = "pageContent.contentFile"/>
-
-        }
-
-        @else if(pageContent.contentType == "form")
-        {
-
-            <app-form-generator [fileToLoad] = "pageContent.contentFile"/>
-
-        }
-
-        @else if(pageContent.contentType == "imageSlider")
-        {
-
-            <app-image-slider [fileToLoad] = "pageContent.contentFile"/>
-
-        }
-
-        @else if(pageContent.contentType == "tabs")
-        {
-        
-            <app-content-tabs  [fileToLoad] = "pageContent.contentFile"/>
-        
-        }
-
-        @else if(pageContent.contentType == "blog")
-        {
-        
-            <app-blog-post  [fileToLoad] = "pageContent.contentFile"/>
-        
-        }
-
-        @else
-        {
-
-            <p>Select a component to display.</p> 
-
-        }
-    
-}
+    </div>
+</div>

@@ -17,6 +17,8 @@ export class ImageSliderComponent {
 
   @Input() imagesCount: number = 0; 
 
+  @Input() divId: String = '';
+
   images: any[] = [];
   currentIndex: number = 0;
   slideInterval: number = 3000; // Default interval in ms

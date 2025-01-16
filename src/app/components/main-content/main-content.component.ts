@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, input } from '@angular/core';
 import { ModalService } from '../modal-service/modal.service';
 
 import hljs from 'highlight.js';
@@ -10,7 +10,7 @@ import 'highlight.js/styles/atom-one-dark.css';
   standalone: true,
   imports: [HttpClientModule],
   templateUrl: './main-content.component.html',
-  styleUrl: './main-content.component.css'
+  styleUrl: './main-content.component.css' 
 })
 export class MainContentComponent {
   
@@ -18,13 +18,16 @@ export class MainContentComponent {
   
   @Input() fileToLoad: String = '';
 
-  ngOnChanges(changes: SimpleChanges): void {
+  @Input() divId: String = '';
+
+  ngOnChanges(changes: SimpleChanges): void { 
 
     if (changes['fileToLoad']) {
 
       if(changes['fileToLoad'].currentValue != '')
       {
         this.loadContent({'file':changes['fileToLoad'].currentValue});
+
       }
 
     }
@@ -44,21 +47,7 @@ export class MainContentComponent {
     this.modalService.open('Link Triggered', 'This modal was opened from a link.');
   }
   
-  ngOnInit() {
-
-    //this.loadContent({'file':'basic-commands.html', 'type':'side'}); // Load default content
-/*
-    this.sharedService.event$.subscribe((message: any) => {
-
-      
-      if(message.type == "side")
-      {
-        this.loadContent(message);
-      }
-
-    });
-*/
-  }
+  ngOnInit() {}
 
   //Run code after the view has been changed
   ngAfterViewChecked() {
