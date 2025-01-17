@@ -10,6 +10,7 @@ import { RouterOutlet} from '@angular/router';
 import { ConfigService } from './utils/config.service';
 import { BlogService } from './services/blog.service';
 import { Blog } from './models/blog.model';
+import { JsonLoaderComponent } from "./components/test/json-loader/json-loader.component";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ import { Blog } from './models/blog.model';
     PageGeneratorComponent,
     DisplayLogoComponent,
     DisplayContactInfoComponent,
-    RouterOutlet],
+    RouterOutlet, JsonLoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
