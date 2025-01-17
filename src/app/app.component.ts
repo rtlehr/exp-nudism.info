@@ -8,6 +8,8 @@ import { DisplayLogoComponent } from './components/display-logo/display-logo.com
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet} from '@angular/router';
 import { ConfigService } from './utils/config.service';
+import { BlogService } from './services/blog.service';
+import { Blog } from './models/blog.model';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +26,13 @@ import { ConfigService } from './utils/config.service';
 
 export class AppComponent { 
   
-  constructor(private http: HttpClient, private location: Location, private configService: ConfigService) {}
+  constructor(private http: HttpClient, 
+              private location: Location, 
+              private configService: ConfigService,
+              private blogService: BlogService) {}
+
+  blogs: Blog[] = [];
+  featuredBlogs: Blog[] = [];
 
   currentUrl: string = '';
   htmlContent!: any;
@@ -40,6 +48,11 @@ export class AppComponent {
 
   ngOnInit() {
 
+    this.blogs = this.blogService.getAllBlogs();
+        this.featuredBlogs = this.blogService.getFeaturedBlogs();
+        console.log('All Blogs:', this.blogs);
+        console.log('Featured Blogs:', this.featuredBlogs);
+        
     this.configService.loadConfig().subscribe({
       next: (data) => {
         this.config = data; // Assign the loaded config data
