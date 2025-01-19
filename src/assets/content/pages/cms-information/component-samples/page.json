@@ -52,12 +52,6 @@
       "title": "Tabs",
       "divId": "tabType",
       "content": [{"contentType": "tabs", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/tabs/content-tabs.json"}]
-    },
-    {
-      "url": "blog",
-      "title": "Blog Post",
-      "divId": "blogType",
-      "content": [{"contentType": "blog", "divId": "contentBlockOne", "contentFile": "assets/content/pages/cms-information/component-samples/blog-post/blog-post.json"}]
     }
 
   ]

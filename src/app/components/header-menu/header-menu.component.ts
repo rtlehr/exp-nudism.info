@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
-import { ConfigService } from '../../utils/config.service';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-header-menu',

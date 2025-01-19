@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ConfigService } from '../../utils/config.service';
+import { ConfigService } from '../../services/config.service';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 

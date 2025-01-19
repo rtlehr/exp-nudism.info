@@ -7,7 +7,7 @@ import { PageGeneratorComponent } from './components/page-generator/page-generat
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet} from '@angular/router';
-import { ConfigService } from './utils/config.service';
+import { ConfigService } from './services/config.service';
 import { BlogService } from './services/blog.service';
 import { Blog } from './models/blog.model';
 import { JsonLoaderComponent } from "./components/test/json-loader/json-loader.component";

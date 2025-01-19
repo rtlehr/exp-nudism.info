@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SharedService } from '../shared-service/shared.service';
 
 @Component({
   selector: 'app-loader',
   template: '', // No HTML file needed
 })
 export class LoaderComponent {
-  constructor(private http: HttpClient, private sharedService: SharedService) {}
+  constructor(private http: HttpClient) {}
 
 
   // Method to load the JSON file on click

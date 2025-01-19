@@ -1,6 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, Input, SimpleChanges, input } from '@angular/core';
-import { ModalService } from '../modal-service/modal.service';
 
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
@@ -36,16 +35,7 @@ export class MainContentComponent {
 
   htmlContent!: string;
 
-  constructor(private http: HttpClient, private modalService: ModalService) {} 
-
-  openModalFromButton() {
-    this.modalService.open('Button Triggered', 'This modal was opened from a button.');
-  }
-
-  openModalFromLink(event: Event) {
-    event.preventDefault(); // Prevent link default behavior
-    this.modalService.open('Link Triggered', 'This modal was opened from a link.');
-  }
+  constructor(private http: HttpClient) {} 
   
   ngOnInit() {}
 

@@ -1,6 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ModalService } from '../modal-service/modal.service';
 
 @Component({
   selector: 'app-image-gallery',
@@ -14,7 +13,7 @@ export class ImageGalleryComponent {
 
   images: any[] = [];
 
-  constructor(private http: HttpClient, private modalService: ModalService) {} 
+  constructor(private http: HttpClient) {} 
 
   @Input() fileToLoad: String = '';
 
@@ -53,9 +52,5 @@ export class ImageGalleryComponent {
     return this.images;
   }
 
-  openModalFromLink(event: Event) {
-    event.preventDefault(); // Prevent link default behavior
-    this.modalService.open('Link Triggered', 'This modal was opened from a link.');
-  }
 
 }
