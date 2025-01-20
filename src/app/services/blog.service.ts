@@ -1,70 +1,58 @@
+// blog.service.ts
+
 import { Injectable } from '@angular/core';
-import { Blog } from '../models/blog.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { BlogPost } from '../models/blog-post.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class BlogService {
-    private blogs: Blog[] = [
-        {
-            id: '1',
-            title: 'Understanding Angular',
-            content: 'Angular is a platform for building web applications...',
-            author: 'John Doe',
-            tags: ['Angular', 'Web Development'],
-            featured: true,
-            publicationDate: new Date('2025-01-10'),
-            imageUrl: 'assets/images/angular.png',
-        },
-        {
-            id: '2',
-            title: 'Top 5 Angular Libraries',
-            content: 'When building Angular apps, some libraries stand out...',
-            author: 'Jane Smith',
-            tags: ['Angular', 'Libraries'],
-            featured: false,
-            publicationDate: new Date('2025-01-12'),
-            imageUrl: 'assets/images/libraries.png',
-        },
-    ];
+  constructor(private http: HttpClient) {}
 
-    constructor() {}
+  /**
+   * Fetches all blog posts.
+   * @param blogPostsUrl The URL of the blog posts JSON file.
+   * @returns An Observable of BlogPost array.
+   */
+  getAllPosts(blogPostsUrl: string): Observable<BlogPost[]> {
+    return this.http.get<BlogPost[]>(blogPostsUrl);
+  }
 
-    // Get all blogs
-    getAllBlogs(): Blog[] {
-        return this.blogs;
-    }
+  /**
+   * Fetches a single blog post by ID.
+   * @param blogPostsUrl The URL of the blog posts JSON file.
+   * @param id The ID of the blog post.
+   * @returns An Observable of BlogPost.
+   */
+  getPostById(blogPostsUrl: string, id: number): Observable<BlogPost> {
+    return this.http.get<BlogPost[]>(blogPostsUrl).pipe(
+      map(posts => posts.find(post => post.id === id)!)
+    );
+  }
 
-    // Get a single blog by ID
-    getBlogById(id: string): Blog | undefined {
-        return this.blogs.find(blog => blog.id === id);
-    }
+  /**
+   * Fetches featured blog posts.
+   * @param blogPostsUrl The URL of the blog posts JSON file.
+   * @returns An Observable of BlogPost array.
+   */
+  getFeaturedPosts(blogPostsUrl: string): Observable<BlogPost[]> {
+    return this.http.get<BlogPost[]>(blogPostsUrl).pipe(
+      map(posts => posts.filter(post => post.isFeatured))
+    );
+  }
 
-    // Add a new blog
-    addBlog(blog: Blog): void {
-        this.blogs.push(blog);
-    }
-
-    // Update an existing blog
-    updateBlog(updatedBlog: Blog): void {
-        const index = this.blogs.findIndex(blog => blog.id === updatedBlog.id);
-        if (index !== -1) {
-            this.blogs[index] = updatedBlog;
-        }
-    }
-
-    // Delete a blog
-    deleteBlog(id: string): void {
-        this.blogs = this.blogs.filter(blog => blog.id !== id);
-    }
-
-    // Get featured blogs
-    getFeaturedBlogs(): Blog[] {
-        return this.blogs.filter(blog => blog.featured);
-    }
-
-    // Get blogs by tag
-    getBlogsByTag(tag: string): Blog[] {
-        return this.blogs.filter(blog => blog.tags.includes(tag));
-    }
+  /**
+   * Fetches blog posts by a specific tag.
+   * @param blogPostsUrl The URL of the blog posts JSON file.
+   * @param tag The tag to filter by.
+   * @returns An Observable of BlogPost array.
+   */
+  getPostsByTag(blogPostsUrl: string, tag: string): Observable<BlogPost[]> {
+    return this.http.get<BlogPost[]>(blogPostsUrl).pipe(
+      map(posts => posts.filter(post => post.tags.includes(tag)))
+    );
+  }
 }

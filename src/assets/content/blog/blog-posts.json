@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "title": "Understanding Angular Standalone Components",
+      "content": "Standalone components in Angular simplify application structure by reducing module dependencies. In this post, we explore their benefits and practical usage.",
+      "author": "Jane Doe",
+      "date": "2025-01-01",
+      "tags": ["Angular", "Web Development"],
+      "imageUrl": "https://example.com/angular-standalone.jpg",
+      "isFeatured": true
+    },
+    {
+      "id": 2,
+      "title": "Top 10 Tips for Effective Blogging",
+      "content": "Blogging is an art and a science. Here are ten tips to help you craft engaging posts that resonate with your audience.",
+      "author": "John Smith",
+      "date": "2025-01-05",
+      "tags": ["Blogging", "Tips"],
+      "imageUrl": "https://example.com/blogging-tips.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 3,
+      "title": "How to Use Tags Effectively in Blogs",
+      "content": "Tags are essential for organizing and improving the discoverability of your blog content. Learn the best practices for tagging.",
+      "author": "Emily Rose",
+      "date": "2025-01-10",
+      "tags": ["Blogging", "SEO"],
+      "imageUrl": "https://example.com/using-tags.jpg",
+      "isFeatured": true
+    },
+    {
+      "id": 4,
+      "title": "Exploring the Future of Web Development",
+      "content": "Web development is evolving rapidly. This post discusses the latest trends and what they mean for developers in 2025 and beyond.",
+      "author": "Alex Green",
+      "date": "2025-01-15",
+      "tags": ["Web Development", "Trends"],
+      "imageUrl": "https://example.com/web-development-future.jpg",
+      "isFeatured": false
+    }
+  ]

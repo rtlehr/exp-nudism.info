@@ -1,0 +1,9 @@
+<div class="blog-list">
+    <h2 class="blog-list-title">Latest Blogs</h2>
+    <div *ngFor="let blog of blogPosts" class="blog-item">
+      <h3 class="blog-item-title">{{ blog.title }}</h3>
+      <p class="blog-item-excerpt">{{ blog.content }}</p>
+      <p *ngIf="blog.isFeatured"><strong>FEATURED</strong></p>
+    </div>
+  </div>
+  
