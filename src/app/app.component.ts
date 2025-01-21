@@ -7,8 +7,7 @@ import { PageGeneratorComponent } from './components/page-generator/page-generat
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { ConfigService } from './services/config.service';
-import { JsonLoaderComponent } from "./components/test/json-loader/json-loader.component";
-import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +17,8 @@ import { BlogListComponent } from './components/blog/blog-list/blog-list.compone
     PageGeneratorComponent,
     DisplayLogoComponent,
     DisplayContactInfoComponent,
-    JsonLoaderComponent,
-    BlogListComponent],
+    RouterModule,
+    RouterOutlet],
     
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -62,7 +61,9 @@ export class AppComponent {
 
   sideMenuFileToLoad(event: any)
   {
-        
+    
+    console.log('sideMenuFileToLoad event: ' + event);
+    
     this.initializePageState();
 
   }

@@ -3,4 +3,4 @@ import { PageGeneratorComponent } from './components/page-generator/page-generat
 
 export const routes: Routes = [
     {path: '**', component: PageGeneratorComponent}, //http://mysite.com
-];
+]; 

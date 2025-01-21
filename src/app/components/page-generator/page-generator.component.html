@@ -56,7 +56,14 @@
                 @else if(pageContent.contentType == "tabs")
                 {
                 
-                    <app-content-tabs  [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+                    <app-content-tabs [fileToLoad] = "pageContent.contentFile" [divId] = "pageContent.divId"/>
+                
+                }
+
+                @else if(pageContent.contentType == "blog")
+                {
+                
+                    <app-blog-list [fileToLoad] = "pageContent.contentFile"/>
                 
                 }
 

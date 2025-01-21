@@ -2,7 +2,6 @@ import { Component, Input, SimpleChanges, EventEmitter, Output } from '@angular/
 import { sideMenuItemComponent } from '../side-menu-item/side-menu-item.component'; // Import a custom component used in this component
 import { HttpClient } from '@angular/common/http'; // Import HttpClient to handle HTTP requests
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu', // The HTML tag to use this component

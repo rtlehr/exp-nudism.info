@@ -1,0 +1,11 @@
+[
+    {
+      "url": "content",
+      "title": "Content",
+      "divId": "contentType", 
+      "content": [{"contentType": "blog", "divId": "blog", 
+                    "contentFile": "assets/content/pages/my-blog/blog-posts.json"}]
+    }
+
+  ]
+

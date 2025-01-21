@@ -7,7 +7,8 @@
       "date": "2025-01-01",
       "tags": ["Angular", "Web Development"],
       "imageUrl": "https://example.com/angular-standalone.jpg",
-      "isFeatured": true
+      "isFeatured": true,
+      "url" : "post1"
     },
     {
       "id": 2,
@@ -17,7 +18,8 @@
       "date": "2025-01-05",
       "tags": ["Blogging", "Tips"],
       "imageUrl": "https://example.com/blogging-tips.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "url" : "post2"
     },
     {
       "id": 3,
@@ -27,7 +29,8 @@
       "date": "2025-01-10",
       "tags": ["Blogging", "SEO"],
       "imageUrl": "https://example.com/using-tags.jpg",
-      "isFeatured": true
+      "isFeatured": true,
+      "url" : "post3"
     },
     {
       "id": 4,
@@ -37,6 +40,7 @@
       "date": "2025-01-15",
       "tags": ["Web Development", "Trends"],
       "imageUrl": "https://example.com/web-development-future.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "url" : "post4"
     }
   ]
