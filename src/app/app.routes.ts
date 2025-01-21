@@ -8,7 +8,8 @@ export const routes: Routes = [
     component: PageGeneratorComponent,
     title: "Home",
     data: {
-        pageContent: [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}],
+        pageContent: [{"contentType": "contentPage", "divId": "homeContentOne", "contentFile": "content/pages/home/home-content-one.html"},
+        {"contentType": "contentPage", "divId": "homeContentTwo", "contentFile": "content/pages/home/home-content-two.html"}],
       }
     },
     {path: 'routetest', 
@@ -23,6 +24,13 @@ export const routes: Routes = [
     title: "RouteTesttwo",
     data: {
         pageContent: [{"contentType": "contentPage2", "contentFile": "content/pages/home/home-content.html2"}],
+      }
+    },
+    {path: '', 
+    component: PageGeneratorComponent,
+    title: "Home",
+    data: {
+        pageContent: [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}],
       }
     },
     {path: '**', component: PageGeneratorComponent}
