@@ -5,6 +5,7 @@ import { ConfigService } from './app/services/config.service';
 import { APP_INITIALIZER } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appInitializer } from './app/app-initializer';
+import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -16,6 +17,8 @@ bootstrapApplication(AppComponent, {
       deps: [ConfigService],
       multi: true,
     },
-    provideRouter([]),
+    provideRouter(routes),
   ],
 }).catch((err) => console.error(err));
+
+
