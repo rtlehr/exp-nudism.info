@@ -3,7 +3,8 @@
   @for(headerMenuItem of getHeaderMenuItems; track headerMenuItem.id)  
   {
     <li class="nav-item" [class.dropdown]="headerMenuItem.subMenu">
-      <a *ngIf="!headerMenuItem.subMenu" class="nav-link" (click)="fileToLoad($event, 'header', headerMenuItem)">{{ headerMenuItem.title }}</a>
+      <a [routerLink]="headerMenuItem.url" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ headerMenuItem.title}}</a> 
+      <!-- <a *ngIf="!headerMenuItem.subMenu" class="nav-link" (click)="fileToLoad($event, 'header', headerMenuItem)">{{ headerMenuItem.title }}</a>-->
       <a *ngIf="headerMenuItem.subMenu" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         {{ headerMenuItem.title }}
       </a>

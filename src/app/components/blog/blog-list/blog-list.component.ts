@@ -4,7 +4,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BlogService } from '../../../services/blog.service';
 import { BlogPost } from '../../../models/blog-post.model';
 import { CommonModule } from '@angular/common';
-import { Location } from '@angular/common';
+import { Location } from '@angular/common'; 
+import { ActivatedRoute } from '@angular/router';
+
+interface pageContent {
+  contentType: string;
+  contentFile: string;
+  divId: string;
+}
 
 @Component({
   selector: 'app-blog-list',
@@ -19,19 +26,23 @@ export class BlogListComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   error: string | null = null;
 
+  pageContent: pageContent [] = [];
+
   currentURL: string = '';
 
   @Input() fileToLoad = '';
 
   @Output() sideMenuFileToLoad = new EventEmitter();
 
-  constructor(private blogService: BlogService, private location: Location) {} 
+  constructor(private blogService: BlogService, private location: Location, private route: ActivatedRoute) {} 
 
   ngOnInit(): void {
 
-    console.log('this.fileToLoad: ' + this.fileToLoad);
+    this.pageContent = this.route.snapshot.data['pageContent']; 
 
-    this.blogService.getAllPosts(this.fileToLoad).subscribe({
+    console.log('this.fileToLoad: ' + this.pageContent[0].contentFile);
+
+    this.blogService.getAllPosts(this.pageContent[0].contentFile).subscribe({
       next: (posts) => (this.blogPosts = posts),
       error: (err) => (this.error = 'Failed to load blog posts: ' + err.message),
     });

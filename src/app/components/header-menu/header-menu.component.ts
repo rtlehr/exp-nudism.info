@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 import { ConfigService } from '../../services/config.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header-menu',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header-menu.component.html',
   styleUrls: ['./header-menu.component.css']
 })
