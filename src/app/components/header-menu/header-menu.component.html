@@ -1,23 +1,41 @@
 <ul class="navbar-nav ms-auto">
-
-  @for(headerMenuItem of getHeaderMenuItems; track headerMenuItem.id)  
-  {
-    <li class="nav-item" [class.dropdown]="headerMenuItem.subMenu">
-      <a [routerLink]="headerMenuItem.url" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ headerMenuItem.title}}</a> 
-      <!-- <a *ngIf="!headerMenuItem.subMenu" class="nav-link" (click)="fileToLoad($event, 'header', headerMenuItem)">{{ headerMenuItem.title }}</a>-->
-      <a *ngIf="headerMenuItem.subMenu" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <ng-container *ngFor="let headerMenuItem of getHeaderMenuItems;">
+    <li class="nav-item" [class.dropdown]="headerMenuItem.children?.length">
+      <!-- Parent menu item without children -->
+      <a 
+        *ngIf="!headerMenuItem.children"
+        class="nav-link"
+        [routerLink]="headerMenuItem.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
         {{ headerMenuItem.title }}
       </a>
 
-      @if(headerMenuItem.subMenu)
-      {
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
-          <li *ngFor="let subItem of headerMenuItem.subMenu">
-            <a class="dropdown-item" href="#" (click)="fileToLoad($event, 'subMenu', headerMenuItem, subItem)">{{ subItem.title }}</a>
-          </li>
-        </ul>
-      }
-      
+      <!-- Parent menu item with dropdown -->
+      <a 
+        *ngIf="headerMenuItem.children"
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown-{{headerMenuItem.id}}"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+        {{ headerMenuItem.title }}
+      </a>
+
+      <!-- Dropdown menu -->
+      <ul 
+        *ngIf="headerMenuItem.children"
+        class="dropdown-menu"
+        [attr.aria-labelledby]="'navbarDropdown-' + headerMenuItem.id">
+        <li *ngFor="let subItem of headerMenuItem.children">
+          <a 
+            class="dropdown-item"
+            [routerLink]="[headerMenuItem.path, subItem.path]">
+            {{ subItem.title }}
+          </a>
+        </li>
+      </ul>
     </li>
-  }
+  </ng-container>
 </ul>

@@ -9,28 +9,33 @@ export const routes: Routes = [
     component: PageGeneratorComponent, 
     title: "Home",
     data: {
+      menu: true,
         pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"},
           {"contentType": "faq", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/faqs/page-faq.json"}],
       }
     },
-    {path: 'routetest', 
-    component: RoutetestComponent,
-    title: "RouteTest",
+    {path: 'cms-information', 
+    component: PageGeneratorComponent,
+    title: "CMS Information",
     data: {
+        menu: true,
         pageContent: [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}],
-      }
-    },
-    {path: 'routetesttwo', 
-    component: RoutetesttwoComponent,
-    title: "RouteTesttwo",
-    data: {
-        pageContent: [{"contentType": "contentPage2", "contentFile": "content/pages/home/home-content.html2"}],
-      }
+      },
+      children: [
+        {
+          path: 'sub-service',
+          title: 'Sub-Service',
+          component: RoutetestComponent,
+          data: { menu: true,
+                  pageContent: [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}], },
+        },
+      ],
     },
     {path: 'my-blog', 
     component: BlogListComponent,
-    title: "My-Bloge",
+    title: "My-Blog",
     data: {
+        menu: true,
         pageContent: [{"contentFile": "assets/content/pages/my-blog/blog-posts.json"}],
       }
     },
