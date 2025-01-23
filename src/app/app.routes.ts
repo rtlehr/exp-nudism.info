@@ -19,14 +19,14 @@ export const routes: Routes = [
     title: "CMS Information",
     data: {
         menu: true,
-        pageContent: [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}],
+        pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"}],
       },
       children: [
         {
           path: 'sub-service',
           title: 'Sub-Service',
           component: RoutetestComponent,
-          data: { menu: true,
+          data: { menu: true, 
                   pageContent: [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}], },
         },
       ],
