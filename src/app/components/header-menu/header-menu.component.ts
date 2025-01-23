@@ -33,7 +33,7 @@ export class HeaderMenuComponent {
 
   ngOnInit(): void {
 
-    const routes = this.router.config;
+    const routes = this.router.config; 
     this.menuItems = this.extractMenuItems(routes);
     console.log(' this.menuItems[1].children: ' + this.menuItems[1].children[0].title);
 

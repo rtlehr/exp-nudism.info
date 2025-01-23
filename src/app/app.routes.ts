@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
-import { RoutetestComponent } from './components/test/routetest/routetest.component';
-import { RoutetesttwoComponent } from './components/test/routetesttwo/routetesttwo.component';
 import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
+import { ContentWithSideMenuComponent } from './components/contentDisplay/content-with-side-menu/content-with-side-menu.component';
+import { ContentBlankPageComponent } from './components/contentDisplay/content-blank-page/content-blank-page.component';
 
 export const routes: Routes = [
     {path: 'home', 
@@ -15,7 +15,7 @@ export const routes: Routes = [
       }
     },
     {path: 'cms-information', 
-    component: PageGeneratorComponent,
+    component: ContentBlankPageComponent,
     title: "CMS Information",
     data: {
         menu: true,
@@ -23,11 +23,29 @@ export const routes: Routes = [
       },
       children: [
         {
-          path: 'sub-service',
-          title: 'Sub-Service',
-          component: RoutetestComponent,
+          path: 'cms-components',
+          title: 'CMS Components',
+          component: ContentWithSideMenuComponent,
           data: { menu: true, 
-                  pageContent: [{"contentType": "contentPage", "contentFile": "content/pages/home/home-content.html"}], },
+                  pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/news/news.html"},
+                  {"contentType": "news", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/news/page-news.json"}], },
+                  children: [
+                    {
+                      path: 'news',
+                      title: 'News',
+                      component: PageGeneratorComponent,
+                      data: { menu: true, 
+                              pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/news/news.html"},
+                              {"contentType": "news", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/news/page-news.json"}], },
+                    },{
+                      path: 'faq',
+                      title: 'FAQs',
+                      component: PageGeneratorComponent,
+                      data: { menu: true, 
+                              pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"},
+                              {"contentType": "faq", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/faqs/page-faq.json"}], },
+                    },
+                  ],
         },
       ],
     },
