@@ -45,19 +45,7 @@ export const routes: Routes = [
                       data: { menu: true, 
                               pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"},
                               {"contentType": "faq", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/faqs/page-faq.json"}], },
-                    },
-                  ],
-        },
-        {
-          path: 'image-samples',
-          title: 'Image Samples',
-          component: ContentWithSideMenuComponent,
-          data: { menu: true, 
-                  pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/news/news.html"},
-                                {"contentType": "news", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/news/page-news.json"}],
-                },
-                  children: [
-                    {
+                    },{
                       path: 'image-gallery',
                       title: 'Image Gallery',
                       component: PageGeneratorComponent,
