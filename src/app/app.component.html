@@ -7,7 +7,7 @@
       <div class="row align-items-start">
 
         <div class="col-lg-2 col-md-2 col-12"> 
-          <app-display-logo [src] = "'myLogo.png'" [width] = "'125px'" [height] = "'125px'" (parentEvent)="loadContent($event)"/>
+          <app-display-logo [src] = "'myLogo.png'" [width] = "'125px'" [height] = "'125px'"/>
         </div>
 
         <div class="col-lg-9 col-md-9 col-12">
@@ -38,25 +38,10 @@
     </nav>
 
     <div class="content-wrapper">
-        
-    @if(showSideBar){
-
-      <!--
-        <div class="bg-secondary text-white p-4 left-menu">
-
-          <app-side-menu [sideMenuToLoad] = "sideMenuToLoad" (sideMenuFileToLoad)="sideMenuFileToLoad($event)"/>
-
-        </div>
-      -->
-
-    } 
 
     <!-- Right Content Area -->
     <div  class="flex-grow-1 bg-light main-content">
-      <!-- Include Angular main content component -->
-
-      <!-- <app-page-generator [pageContent] = "pageContent" [divId]="divId"/> -->
-
+      
       <router-outlet></router-outlet>
           
     </div>
