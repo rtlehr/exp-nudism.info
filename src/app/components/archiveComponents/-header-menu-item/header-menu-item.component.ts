@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SharedService } from '../shared-service/shared.service'; 
 
 interface HeaderMenuItems
 {

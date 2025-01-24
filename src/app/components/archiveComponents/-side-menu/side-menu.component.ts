@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges, EventEmitter, Output } from '@angular/core'; // Import Component decorator from Angular core
-import { sideMenuItemComponent } from '../side-menu-item/side-menu-item.component'; // Import a custom component used in this component
+import { sideMenuItemComponent } from '../-side-menu-item/side-menu-item.component'; // Import a custom component used in this component
 import { HttpClient } from '@angular/common/http'; // Import HttpClient to handle HTTP requests
 import { Location } from '@angular/common';
 
