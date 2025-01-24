@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { pageContent } from '../../../models/page-content.model';
-import { Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 
 @Component({
   selector: 'app-content-with-side-menu',
   standalone: true,
-  imports: [RouterModule, RouterOutlet],
+  imports: [RouterModule, RouterOutlet, CommonModule],
   templateUrl: './content-with-side-menu.component.html',
   styleUrl: './content-with-side-menu.component.scss'
 })

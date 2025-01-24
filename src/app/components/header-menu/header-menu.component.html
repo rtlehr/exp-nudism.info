@@ -2,21 +2,21 @@
   <ng-container *ngFor="let headerMenuItem of getHeaderMenuItems;">
     <li class="nav-item" [class.dropdown]="headerMenuItem.children?.length">
       <!-- Parent menu item without children -->
-      <a 
+      <a
         *ngIf="!headerMenuItem.children"
         class="nav-link"
         [routerLink]="headerMenuItem.path"
         routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact: true}">
+        [routerLinkActiveOptions]="{ exact: true }">
         {{ headerMenuItem.title }}
       </a>
 
       <!-- Parent menu item with dropdown -->
-      <a 
+      <a
         *ngIf="headerMenuItem.children"
         class="nav-link dropdown-toggle"
         href="#"
-        id="navbarDropdown-{{headerMenuItem.id}}"
+        id="navbarDropdown-{{ headerMenuItem.id }}"
         role="button"
         data-bs-toggle="dropdown"
         aria-expanded="false">
@@ -24,14 +24,15 @@
       </a>
 
       <!-- Dropdown menu -->
-      <ul 
+      <ul
         *ngIf="headerMenuItem.children"
         class="dropdown-menu"
         [attr.aria-labelledby]="'navbarDropdown-' + headerMenuItem.id">
         <li *ngFor="let subItem of headerMenuItem.children">
-          <a 
+          <a
             class="dropdown-item"
-            [routerLink]="[headerMenuItem.path, subItem.path]">
+            [routerLink]="[headerMenuItem.path, subItem.path]"
+            routerLinkActive="active">
             {{ subItem.title }}
           </a>
         </li>
