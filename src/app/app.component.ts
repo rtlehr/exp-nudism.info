@@ -1,23 +1,18 @@
 import { Component} from '@angular/core';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { sideMenuComponent } from "./components/side-menu/side-menu.component";
 import { HeaderMenuComponent } from './components/header-menu/header-menu.component';
-import { PageGeneratorComponent } from './components/page-generator/page-generator.component';
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { ConfigService } from './services/config.service';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [sideMenuComponent,
-    HeaderMenuComponent,
-    PageGeneratorComponent,
+  imports: [HeaderMenuComponent,
     DisplayLogoComponent,
     DisplayContactInfoComponent,
-    RouterModule,
     RouterOutlet],
     
   templateUrl: './app.component.html',
@@ -44,7 +39,7 @@ export class AppComponent {
   config: any;
 
   ngOnInit() {
-        
+      /*  
     this.configService.loadConfig().subscribe({
       next: (data) => {
         this.config = data; // Assign the loaded config data
@@ -55,27 +50,27 @@ export class AppComponent {
       },
     });
 
-    this.initializePageState();
+    this.initializePageState();*/
 
   }
 
   sideMenuFileToLoad(event: any)
   {
     
-    console.log('sideMenuFileToLoad event: ' + event);
+   // console.log('sideMenuFileToLoad event: ' + event);
     
-    this.initializePageState();
+   // this.initializePageState();
 
   }
 
   loadContent(event: any) { 
 
-    this.initializePageState();
+    //this.initializePageState();
    
   }
 
   private initializePageState(): void {
-
+/*
     this.currentUrl = this.location.path();
 
     this.urlItems = this.currentUrl.slice(1).split("/");
@@ -86,12 +81,12 @@ export class AppComponent {
 
     this.pageToLoad = `assets/content/pages${this.currentUrl.toLowerCase()}/page.json`;
 
-    this.loadPageContent();
+    this.loadPageContent();*/
 
   }
 
   private loadPageContent(): void {
-
+/*
     this.http.get<any[]>(this.pageToLoad).subscribe({
       next: (response) => {
         this.htmlContent = response;
@@ -102,11 +97,11 @@ export class AppComponent {
         this.pageContent = [this.htmlContent];
       },
     });
-
+*/
   }
 
   private updatePageDetails(): void {
-
+/*
     if (!this.htmlContent || this.htmlContent.length === 0) return;
 
     //If the page only has one content item, display it without the sidebar
@@ -137,7 +132,7 @@ export class AppComponent {
           //this.pageContent = '<p>Content not found.</p>';
         }
       }
-    }
+    }*/
 
   }
 

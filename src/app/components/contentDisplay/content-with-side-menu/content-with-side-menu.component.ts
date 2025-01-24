@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { pageContent } from '../../../models/page-content.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-content-with-side-menu',
@@ -22,7 +23,7 @@ export class ContentWithSideMenuComponent {
 
   childrenTitle: string[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {}
 
   ngOnInit()
   {
@@ -37,6 +38,8 @@ export class ContentWithSideMenuComponent {
 
         parentRouteChildren.forEach((child) => {
 
+          console.log("from content side child.path: " + child.path);
+
           this.childrenPaths.push({
             title: child.title,
             path: child.path
@@ -48,6 +51,17 @@ export class ContentWithSideMenuComponent {
       this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
 
       this.divId = "testdiv";
+
+      const currPath = this.location.path();
+
+      const currPathArray = currPath.split("/");
+
+      if(currPathArray.length <= 3)
+      {
+
+        this.router.navigate([currPath + "/" + this.childrenPaths[0].path]);
+
+      }
     
   }
 

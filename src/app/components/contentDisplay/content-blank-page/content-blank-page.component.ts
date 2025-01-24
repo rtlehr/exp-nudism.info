@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-content-blank-page',
@@ -12,19 +9,5 @@ import { Location } from '@angular/common';
   styleUrl: './content-blank-page.component.scss'
 })
 export class ContentBlankPageComponent {
-
-  constructor(private location: Location, private activatedRoute: ActivatedRoute, private router: Router) {}
-
-
-  ngOnInit()
-  {
-    
-    const currentLocation = location.pathname;
-
-    console.log("location: " + currentLocation);
-
-    //this.router.navigate(["/cms-information/cms-components/news"]);
-
-  }
 
 }

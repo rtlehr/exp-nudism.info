@@ -35,7 +35,7 @@ export class HeaderMenuComponent {
 
     const routes = this.router.config; 
     this.menuItems = this.extractMenuItems(routes);
-    console.log(' this.menuItems[1].children: ' + this.menuItems[1].children[0].title);
+    console.log(' this.menuItems[1].children: ' + this.menuItems[1].children[0].title); 
 
     /*
     this.config = this.configService.getConfig();
@@ -89,7 +89,7 @@ export class HeaderMenuComponent {
   }
 
   fileToLoad(event: Event, type: string, headerData: any, submenuData: any = '') {
-
+/*
     let urlString = headerData.url;
 
     if(type == "subMenu")
@@ -102,13 +102,13 @@ export class HeaderMenuComponent {
     this.location.replaceState(urlString);
 
     this.parentEvent.emit();
-
+*/
   }
 
   // Add trackById method to avoid the error
-  trackById(index: number, item: any): string {
+ /* trackById(index: number, item: any): string {
     return item.id; // Track by unique `id` field
-  }
+  }*/
 }
 
 
