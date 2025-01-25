@@ -1,8 +1,5 @@
-// Override Bootstrap Variables
-$primary: #ff5733; // Change primary color
-$secondary: #33c4ff; // Change secondary color
-$body-bg: #f8f9fa; // Change body background color
-$font-family-sans-serif: 'Roboto', sans-serif; // Change default font
+// Import Bootstrap SCSS
+@import "./color-scheme.scss";
 
 #home
 {}
@@ -31,32 +28,10 @@ $font-family-sans-serif: 'Roboto', sans-serif; // Change default font
 
 }
 
-.nav {
-    background-color: #f8f9fa; // Light background
-    padding: 0.5rem;
-  
-    .nav-link {
-      color: #007bff; // Bootstrap primary color
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-  
-      &:hover {
-        color: #0056b3; // Darker blue on hover
-        text-decoration: underline;
-      }
-  
-      &.active {
-        font-weight: bold;
-        color: #343a40; // Darker color for active link
-        background-color: rgba(0, 123, 255, 0.1); // Light blue background
-        border-radius: 5px;
-      }
-    }
-  }
+ 
 
-  /* HEADER MENU */
 
-  
+
   
 // Import Bootstrap SCSS
 @import "bootstrap/scss/bootstrap";
