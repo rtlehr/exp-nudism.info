@@ -55,4 +55,11 @@ export class BlogService {
       map(posts => posts.filter(post => post.tags.includes(tag)))
     );
   }
+
+  getPostByURL(blogPostsUrl: string, url: string): Observable<BlogPost> {
+    return this.http.get<BlogPost[]>(blogPostsUrl).pipe(
+      map(posts => posts.find(post => post.url === url)!)
+    );
+  }
+  
 }

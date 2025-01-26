@@ -36,12 +36,11 @@ export class BlogListComponent implements OnInit {
   constructor(private blogService: BlogService, 
               private router: Router, 
               private activatedRoute: ActivatedRoute,
-              private sharedDataService: SharedDataService) {}
+              private sharedDataService: SharedDataService,
+              private location: Location) {}
 
   ngOnInit(): void {
     this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
-
-    console.log('this.fileToLoad: ' + this.pageContent[0].contentFile);
 
     this.sharedDataService.set('blogPostsUrl', this.pageContent[0].contentFile);
 
@@ -51,8 +50,11 @@ export class BlogListComponent implements OnInit {
     });
   }
 
-  navigateToDetails(id: number): void {
-    this.router.navigate(['/blog', id]);
+  navigateToDetails(id: string): void {
+
+    const pathElemets = this.location.path().split('/');
+
+    this.router.navigate(['/' + pathElemets[1], id]);
   }
 
 }

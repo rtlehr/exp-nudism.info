@@ -6,7 +6,7 @@
       "author": "Jane Doe",
       "date": "2025-01-01",
       "tags": ["Angular", "Web Development"],
-      "imageUrl": "https://example.com/angular-standalone.jpg",
+      "imageUrl": "https://example.com/angular-standalone.jpg", 
       "isFeatured": true,
       "url" : "post1"
     },

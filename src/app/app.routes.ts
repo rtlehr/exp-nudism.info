@@ -70,7 +70,7 @@ export const routes: Routes = [
     title: "Blog",
     data: {
         menu: true,
-        pageContent: [{"contentFile": "assets/content/pages/my-blog/blog-posts.json"}],
+        pageContent: [{"contentFile": "assets/content/pages/blog/blog-posts.json"}],
       }
     },
     { path: 'blog/:id',
