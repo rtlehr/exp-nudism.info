@@ -1,18 +1,42 @@
-<div class="container mt-4">
-  <div *ngIf="error" class="alert alert-danger">
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Blog Posts</h1>
+
+  <!-- Display error message if there is an error -->
+  <div *ngIf="error" class="alert alert-danger text-center">
     {{ error }}
   </div>
+
   <div class="row">
     <div class="col-md-6 col-lg-4 mb-4" *ngFor="let post of blogPosts">
-      <div class="card h-100">
-        <img [src]="post.imageUrl" class="card-img-top" [alt]="post.title" />
+      <div class="card blog-card h-100 shadow">
+        <!-- Blog image -->
+
+        <img
+        [src]="post.imageUrl"
+        class="card-img-top"
+        [alt]="post.title"
+        onerror="this.src='./assets/images/motorcycle.png';"
+      />
+
         <div class="card-body">
-          <h5 class="card-title">{{ post.title }}</h5>
-          <p class="card-text">{{ post.content | slice:0:100 }}...</p>
-          <div (click)="loadBlog(post.url)" class="btn btn-primary">Read More</div>
+          <!-- Blog title -->
+          <h5 class="card-title text-truncate">{{ post.title }}</h5>
+          <!-- Blog preview content -->
+          <p class="card-text text-muted">
+            {{ post.content | slice: 0:100 }}...
+          </p>
+          <!-- Link to blog details -->
+          <button
+            class="btn btn-primary w-100"
+            (click)="navigateToDetails(post.id)"
+          >
+            Read More
+          </button>
         </div>
-        <div class="card-footer text-muted">
-          <small>By {{ post.author }} on {{ post.date }}</small>  
+
+        <!-- Blog footer (Author and date) -->
+        <div class="card-footer text-muted text-center">
+          <small>By {{ post.author }} on {{ post.date }}</small>
         </div>
       </div>
     </div>

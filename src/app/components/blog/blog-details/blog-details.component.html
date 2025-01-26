@@ -1,0 +1,17 @@
+<div class="container mt-5" *ngIf="blogPost">
+    <div class="card shadow-sm">
+      <img *ngIf="blogPost.imageUrl" [src]="blogPost.imageUrl" class="card-img-top" alt="{{ blogPost.title }}">
+      <div class="card-body">
+        <h1 class="card-title">{{ blogPost.title }}</h1>
+        <p class="text-muted">By {{ blogPost.author }} | {{ blogPost.date | date:'longDate' }}</p>
+        <div class="mb-3">
+          <span *ngFor="let tag of blogPost.tags" class="badge bg-primary me-2">{{ tag }}</span>
+        </div>
+        <p class="card-text">{{ blogPost.content }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5 text-center" *ngIf="!blogPost">
+    <p>Loading blog post...</p>
+  </div>
+  

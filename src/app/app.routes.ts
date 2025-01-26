@@ -3,6 +3,7 @@ import { PageGeneratorComponent } from './components/contentDisplay/page-generat
 import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
 import { ContentWithSideMenuComponent } from './components/contentDisplay/content-with-side-menu/content-with-side-menu.component';
 import { ContentBlankPageComponent } from './components/contentDisplay/content-blank-page/content-blank-page.component';
+import { BlogDetailsComponent } from './components/blog/blog-details/blog-details.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -64,13 +65,15 @@ export const routes: Routes = [
         },
       ],
     },
-    {path: 'my-blog', 
+    {path: 'blog', 
     component: BlogListComponent,
-    title: "My-Blog",
+    title: "Blog",
     data: {
         menu: true,
         pageContent: [{"contentFile": "assets/content/pages/my-blog/blog-posts.json"}],
       }
     },
+    { path: 'blog/:id',
+      component: BlogDetailsComponent }, // Blog details route with dynamic ID
     {path: '**', component: PageGeneratorComponent}
 ]; 

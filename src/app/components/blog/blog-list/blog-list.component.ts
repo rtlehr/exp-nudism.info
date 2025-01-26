@@ -1,11 +1,13 @@
 // blog-list.component.ts
 
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BlogService } from '../../../services/blog.service';
-import { BlogPost } from '../../../models/blog-post.model';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common'; 
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { BlogService } from '../../../services/blog.service';
+import { BlogPost } from '../../../models/blog-post.model';
+import { SharedDataService } from '../../../services/shared-data.service';
 
 interface pageContent {
   contentType: string;
@@ -23,24 +25,25 @@ interface pageContent {
 })
 export class BlogListComponent implements OnInit {
 
-  blogPosts: BlogPost[] = [];
-  error: string | null = null;
+  @Input() fileToLoad = '';
 
   pageContent: pageContent [] = [];
 
-  currentURL: string = '';
+  blogPosts: BlogPost[] = [];
+  
+  error: string | null = null;
 
-  @Input() fileToLoad = '';
-
-  @Output() sideMenuFileToLoad = new EventEmitter();
-
-  constructor(private blogService: BlogService, private location: Location, private route: ActivatedRoute) {} 
+  constructor(private blogService: BlogService, 
+              private router: Router, 
+              private activatedRoute: ActivatedRoute,
+              private sharedDataService: SharedDataService) {}
 
   ngOnInit(): void {
-
-    this.pageContent = this.route.snapshot.data['pageContent']; 
+    this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
 
     console.log('this.fileToLoad: ' + this.pageContent[0].contentFile);
+
+    this.sharedDataService.set('blogPostsUrl', this.pageContent[0].contentFile);
 
     this.blogService.getAllPosts(this.pageContent[0].contentFile).subscribe({
       next: (posts) => (this.blogPosts = posts),
@@ -48,15 +51,8 @@ export class BlogListComponent implements OnInit {
     });
   }
 
-  loadBlog(data: any)
-  {
-
-    this.currentURL = this.location.path();
-
-    this.location.replaceState(this.currentURL + "/" + data);
-
-    this.sideMenuFileToLoad.emit();
-    
+  navigateToDetails(id: number): void {
+    this.router.navigate(['/blog', id]);
   }
 
 }

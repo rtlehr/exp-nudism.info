@@ -1,35 +1,15 @@
 // Import Bootstrap SCSS
 @import "./color-scheme.scss";
 
-#home
-{}
-
-#home #home-content0
-{}
-
-#home #home-content0 #homeContentOne
-{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+body {
+  background-color: $body-bg !important;
+  color: $bodyTextColor !important;
+  font-family: $font-family-sans-serif;
 }
 
-#home #home-content1
-{
-    background-color: lightgrey;
+h2 {
+  color: $h1TextColor !important;
 }
-
-#home #home-content1 #homeContentTwo
-{
-   
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
- 
-
 
 
   

@@ -44,12 +44,12 @@
   
   /* Dropdown menu container */
   .navbar-nav .nav-item.dropdown .dropdown-menu {
-    background-color: $light; // Bootstrap light color
+    background-color: $gray-500; // Bootstrap light color
     border: 1px solid $secondary; // Bootstrap secondary color
     border-radius: 0.25rem;
   
     .dropdown-item {
-      color: $body-color; // Bootstrap body text color
+      color: $bodyTextColor; // Bootstrap body text color
       padding: 0.5rem 1rem;
   
       &:hover {

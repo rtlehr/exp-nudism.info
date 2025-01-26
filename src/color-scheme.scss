@@ -1,11 +1,23 @@
 // Override Bootstrap Variables
 $primary: purple; // Change primary color
+$primaryLight: lighten($primary, 25%); // Change primary light color
+$primaryComplament: complement($primary); // Change primary complament color
+
 $secondary: #33c4ff; // Change secondary color
-$body-bg: #f8f9fa; // Change body background color
-$light: #f8f9fa; // Change light color
-$body-color: #212529; // Change body text color
+$secondaryLight: lighten($secondary, 25%); // Change secondary light color
+$secondaryComplament: complement($secondary); // Change secondary complament color
+
+//Font Colors
+$bodyTextColor: #696969; // Change body text color
+$h1TextColor: #333; // Change h1 text color
+$h2TextColor: #333; // Change h2 text color
+$h3TextColor: #333; // Change h3 text color
+$hightlightTextColor: #333; // Change hightlight text color
+$calltoactionTextColor: #333; // Change call to action text color
+
+$body-bg: #ffffff; // Change body background color
 $white: #ffffff; // Change white color
 $gray-500: #e0e0e0; // Change gray color
 $gray-200: #e9ecef; // Change gray color
 $headertextcolor: black; // Change header text color
-$font-family-sans-serif: 'Roboto', sans-serif; // Change default font
+$font-family-sans-serif: 'Roboto', sans-serif; // Change default font 
