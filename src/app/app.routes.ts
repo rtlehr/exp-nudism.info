@@ -21,7 +21,7 @@ export const routes: Routes = [
     title: "CMS Information",
     data: {
         menu: true,
-        pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"}],
+        pageContent: [],
       },
       children: [
         {
@@ -66,14 +66,14 @@ export const routes: Routes = [
       ],
     },
     {path: 'blog', 
-    component: BlogListComponent,
+    component: BlogListComponent, 
     title: "Blog",
     data: {
         menu: true,
         pageContent: [{"contentFile": "assets/content/pages/blog/blog-posts.json"}],
       }
     },
-    { path: 'blog/:id',
+    { path: 'blog/:url',
       component: BlogDetailsComponent }, // Blog details route with dynamic ID
     {path: '**', component: PageGeneratorComponent}
 ]; 

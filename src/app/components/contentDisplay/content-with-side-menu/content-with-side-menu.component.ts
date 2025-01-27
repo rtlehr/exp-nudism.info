@@ -48,7 +48,7 @@ export class ContentWithSideMenuComponent {
         });
       }
       
-      this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
+      //this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
 
       this.divId = "testdiv";
 

@@ -8,4 +8,5 @@ export interface BlogPost {
     tags: string[];          // List of tags associated with the post (used for categorization and filtering)
     imageUrl?: string;       // URL of the header or thumbnail image (optional)
     isFeatured: boolean;     // Indicates if the post is featured
+    blogText: any[];
   }

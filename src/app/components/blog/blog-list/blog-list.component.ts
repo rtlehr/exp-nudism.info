@@ -50,11 +50,18 @@ export class BlogListComponent implements OnInit {
     });
   }
 
-  navigateToDetails(id: string): void {
+  navigateToDetails(url: string): void {
 
-    const pathElemets = this.location.path().split('/');
+    //const pathElemets = this.location.path().split('/');
 
-    this.router.navigate(['/' + pathElemets[1], id]);
+    const currurl = this.location.path();
+
+    //const cleanedURL = currurl.split("/").slice(0, -1).join("/");
+
+    //const blogPostsUrl = "assets/content/pages" + cleanedURL + "/blog-posts.json";
+
+    this.router.navigate([currurl, url]);
+
   }
 
 }
