@@ -6,15 +6,17 @@
         <div class="position-sticky">
             <ul class="nav flex-column"> 
                 
-                <li class="nav-item">
-                    <a 
+                @for (allBlogs of getAllBlogPosts; track allBlogs.id) {
+                    <li class="nav-item">
+                        <a 
                           class="nav-link"
-                          href="#" 
-                          routerLinkActive="active">
-                          Next Blog
+                          [routerLink]="[this.blogURL,allBlogs.url]" 
+                          routerLinkActive="active"
+                          [routerLinkActiveOptions]="{ exact: true }">
+                          {{ allBlogs.title }}
                         </a>
-                </li>
-               
+                      </li>
+                }
 
         </ul>
         </div>
@@ -25,7 +27,7 @@
         <div class="content-wrapper">
         
 
-            <div class="mt-2" *ngIf="blogPost">
+            <div class="mt-4" *ngIf="blogPost">
                 <div class="card shadow-sm">
                   <img *ngIf="blogPost.imageUrl" [src]="blogPost.imageUrl" class="card-img-top" alt="{{ blogPost.title }}">
                   <div class="card-body">

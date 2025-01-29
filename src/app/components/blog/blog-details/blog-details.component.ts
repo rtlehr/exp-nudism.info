@@ -15,6 +15,7 @@ import { NewsComponent } from '../../news/news.component';
 import { FaqComponent } from '../../faq/faq.component';
 import { FormGeneratorComponent } from '../../form-generator/form-generator.component';
 import { ContentTabsComponent } from '../../content-tabs/content-tabs.component';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-blog-details', 
@@ -27,17 +28,14 @@ import { ContentTabsComponent } from '../../content-tabs/content-tabs.component'
             NewsComponent,
             FaqComponent,
             FormGeneratorComponent,
-            ContentTabsComponent],
+            ContentTabsComponent,
+            RouterModule, 
+            RouterOutlet],
   templateUrl: './blog-details.component.html',
   styleUrl: './blog-details.component.scss',
   providers: [BlogService],
 })
 export class BlogDetailsComponent {
-  blogPost: BlogPost | null = null;
-  blogPostsUrl: string = ''; 
-  error: string | null = null;
-
-  pageContent: pageContent [] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -46,33 +44,62 @@ export class BlogDetailsComponent {
     private location: Location
   ) {}
 
+  blogPost: BlogPost | null = null;
+
+  blogAllPost: BlogPost[] = [];
+
+  blogPostsUrl: string = ''; 
+
+  error: string | null = null;
+
+  pageContent: pageContent [] = [];
+  
+  blogURL: String = "";
+
   ngOnInit(): void {
 
-    //this.pageContent = [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/imageGallery/imageGallery.html"},
-   // {"contentType": "imageGallery", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/imageGallery/page-image-gallery-images.json"}];
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const blogUrl = params.get('url'); // Extract blog URL from the route parameters
 
-    const currurl = this.location.path();
+      if (blogUrl) {
 
-    const cleanedURL = currurl.split("/").slice(0, -1).join("/");
+          const currurl = this.location.path();
 
-    this.blogPostsUrl = "assets/content/pages" + cleanedURL + "/blog-posts.json";
+          const cleanedURL = currurl.split("/").slice(0, -1).join("/");
 
-    // Retrieve the blog post ID from the route parameters
-    const url = String(this.activatedRoute.snapshot.paramMap.get('url'));
+          this.blogURL = cleanedURL;
 
-    if (url) {
-      this.blogService.getPostByURL(this.blogPostsUrl, url).subscribe(
-        (post) => (this.blogPost = post),
-        (error) => (this.error = 'Failed to load blog post')
-      );
-    } else {
-      this.error = 'Invalid blog post ID';
-    }
+          this.blogPostsUrl = "assets/content/pages" + cleanedURL + "/blog-posts.json"; 
+
+          // Retrieve the blog post ID from the route parameters
+          const url = String(this.activatedRoute.snapshot.paramMap.get('url'));
+
+          if (url) {
+            this.blogService.getPostByURL(this.blogPostsUrl, url).subscribe(
+              (post) => (this.blogPost = post),
+              (error) => (this.error = 'Failed to load blog post')
+            );
+          } else {
+            this.error = 'Invalid blog post ID';
+          }
+
+          this.blogService.getAllPosts(this.blogPostsUrl).subscribe({
+            next: (posts) => (this.blogAllPost = posts),
+            error: (err) => (this.error = 'Failed to load blog posts: ' + err.message),
+          });
+
+
+      } else {
+        this.error = 'Invalid blog URL';
+      }
+    });
+
+
   }
 
-  get getPageContent() {
+  get getAllBlogPosts() {
 
-    return this.pageContent;
+    return this.blogAllPost;
 
   }
 

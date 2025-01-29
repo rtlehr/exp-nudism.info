@@ -19,11 +19,17 @@ interface pageContent {
   selector: 'app-blog-list',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './blog-list.component.html',
+  templateUrl: './blog-list.component.html', 
   styleUrls: ['./blog-list.component.scss'],
   providers: [BlogService],
 })
 export class BlogListComponent implements OnInit {
+
+  constructor(private blogService: BlogService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private sharedDataService: SharedDataService,
+    private location: Location) {}
 
   @Input() fileToLoad = '';
 
@@ -32,12 +38,6 @@ export class BlogListComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   
   error: string | null = null;
-
-  constructor(private blogService: BlogService, 
-              private router: Router, 
-              private activatedRoute: ActivatedRoute,
-              private sharedDataService: SharedDataService,
-              private location: Location) {}
 
   ngOnInit(): void {
     this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
