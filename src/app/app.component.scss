@@ -1,0 +1,19 @@
+.header-title {
+  font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+.navbar-toggler {
+  background-color: white; // Makes button visible on primary background
+  border-radius: 5px;
+}
+
+.content-wrapper {
+  padding: 20px;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+}
