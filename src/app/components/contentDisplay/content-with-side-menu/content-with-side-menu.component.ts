@@ -31,7 +31,7 @@ export class ContentWithSideMenuComponent {
 
       if (parentRoute && parentRoute.routeConfig) {
 
-        this.parentPath = parentRoute.routeConfig?.path || "";
+        this.parentPath = parentRoute.routeConfig?.path || ""; 
 
         // Safely access children of the parent route
         const parentRouteChildren = parentRoute.routeConfig?.children || [];
@@ -63,6 +63,19 @@ export class ContentWithSideMenuComponent {
 
       }
     
+  }
+
+  closeSidebar() {
+    const sidebar = document.getElementById('sidebarMenu');
+    const backdrop = document.querySelector('.offcanvas-backdrop');
+  
+    if (sidebar) {
+      sidebar.classList.remove('show'); // Hides the sidebar
+    }
+  
+    if (backdrop) {
+      backdrop.remove(); // Removes the gray overlay
+    }
   }
 
 }
