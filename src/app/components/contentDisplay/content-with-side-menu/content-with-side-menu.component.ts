@@ -40,7 +40,7 @@ export class ContentWithSideMenuComponent {
 
           console.log("from content side child.path: " + child.path);
 
-          this.childrenPaths.push({
+          this.childrenPaths.push({ 
             title: child.title,
             path: child.path
           });
@@ -50,7 +50,12 @@ export class ContentWithSideMenuComponent {
       
       //this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
 
-      this.divId = "testdiv";
+      const currentRoutePath = this.activatedRoute.snapshot.routeConfig?.path || "";
+
+      // Generate the dynamic div ID by concatenating "-div"
+      this.divId = `${currentRoutePath}-div`;
+
+      console.log("this.divID: " + this.divId);
 
       const currPath = this.location.path();
 

@@ -43,6 +43,14 @@ export const routes: Routes = [
         },
         children: [
           { 
+            path: 'content',
+            component: PageGeneratorComponent,
+            title: 'Content',
+            data: {
+              menu: true, 
+              pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/content/content.html"}]
+            }
+          },{ 
             path: 'news',
             component: PageGeneratorComponent,
             title: 'News',
@@ -88,6 +96,35 @@ export const routes: Routes = [
                 { contentType: "contentPage", divId: "contentBlockOne", contentFile: "content/pages/cms-information/component-samples/imageDisplay/imageDisplay.html" },
                 { contentType: "imageDisplay", divId: "contentBlockTwo", contentFile: "content/pages/cms-information/component-samples/imageDisplay/page-image-display.json" }
               ]
+            }
+          },
+          { 
+            path: 'image-slider',
+            component: PageGeneratorComponent,
+            title: 'Image Slider',
+            data: {
+              menu: true, 
+              pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/imageSlider/imageSlider.html"},
+              {"contentType": "imageSlider", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/imageSlider/image-slider-images.json"}]
+            }
+          },
+          { 
+            path: 'tabs',
+            component: PageGeneratorComponent,
+            title: 'Tabs',
+            data: {
+              menu: true, 
+              pageContent: [{"contentType": "tabs", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/tabs/content-tabs.json"}]
+            }
+          },
+          { 
+            path: 'form-sample',
+            component: PageGeneratorComponent,
+            title: 'Forms',
+            data: {
+              menu: true, 
+              pageContent: [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/forms/forms.html"},
+              {"contentType": "form", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/forms/page-form.json"}]
             }
           }
         ]
