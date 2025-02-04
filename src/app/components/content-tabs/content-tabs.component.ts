@@ -8,6 +8,7 @@ import { ImageSliderComponent } from '../image-slider/image-slider.component';
 import { NewsComponent } from '../news/news.component';
 import { FaqComponent } from '../faq/faq.component';
 import { FormGeneratorComponent } from '../form-generator/form-generator.component';
+import { JsonDataService } from '../../services/json-data.service';
 
 @Component({
   selector: 'app-content-tabs', 
@@ -19,7 +20,6 @@ import { FormGeneratorComponent } from '../form-generator/form-generator.compone
     NewsComponent,
     FaqComponent,
     FormGeneratorComponent
-
   ],
   templateUrl: './content-tabs.component.html',
   styleUrl: './content-tabs.component.css'
@@ -32,7 +32,7 @@ export class ContentTabsComponent {
 
   activeTabIndex: number = 0;
 
-  constructor(private http: HttpClient) { }
+  constructor(private jsonDataService: JsonDataService) { }
 
   @Input() fileToLoad: String = '';
 
@@ -53,17 +53,10 @@ export class ContentTabsComponent {
 
   loadTabsData(contentToLoad: String)
   {
-    
-    this.http.get<any[]>('assets/' + contentToLoad).subscribe(
-      (response) => {
-        // Success callback: Assign the fetched JSON data to the `menuItems` property
-        this.tabsData = response;
-      },
-      (error) => {
-        // Error callback: Log an error message if the JSON file cannot be loaded
-        console.error('Error fetching JSON file:', error);
-      }
-    );
+
+    this.jsonDataService.loadData('assets/' + contentToLoad).subscribe(() => {
+      this.tabsData = this.jsonDataService.getData();
+    });
 
   }
 

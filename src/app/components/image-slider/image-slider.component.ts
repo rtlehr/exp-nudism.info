@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { JsonDataService } from '../../services/json-data.service';
 
 @Component({
   selector: 'app-image-slider',
@@ -36,30 +36,27 @@ export class ImageSliderComponent {
 
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private jsonDataService: JsonDataService) {} 
 
   loadImages(contentToLoad: String)
   {
 
-    this.http.get<any>('assets/' + contentToLoad).subscribe(
-      (response) => {
-        // Success callback: Assign the fetched JSON data to the `menuItems` property
-        this.images = response.images || [];
+    this.jsonDataService.loadData('assets/' + contentToLoad).subscribe(() => {
+
+      const data = this.jsonDataService.getData();
+
+      this.images = data.images || [];
 
         this.imagesCount = this.images.length;
 
-        this.sliderWidth = response.width || '100%';
-        this.sliderHeight = response.height || '400px';
-        this.slideInterval = response.slideInterval || 10000;
+        this.sliderWidth = data.width || '100%';
+        this.sliderHeight = data.height || '400px';
+        this.slideInterval = data.slideInterval || 10000;
 
         this.startAutoSlide();
+        
+    });
 
-      },
-      (error) => {
-        // Error callback: Log an error message if the JSON file cannot be loaded
-        console.error('Error fetching JSON file:', error);
-      }
-    );
 
   }
 

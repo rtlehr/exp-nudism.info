@@ -1,6 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { NgClass } from '@angular/common';
+import { JsonDataService } from '../../services/json-data.service';
 
 @Component({
   selector: 'app-form-generator',
@@ -13,7 +13,7 @@ export class FormGeneratorComponent {
 
   form: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private jsonDataService: JsonDataService) {}
 
   @Input() fileToLoad: String = '';
 
@@ -35,23 +35,17 @@ export class FormGeneratorComponent {
   loadform(contentToLoad: String)
   {
 
-    console.log("contentToLoad: " + contentToLoad);
-    
-    this.http.get<any[]>('assets/' + contentToLoad).subscribe(
-      (response) => {
-        // Success callback: Assign the fetched JSON data to the `menuItems` property
-        this.form = response;
-      },
-      (error) => {
-        // Error callback: Log an error message if the JSON file cannot be loaded
-        console.error('Error fetching JSON file:', error);
-      }
-    );
+    this.jsonDataService.loadData('assets/' + contentToLoad).subscribe(() => {
+      this.form = this.jsonDataService.getData();
+    });
+
 
   }
 
   get getForm() {
+
     return this.form;
+
   }
 
   get getFormFields() {

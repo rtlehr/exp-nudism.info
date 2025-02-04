@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { JsonDataService } from '../../services/json-data.service';
 
 interface ConInfoPhysical {
   name: string;
@@ -20,6 +20,7 @@ interface ConInfoSocial {
   templateUrl: './display-contact-info.component.html',
   styleUrls: ['./display-contact-info.component.css'], // Fixed typo
 })
+
 export class DisplayContactInfoComponent implements OnInit {
 
   @Input() socialOnly: boolean = false;
@@ -27,22 +28,18 @@ export class DisplayContactInfoComponent implements OnInit {
   conInfoPhysical: ConInfoPhysical[] = [];
   conInfoSocial: ConInfoSocial[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private jsonDataService: JsonDataService) {}
 
   ngOnInit(): void {
-    this.http.get<{ physical: ConInfoPhysical[]; social: ConInfoSocial[] }>(
-      'assets/JSON/contact-information.json'
-    ).subscribe(
-      (response) => {
-        // Assign the fetched JSON data to respective properties
-        this.conInfoPhysical = response.physical;
-        this.conInfoSocial = response.social;
-      },
-      (error) => {
-        // Log an error message if the JSON file cannot be loaded
-        console.error('Error fetching JSON file:', error);
-      }
-    );
+
+    this.jsonDataService.loadData('assets/JSON/contact-information.json').subscribe(() => {
+      const data = this.jsonDataService.getData();
+
+      this.conInfoPhysical = data.physical;
+      this.conInfoSocial = data.social;
+
+    });
+
   }
 
   get getConInfoPhysical() {

@@ -1,6 +1,7 @@
 import { CommonModule} from '@angular/common';
 import { Component, Input, SimpleChanges  } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { JsonDataService } from '../../services/json-data.service';
+
 
 @Component({
   selector: 'app-image-display',
@@ -13,7 +14,7 @@ export class ImageDisplayComponent {
 
   images: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private jsonDataService: JsonDataService) {}
 
   @Input() fileToLoad: String = '';
 
@@ -35,16 +36,9 @@ export class ImageDisplayComponent {
   loadimages(contentToLoad: String)
   {
     
-    this.http.get<any[]>('assets/' + contentToLoad).subscribe(
-      (response) => {
-        // Success callback: Assign the fetched JSON data to the `menuItems` property
-        this.images = response;
-      },
-      (error) => {
-        // Error callback: Log an error message if the JSON file cannot be loaded
-        console.error('Error fetching JSON file:', error);
-      }
-    );
+    this.jsonDataService.loadData('assets/' + contentToLoad).subscribe(() => {
+      this.images = this.jsonDataService.getData();
+    });
 
   }
 
