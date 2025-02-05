@@ -1,0 +1,19 @@
+[
+    {
+      "imageUrl": "assets/image1.jpg",
+      "textBoxes": [{ "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet orci turpis. " }]
+    },
+    {
+      "imageUrl": "assets/image2.jpg",
+      "textBoxes": [{ "text": "fringilla mi vel, fermentum massa. Integer mollis nunc erat, nec aliquet quam mattis vestibulum. " }]
+    },
+    {
+      "imageUrl": "assets/image3.jpg",
+      "textBoxes": [{ "text": "Aenean ex libero, ullamcorper non neque in, vulputate dignissim nisi. Nam tincidunt sagittis lacus, sit amet semper odio aliquet eu." }]
+    },
+    {
+      "imageUrl": "assets/image4.jpg",
+      "textBoxes": [{ "text": "bibendum urna. Suspendisse tristique metus quis viverra commodo. " }]
+    }
+  ]
+  

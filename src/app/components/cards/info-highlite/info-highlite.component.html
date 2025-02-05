@@ -1,0 +1,21 @@
+<div class="image-slider">
+    <div class="image-container">
+      <img [src]="images[currentIndex]?.imageUrl" class="main-image" alt="Displayed Image" />
+    
+      <div class="overlay-text" *ngIf="images.length > 0 && images[currentIndex]?.textBoxes?.length">
+        <p>{{ images[currentIndex].textBoxes[0].text }}</p>
+      </div>
+    </div>
+  
+    <div class="text-box-container">
+      <div
+        *ngFor="let box of images; let i = index"
+        class="text-box"
+        [class.active]="i === currentIndex"
+        (click)="changeImage(i)"
+      >
+        <p *ngIf="box.textBoxes?.length">{{ box.textBoxes[0].text }}</p>
+      </div>
+    </div>
+  </div>
+  
