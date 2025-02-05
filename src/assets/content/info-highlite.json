@@ -2,7 +2,7 @@
     {
       "imageUrl": "./assets/images/motorcycle.png", 
       "title": "This is Box 1",
-      "textBoxes": [{ "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet orci turpis. " }]
+      "textBoxes": []
     },
     {
       "imageUrl": "./assets/images/snowtruck.jpg",
