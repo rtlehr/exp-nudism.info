@@ -6,14 +6,15 @@ $box-shadow-color: $primary;
 
 .image-slider {
   display: flex;
+  align-items: center;
   position: relative;
   width: fit-content;
 }
 
 .image-container {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: $image-size;
+  height: $image-size;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 10px 10px 0 $primary; 
@@ -30,8 +31,8 @@ $box-shadow-color: $primary;
 .overlay-text {
   position: absolute;
   top: 50%;
-  left: 45%;
-  transform: translate(-73%, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.4);
   color: white;
   padding: 10px 62px;
@@ -41,17 +42,17 @@ $box-shadow-color: $primary;
 
 .text-box-container {
   position: absolute;
-  right: -100px; // Overlaps the right side of the image
-  height: 500px;
-  width: 50px;
+  left: calc(100% - 100px); // Moves container 100px inside the image
+  height: $image-size;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .text-box {
-  width: 500px;
+  width: 100%;
   padding: 10px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
@@ -71,7 +72,5 @@ $box-shadow-color: $primary;
 }
 
 .text-box p {
-
   margin-bottom: 0 !important;
-
 }
