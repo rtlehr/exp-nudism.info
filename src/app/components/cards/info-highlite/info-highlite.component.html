@@ -3,7 +3,7 @@
       <img [src]="images[currentIndex]?.imageUrl" class="main-image" alt="Displayed Image" />
     
       <div class="overlay-text" *ngIf="images.length > 0 && images[currentIndex]?.textBoxes?.length">
-        <p>{{ images[currentIndex].textBoxes[0].text }}</p>
+        <p>{{ images[currentIndex].textBoxes[0].text }}</p> 
       </div>
     </div>
   
@@ -14,7 +14,7 @@
         [class.active]="i === currentIndex"
         (click)="changeImage(i)"
       >
-        <p *ngIf="box.textBoxes?.length">{{ box.textBoxes[0].text }}</p>
+        <p *ngIf="box.textBoxes?.length">{{ box.title }}</p>
       </div>
     </div>
   </div>

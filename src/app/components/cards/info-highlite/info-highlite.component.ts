@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; 
 
 interface ImageData {
   imageUrl: string;
+  title: string;
   textBoxes: { text: string }[];
 }
 
