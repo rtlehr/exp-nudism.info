@@ -2,25 +2,33 @@
     <div class="row">
     <!-- Sidebar -->
 
-    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+    <!-- Sidebar (Offcanvas on small screens) --> 
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar offcanvas-md offcanvas-start">
         <div class="position-sticky">
             <ul class="nav flex-column"> 
-                
                 @for (allBlogs of getAllBlogPosts; track allBlogs.id) {
                     <li class="nav-item">
                         <a 
-                          class="nav-link"
-                          [routerLink]="[this.blogURL,allBlogs.url]" 
-                          routerLinkActive="active"
-                          [routerLinkActiveOptions]="{ exact: true }">
-                          {{ allBlogs.title }}
+                        class="nav-link"
+                        [routerLink]="[this.blogURL,allBlogs.url]" 
+                        routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        (click)="closeSidebar()">
+                        {{ allBlogs.title }}
                         </a>
-                      </li>
+                    </li>
                 }
-
-        </ul>
+            </ul>
         </div>
     </nav>
+
+    <!-- Toggle Button for Sidebar (Visible on small screens) -->
+    <button class="btn btn-primary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+        ☰ Menu
+    </button>
+
+
+    
 
     <!-- Content Section -->
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

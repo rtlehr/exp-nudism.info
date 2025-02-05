@@ -1,3 +1,5 @@
+declare var bootstrap: any;
+
 import { Component } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -71,16 +73,14 @@ export class ContentWithSideMenuComponent {
   }
 
   closeSidebar() {
-    const sidebar = document.getElementById('sidebarMenu');
-    const backdrop = document.querySelector('.offcanvas-backdrop');
-  
-    if (sidebar) {
-      sidebar.classList.remove('show'); // Hides the sidebar
-    }
-  
-    if (backdrop) {
-      backdrop.remove(); // Removes the gray overlay
+    const sidebarElement = document.getElementById('sidebarMenu');
+    if (sidebarElement) {
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebarElement);
+      if (bsOffcanvas) {
+        bsOffcanvas.hide(); // Properly close offcanvas
+      }
     }
   }
+  
 
 }

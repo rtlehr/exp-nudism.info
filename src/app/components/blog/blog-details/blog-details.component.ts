@@ -1,3 +1,5 @@
+declare var bootstrap: any;
+
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../../services/blog.service';
@@ -101,5 +103,16 @@ export class BlogDetailsComponent {
     return this.blogAllPost;
 
   }
+
+  closeSidebar() {
+    const sidebarElement = document.getElementById('sidebarMenu');
+    if (sidebarElement) {
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebarElement);
+      if (bsOffcanvas) {
+        bsOffcanvas.hide(); // Properly close offcanvas
+      }
+    }
+  }
+
 
 }
