@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let person of people">
+        <div class="business-card">
+          <div class="card-content">
+            <img [src]="person.photo" alt="Profile Picture" class="profile-pic">
+            <div class="card-info">
+              <h2>{{ person.name }}</h2>
+              <p><strong>Business Phone:</strong> {{ person.businessPhone }}</p>
+              <p><strong>Cell:</strong> {{ person.cellPhone }}</p>
+              <p><strong>Email:</strong> <a [href]="'mailto:' + person.email">{{ person.email }}</a></p>
+              <div class="social-links">
+                <a *ngFor="let link of person.socialMedia" [href]="link.url" target="_blank">
+                  <i [class]="'fab ' + link.icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <p class="bio">{{ person.bio }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

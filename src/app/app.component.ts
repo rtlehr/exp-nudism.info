@@ -3,7 +3,7 @@ import { HeaderMenuComponent } from './components/header-menu/header-menu.compon
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet } from '@angular/router';
-import { InfoHighliteComponent } from './components/cards/info-highlite/info-highlite.component';
+import { BusinessCardComponent } from './components/cards/business-card/business-card.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { InfoHighliteComponent } from './components/cards/info-highlite/info-hig
   imports: [HeaderMenuComponent,
     DisplayLogoComponent,
     DisplayContactInfoComponent,
-    RouterOutlet, InfoHighliteComponent],
+    RouterOutlet, BusinessCardComponent],
     
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

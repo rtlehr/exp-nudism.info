@@ -1,0 +1,68 @@
+
+.business-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  
+  .card-content {
+    display: flex;
+    align-items: top;
+    gap: 15px;
+
+    .profile-pic {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .card-info {
+      flex: 1;
+      text-align: right;
+      
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+      
+      p {
+        font-size: 0.9rem;
+        margin: 2px 0;
+      }
+
+      .social-links {
+        margin-top: 5px;
+        
+        a {
+          margin-right: 8px;
+          color: #007bff;
+          font-size: 1.2rem;
+
+          &:hover {
+            color: #0056b3;
+          }
+        }
+      }
+    }
+  }
+
+  .bio {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: auto;
+  }
+}
+
+// Responsive layout
+@media (max-width: 768px) {
+  .business-card {
+    max-width: 100%;
+  }
+}

@@ -9,6 +9,7 @@ import { ImageSliderComponent } from '../../image-slider/image-slider.component'
 import { ContentTabsComponent } from '../../content-tabs/content-tabs.component';
 import { BlogListComponent } from '../../blog/blog-list/blog-list.component'; 
 import { pageContent } from '../../../models/page-content.model';
+import { InfoHighliteComponent } from '../../cards/info-highlite/info-highlite.component';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
@@ -23,7 +24,8 @@ import { ActivatedRoute } from '@angular/router';
     FormGeneratorComponent,
     ImageSliderComponent,
     ContentTabsComponent,
-    BlogListComponent],
+    BlogListComponent,
+    InfoHighliteComponent],
   templateUrl: './page-generator.component.html',
   styleUrl: './page-generator.component.css'
 })

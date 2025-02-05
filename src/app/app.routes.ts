@@ -128,6 +128,31 @@ export const routes: Routes = [
             }
           }
         ]
+      },
+      { 
+        path: 'cms-cards',
+        component: ContentWithSideMenuComponent,
+        title: 'Cards',
+        data: {
+          menu: true, 
+          pageContent: [
+            { contentType: "contentPage", divId: "contentBlockOne", contentFile: "content/pages/cms-information/component-samples/news/news.html" },
+            { contentType: "news", divId: "contentBlockTwo", contentFile: "content/pages/cms-information/component-samples/news/page-news.json" }
+          ]
+        },
+        children: [
+          { 
+            path: 'info-highlite',
+            component: PageGeneratorComponent,
+            title: 'Info Highlite',
+            data: {
+              menu: true,
+              pageContent: [
+                { contentType: "contentPage", divId: "contentBlockOne", contentFile: "content/pages/cms-information/cms-cards/info-highlite/info-highlite.html" },
+                {"contentType": "infoHighlite", "divId": "infoHighlite", "contentFile": "content/pages/cms-information/cms-cards/info-highlite/info-highlite.json"}]
+            }
+          }
+        ]
       }
     ]
   },
