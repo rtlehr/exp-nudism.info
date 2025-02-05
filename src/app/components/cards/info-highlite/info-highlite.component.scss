@@ -1,9 +1,5 @@
 @import "../../../../color-scheme.scss";
 
-$image-size: 500px;
-$box-height: 100px;
-$box-shadow-color: $primary; 
-
 .image-slider {
   display: flex;
   position: relative;
@@ -12,8 +8,6 @@ $box-shadow-color: $primary;
 
 .image-container {
   position: relative;
-  width: $image-size;
-  height: $image-size;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 10px 10px 0 $primary; 
@@ -21,8 +15,6 @@ $box-shadow-color: $primary;
 }
 
 .main-image {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -41,9 +33,6 @@ $box-shadow-color: $primary;
 
 .text-box-container {
   position: absolute;
-  right: -($image-size/4); // Overlaps the right side of the image
-  height: $image-size;
-  width: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -51,7 +40,6 @@ $box-shadow-color: $primary;
 }
 
 .text-box {
-  width: $image-size;
   padding: 10px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
@@ -62,6 +50,11 @@ $box-shadow-color: $primary;
   transition: all 0.3s ease-in-out;
   font-weight: bold;
 
+  display: flex;
+  justify-content: center;  // Centers horizontally
+  align-items: center;      // Centers vertically
+
+
   &:hover,
   &.active {
     background: $primaryLight;
@@ -71,7 +64,13 @@ $box-shadow-color: $primary;
 }
 
 .text-box p {
-
   margin-bottom: 0 !important;
-
+  font-size: 1rem;
+  text-align: center;
+  
 }
+
+
+
+
+

@@ -1,20 +1,23 @@
 <div class="image-slider">
-  <div class="image-container">
-    <img [src]="images[currentIndex]?.imageUrl" class="main-image" alt="Displayed Image" />
-
+  <div class="image-container" [style.width.px]="imageSize" [style.height.px]="imageSize">
+    <img [src]="images[currentIndex]?.imageUrl" class="main-image" alt="Displayed Image" [style.width.px]="imageSize" [style.height.px]="imageSize" />
+    
     <div class="overlay-text" *ngIf="images.length > 0 && images[currentIndex]?.textBoxes?.length">
-      <p>{{ images[currentIndex].textBoxes[0].text }}</p> 
+      <p [style.font-size.rem]="getFontSize()">{{ images[currentIndex].textBoxes[0].text }}</p> 
     </div>
   </div>
 
-  <div class="text-box-container">
+  <div class="text-box-container" [style.height.px]="imageSize" [style.right.px]="-((imageSize / 4)*3)">
     <div
       *ngFor="let box of images; let i = index"
       class="text-box"
       [class.active]="i === currentIndex"
       (click)="changeImage(i)"
+      [style.width.px]="imageSize"
+      [style.height.px]="imageSize / (images.length + 1)"
     >
-      <p>{{ box.title }}</p>
-    </div>
+    <p [style.font-size.rem]="getFontSize()">{{ box.title }}</p>
+
+  </div>
   </div>
 </div>

@@ -1,4 +1,7 @@
-[
+{
+"componentSize": 500,
+"autoScroll": false,
+"images" : [
     {
       "imageUrl": "./assets/images/motorcycle.png", 
       "title": "This is Box 1",
@@ -20,4 +23,5 @@
       "textBoxes": [{ "text": "bibendum urna. Suspendisse tristique metus quis viverra commodo. " }]
     }
   ]
+}
   
