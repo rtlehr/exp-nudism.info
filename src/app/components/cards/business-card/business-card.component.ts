@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { JsonDataService } from '../../../services/json-data.service';
 
 @Component({
   selector: 'app-business-card',
@@ -9,6 +10,18 @@ import { Component } from '@angular/core';
   styleUrl: './business-card.component.scss'
 })
 export class BusinessCardComponent { 
+/*
+  constructor(private jsonDataService: JsonDataService) {}
+
+  people: any[]: = [];
+
+  this.jsonDataService.loadData('assets/content/pages/cms-information/cms-cards/business-card/business-card.json').subscribe(() => {
+    this.people = this.jsonDataService.getData();
+  });
+*/
+
+
+  
   people = [
     {
       name: "John Doe",
@@ -32,7 +45,7 @@ export class BusinessCardComponent {
         { icon: "bi-linkedin", url: "https://linkedin.com/in/janesmith" },
         { icon: "bi-instagram", url: "https://instagram.com/janesmith" }
       ],
-      bio: "Jane is a graphic designer passionate about branding and UI/UX."
+      bio: "Jane is a graphic designer passionate about branding and UI/UX." 
     },
     {
       name: "Michael Brown",

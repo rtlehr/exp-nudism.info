@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { interval, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common'; 
 import { JsonDataService } from '../../../services/json-data.service'; 
@@ -31,7 +30,7 @@ export class InfoHighliteComponent implements OnInit, OnDestroy{
 
   imageSize: number = 150; // Default size, will be updated from JSON 
 
-  constructor(private http: HttpClient, private jsonDataService: JsonDataService) {}
+  constructor(private jsonDataService: JsonDataService) {}
 
   ngOnInit(): void {
 
