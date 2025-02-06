@@ -1,53 +1,60 @@
-
 .business-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  
-  .card-content {
-    display: flex;
-    align-items: top;
-    gap: 15px;
 
-    .profile-pic {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      object-fit: cover;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    height: 214px;
+    border: thin solid gray;
+
+
+  .photo-container {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-info {
+    padding-left: 100px; // Ensures text does not overlap with the image
+    text-align: right;
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    
+    p {
+      font-size: 0.75rem;
+      margin: 2px 0;
     }
 
-    .card-info {
-      flex: 1;
-      text-align: right;
+    .social-links {
+      margin-top: 5px;
       
-      h2 {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-      }
-      
-      p {
-        font-size: 0.9rem;
-        margin: 2px 0;
-      }
+      a {
+        margin-right: 8px;
+        color: #007bff;
+        font-size: 1.2rem;
 
-      .social-links {
-        margin-top: 5px;
-        
-        a {
-          margin-right: 8px;
-          color: #007bff;
-          font-size: 1.2rem;
-
-          &:hover {
-            color: #0056b3;
-          }
+        &:hover {
+          color: #0056b3;
         }
       }
     }
@@ -64,5 +71,16 @@
 @media (max-width: 768px) {
   .business-card {
     max-width: 100%;
+  }
+
+  .photo-container {
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    left: -20px;
+  }
+
+  .card-info {
+    padding-left: 90px;
   }
 }
