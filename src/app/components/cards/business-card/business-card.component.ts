@@ -17,8 +17,8 @@ export class BusinessCardComponent {
       cellPhone: "987-654-3210",
       email: "john.doe@example.com",
       socialMedia: [
-        { icon: "fa-facebook", url: "https://facebook.com/johndoe" },
-        { icon: "fa-twitter", url: "https://twitter.com/johndoe" }
+        { icon: "bi-facebook", url: "https://facebook.com/johndoe" },
+        { icon: "bi-twitter", url: "https://twitter.com/johndoe" }
       ],
       bio: "John is a software developer with 10 years of experience."
     },
@@ -29,8 +29,8 @@ export class BusinessCardComponent {
       cellPhone: "876-543-2109",
       email: "jane.smith@example.com",
       socialMedia: [
-        { icon: "fa-linkedin", url: "https://linkedin.com/in/janesmith" },
-        { icon: "fa-instagram", url: "https://instagram.com/janesmith" }
+        { icon: "bi-linkedin", url: "https://linkedin.com/in/janesmith" },
+        { icon: "bi-instagram", url: "https://instagram.com/janesmith" }
       ],
       bio: "Jane is a graphic designer passionate about branding and UI/UX."
     },
@@ -41,8 +41,8 @@ export class BusinessCardComponent {
       cellPhone: "765-432-1098",
       email: "michael.brown@example.com",
       socialMedia: [
-        { icon: "fa-github", url: "https://github.com/michaelbrown" },
-        { icon: "fa-twitter", url: "https://twitter.com/michaelbrown" }
+        { icon: "bi-github", url: "https://github.com/michaelbrown" },
+        { icon: "bi-twitter", url: "https://twitter.com/michaelbrown" }
       ],
       bio: "Michael is a data scientist specializing in AI and machine learning."
     }
