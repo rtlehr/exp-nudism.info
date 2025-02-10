@@ -151,6 +151,17 @@ export const routes: Routes = [
                 { contentType: "contentPage", divId: "contentBlockOne", contentFile: "content/pages/cms-information/cms-cards/info-highlite/info-highlite.html" },
                 {"contentType": "infoHighlite", "divId": "infoHighlite", "contentFile": "content/pages/cms-information/cms-cards/info-highlite/info-highlite.json"}]
             }
+          },
+          { 
+            path: 'business-cards',
+            component: PageGeneratorComponent,
+            title: 'Business Cards',
+            data: {
+              menu: true,
+              pageContent: [
+                { contentType: "contentPage", divId: "contentBlockOne", contentFile: "content/pages/cms-information/cms-cards/business-card/business-card.html" },
+                {"contentType": "businesscard", "divId": "businesscard", "contentFile": "content/pages/cms-information/cms-cards/business-card/business-card.json"}]
+            }
           }
         ]
       }

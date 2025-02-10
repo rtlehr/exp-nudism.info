@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { JsonDataService } from '../../../services/json-data.service';
 
 @Component({
@@ -10,54 +10,45 @@ import { JsonDataService } from '../../../services/json-data.service';
   styleUrl: './business-card.component.scss'
 })
 export class BusinessCardComponent { 
-/*
+
   constructor(private jsonDataService: JsonDataService) {}
 
-  people: any[]: = [];
+  @Input() fileToLoad: String = '';
 
-  this.jsonDataService.loadData('assets/content/pages/cms-information/cms-cards/business-card/business-card.json').subscribe(() => {
-    this.people = this.jsonDataService.getData();
-  });
-*/
+  @Input() divId: String = '';
 
+  people: any[] = [];
 
-  
-  people = [
-    {
-      name: "John Doe",
-      photo: "./assets/images/motorcycle.png",
-      businessPhone: "123-456-7890",
-      cellPhone: "987-654-3210",
-      email: "john.doe@example.com",
-      socialMedia: [
-        { icon: "bi-facebook", url: "https://facebook.com/johndoe" },
-        { icon: "bi-twitter", url: "https://twitter.com/johndoe" }
-      ],
-      bio: "John is a software developer with 10 years of experience."
-    },
-    {
-      name: "Jane Smith",
-      photo: "./assets/images/motorcycle.png",
-      businessPhone: "234-567-8901",
-      cellPhone: "876-543-2109",
-      email: "jane.smith@example.com",
-      socialMedia: [
-        { icon: "bi-linkedin", url: "https://linkedin.com/in/janesmith" },
-        { icon: "bi-instagram", url: "https://instagram.com/janesmith" }
-      ],
-      bio: "Jane is a graphic designer passionate about branding and UI/UX." 
-    },
-    {
-      name: "Michael Brown",
-      photo: "./assets/images/motorcycle.png",
-      businessPhone: "345-678-9012",
-      cellPhone: "765-432-1098",
-      email: "michael.brown@example.com",
-      socialMedia: [
-        { icon: "bi-github", url: "https://github.com/michaelbrown" },
-        { icon: "bi-twitter", url: "https://twitter.com/michaelbrown" }
-      ],
-      bio: "Michael is a data scientist specializing in AI and machine learning."
+  ngOnChanges(changes: SimpleChanges): void { 
+
+    if (changes['fileToLoad']) {
+
+      if(changes['fileToLoad'].currentValue != "")
+      {
+        this.loadPeople(changes['fileToLoad'].currentValue);
+      } 
+
     }
-  ];
+
+  }
+
+  loadPeople(contentToLoad: String)
+  {
+
+      this.jsonDataService.loadData('assets/' + contentToLoad).subscribe(() => {
+      
+      const data = this.jsonDataService.getData();
+
+      this.people = data.people;
+
+    });
+
+  }
+
+  get getPeople() {
+
+    return this.people;
+
+  }
+
 }
