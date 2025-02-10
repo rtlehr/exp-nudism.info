@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { BlogService } from '../../../services/blog.service';
 import { BlogPost } from '../../../models/blog-post.model';
-import { SharedDataService } from '../../../services/shared-data.service';
 
 interface pageContent {
   contentType: string;
@@ -28,7 +27,6 @@ export class BlogListComponent implements OnInit {
   constructor(private blogService: BlogService, 
     private router: Router, 
     private activatedRoute: ActivatedRoute,
-    private sharedDataService: SharedDataService,
     private location: Location) {}
 
   @Input() fileToLoad = '';
@@ -40,25 +38,19 @@ export class BlogListComponent implements OnInit {
   error: string | null = null;
 
   ngOnInit(): void {
-    this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
 
-    this.sharedDataService.set('blogPostsUrl', this.pageContent[0].contentFile);
+    this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
 
     this.blogService.getAllPosts(this.pageContent[0].contentFile).subscribe({
       next: (posts) => (this.blogPosts = posts),
       error: (err) => (this.error = 'Failed to load blog posts: ' + err.message),
     });
+
   }
 
   navigateToDetails(url: string): void {
 
-    //const pathElemets = this.location.path().split('/');
-
     const currurl = this.location.path();
-
-    //const cleanedURL = currurl.split("/").slice(0, -1).join("/");
-
-    //const blogPostsUrl = "assets/content/pages" + cleanedURL + "/blog-posts.json";
 
     this.router.navigate([currurl, url]);
 

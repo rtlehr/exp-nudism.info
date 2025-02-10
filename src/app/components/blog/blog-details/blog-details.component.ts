@@ -6,7 +6,6 @@ import { BlogService } from '../../../services/blog.service';
 import { BlogPost } from '../../../models/blog-post.model';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
-import { SharedDataService } from '../../../services/shared-data.service';
 import { pageContent } from '../../../models/page-content.model';
 import { MainContentComponent } from '../../main-content/main-content.component';
 import { ImageGalleryComponent } from '../../image-gallery/image-gallery.component';
@@ -41,7 +40,6 @@ export class BlogDetailsComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private blogService: BlogService,
-    private sharedDataService: SharedDataService,
     private location: Location,
   ) {}
 
