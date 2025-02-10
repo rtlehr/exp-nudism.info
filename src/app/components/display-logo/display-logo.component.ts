@@ -1,7 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ConfigService } from '../../services/config.service';
-import { HttpClient } from '@angular/common/http';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-display-logo',
@@ -20,33 +18,37 @@ export class DisplayLogoComponent {
 
   headerMenuItems: any[] = [];
 
+  menuItems: any[] = [];
+
   config: any;
 
-  constructor(private http: HttpClient, private location: Location, private configService: ConfigService) {} 
+  constructor(private router: Router) {} 
 
   ngOnInit(): void {
 
-    this.config = this.configService.getConfig();
+    const routes = this.router.config; 
+
+    this.menuItems = this.extractMenuItems(routes);
     
   }
 
   goHome(event: Event)
   {
 
-    this.http.get<any[]>('assets/' + this.config.headerMenuPath).subscribe(
-      
-      (response) => {
+    this.router.navigate([this.menuItems[0].path]);
 
-        this.headerMenuItems = response;
-        
-        this.location.replaceState(this.headerMenuItems[0]?.url || "");
+    }
 
-        this.parentEvent.emit();
+    private extractMenuItems(routes: any[]): any[] {
 
-      },
-      (error) => {
-        console.error('Error fetching JSON file:', error); 
-      });
+      return routes
+        .filter((route) => route.data?.menu) // Include only routes with `menu: true`
+        .map((route) => ({
+          title: route.title,
+          path: route.path,
+          children: route.children ? this.extractMenuItems(route.children) : null,
+        }));
+  
     }
 
 
