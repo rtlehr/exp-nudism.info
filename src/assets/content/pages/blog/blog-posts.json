@@ -7,7 +7,7 @@
       "date": "2025-01-01",
       "tags": ["Angular", "Web Development"],
       "imageUrl": "./assets/images/motorcycle.png", 
-      "isFeatured": true,
+      "isFeatured": false,
       "url" : "understanding-angular",
       "blogText": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/news/news.html"},
       {"contentType": "news", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/news/page-news.json"}]

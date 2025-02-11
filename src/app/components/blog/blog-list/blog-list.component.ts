@@ -31,7 +31,7 @@ export class BlogListComponent implements OnInit {
 
   @Input() fileToLoad = '';
 
-  pageContent: pageContent [] = [];
+  pageContent: pageContent [] = []; 
 
   blogPosts: BlogPost[] = [];
   
