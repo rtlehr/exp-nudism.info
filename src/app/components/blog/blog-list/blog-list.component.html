@@ -2,43 +2,53 @@
   <h1 class="text-center mb-4">Blog Posts</h1>
 
   <!-- Display error message if there is an error -->
-  <div *ngIf="error" class="alert alert-danger text-center">
-    {{ error }}
-  </div>
+  @if (error) {
+
+    <div class="alert alert-danger text-center">
+      {{ error }}
+    </div>
+
+  }
 
   <div class="row">
-    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let post of blogPosts">
-      <div class="card blog-card h-100 shadow">
-        <!-- Blog image -->
+    
+    @for (post of blogPosts; track post.id) {
 
-        <img
-        [src]="post.imageUrl"
-        class="card-img-top"
-        [alt]="post.title"
-        onerror="this.src='./assets/images/motorcycle.png';"
-      />
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card blog-card h-100 shadow">
+          <!-- Blog image -->
 
-        <div class="card-body">
-          <!-- Blog title -->
-          <h5 class="card-title text-truncate">{{ post.title }}</h5>
-          <!-- Blog preview content -->
-          <p class="card-text text-muted">
-            {{ post.content | slice: 0:100 }}...
-          </p>
-          <!-- Link to blog details -->
-          <button
-            class="btn btn-primary w-100"
-            (click)="navigateToDetails(post.url)"
-          >
-            Read More
-          </button>
-        </div>
+          <img
+          [src]="post.imageUrl"
+          class="card-img-top"
+          [alt]="post.title"
+          onerror="this.src='./assets/images/motorcycle.png';"
+        />
 
-        <!-- Blog footer (Author and date) -->
-        <div class="card-footer text-muted text-center">
-          <small>By {{ post.author }} on {{ post.date }}</small>
+          <div class="card-body">
+            <!-- Blog title -->
+            <h5 class="card-title text-truncate">{{ post.title }}</h5>
+            <!-- Blog preview content -->
+            <p class="card-text text-muted">
+              {{ post.content | slice: 0:100 }}...
+            </p>
+            <!-- Link to blog details -->
+            <button
+              class="btn btn-primary w-100"
+              (click)="navigateToDetails(post.url)"
+            >
+              Read More
+            </button>
+          </div>
+
+          <!-- Blog footer (Author and date) -->
+          <div class="card-footer text-muted text-center">
+            <small>By {{ post.author }} on {{ post.date }}</small>
+          </div>
         </div>
       </div>
-    </div>
+
+    }
+
   </div>
 </div>
