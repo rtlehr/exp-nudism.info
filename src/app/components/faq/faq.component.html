@@ -5,13 +5,13 @@
         
         @for(faqs of getFaqs; track faqs.id) 
         {
-        <li 
-          class="list-group-item">
-          <a href="javascript:void(0)" (click)="scrollToAnswer(faqs.id)">
-            {{ faqs.question }}
-          </a> 
-        </li>
-      }
+          <li 
+            class="list-group-item">
+            <a href="javascript:void(0)" (click)="scrollToAnswer(faqs.id)">
+              {{ faqs.question }}
+            </a> 
+          </li>
+        }
 
       </ul>
     </div>
@@ -19,12 +19,12 @@
     <div class="faq-answers mt-4">
       @for(faqs of getFaqs; track faqs.id) 
         {
-      <div [id]="'answer-' + faqs.id" class="faq-answer">
-        <h3>{{ faqs.question }}</h3>
-        <p>{{ faqs.answer }}</p>
-        <a href="javascript:void(0)" (click)="scrollToTop()">Back to Top</a>
-      </div>
-    }
+          <div [id]="'answer-' + faqs.id" class="faq-answer">
+            <h3>{{ faqs.question }}</h3>
+            <p>{{ faqs.answer }}</p>
+            <a href="javascript:void(0)" (click)="scrollToTop()">Back to Top</a>
+          </div>
+        }
     </div>
   </div>
   

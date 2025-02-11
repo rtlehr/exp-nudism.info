@@ -4,27 +4,34 @@
 
     <img [src]="images[currentIndex]?.imageUrl" class="main-image" alt="Displayed Image" [style.width.px]="imageSize" [style.height.px]="imageSize" />
 
-    <div class="overlay-text" *ngIf="images.length > 0 && images[currentIndex]?.textBoxes?.length">
-      <p [style.font-size.rem]="getFontSize()">{{ images[currentIndex].textBoxes[0].text }}</p> 
-    </div>
+    @if(images.length > 0 && images[currentIndex]?.textBoxes?.length){
+
+      <div class="overlay-text">
+        <p [style.font-size.rem]="getFontSize()">{{ images[currentIndex].textBoxes[0].text }}</p> 
+      </div>
+    
+    }
 
   </div>
 
   <div class="text-box-container" [style.height.px]="imageSize" [style.right.px]="-((imageSize / 4)*3)">
 
-    <div
-    *ngFor="let box of images; let i = index"
-    class="text-box"
-    [class.active]="i === currentIndex"
-    (click)="changeImage(i)"
-    [style.width.px]="imageSize"
-    [style.height.px]="imageSize / (images.length + 1)"
-    >
+    @for(box of images; track box.title){
 
-      <p [style.font-size.rem]="getFontSize()">{{ box.title }}</p>
+      <div
+      class="text-box"
+      [class.active]="$index === currentIndex"
+      (click)="changeImage($index)"
+      [style.width.px]="imageSize"
+      [style.height.px]="imageSize / (images.length + 1)"
+      >
 
-    </div>
+        <p [style.font-size.rem]="getFontSize()">{{ box.title }}</p>
 
+      </div>
+
+    }
+    
   </div>
 
 </div>

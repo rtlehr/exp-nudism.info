@@ -14,6 +14,8 @@ import { ImageSliderComponent } from '../../image-slider/image-slider.component'
 import { NewsComponent } from '../../news/news.component';
 import { FaqComponent } from '../../faq/faq.component';
 import { FormGeneratorComponent } from '../../form-generator/form-generator.component';
+import { InfoHighliteComponent } from '../../cards/info-highlite/info-highlite.component';
+import { BusinessCardComponent } from '../../cards/business-card/business-card.component';
 import { ContentTabsComponent } from '../../content-tabs/content-tabs.component';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
@@ -30,7 +32,9 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
             FormGeneratorComponent,
             ContentTabsComponent,
             RouterModule, 
-            RouterOutlet],
+            RouterOutlet,
+            InfoHighliteComponent,
+            BusinessCardComponent],
   templateUrl: './blog-details.component.html',
   styleUrl: './blog-details.component.scss',
   providers: [BlogService],
