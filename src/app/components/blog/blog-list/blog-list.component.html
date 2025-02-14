@@ -1,17 +1,29 @@
 <div class="container mt-5">
   <h1 class="text-center mb-4">Blog Posts</h1>
 
-  <!-- Display error message if there is an error -->
+  <!-- Display error message if there is an error --> 
   @if (error) {
-    <div class="alert alert-danger text-center">
+    <div class="alert alert-danger text-center"> 
       {{ error }}
     </div>
   }
 
+  <!-- Button to toggle between all and featured posts -->
+  <div class="text-center mb-4">
+    <button class="btn btn-secondary" (click)="toggleFeaturedPosts()">
+      {{ showFeaturedOnly ? 'Show All Posts' : 'Show Featured Posts' }}
+    </button>
+  </div>
+
   <div class="row"> 
     @for (post of blogPosts; track post.id) {
       <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card blog-card h-100 shadow" [class.featured]="post.isFeatured">
+
+        <div #blogItem class="card blog-card h-100 shadow blog-item" 
+        [class.visible]="isVisible"
+        [class.featured]="post.isFeatured"
+        >
+
           <!-- Blog image -->
           <img
             [src]="post.imageUrl"

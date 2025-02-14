@@ -24,5 +24,57 @@
       "url" : "This-is-the-other-thing",
       "blogText": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"},
       {"contentType": "faq", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/faqs/page-faq.json"}]
+    },
+    {
+      "id": 1,
+      "title": "Understanding Angular Standalone Components",
+      "content": "Standalone components in Angular simplify application structure by reducing module dependencies. In this post, we explore their benefits and practical usage.",
+      "author": "Jane Doe",
+      "date": "2025-01-01",
+      "tags": ["Angular", "Web Development"],
+      "imageUrl": "./assets/images/motorcycle.png", 
+      "isFeatured": false,
+      "url" : "understanding-angular",
+      "blogText": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/news/news.html"},
+      {"contentType": "news", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/news/page-news.json"}]
+    },
+    {
+      "id": 1,
+      "title": "This is the other thing",
+      "content": "Standalone components in Angular simplify application structure by reducing module dependencies. In this post, we explore their benefits and practical usage.",
+      "author": "Jane Doe",
+      "date": "2025-01-01",
+      "tags": ["Angular", "Web Development"],
+      "imageUrl": "./assets/images/snowtruck.jpg", 
+      "isFeatured": true,
+      "url" : "This-is-the-other-thing",
+      "blogText": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"},
+      {"contentType": "faq", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/faqs/page-faq.json"}]
+    },
+    {
+      "id": 1,
+      "title": "Understanding Angular Standalone Components",
+      "content": "Standalone components in Angular simplify application structure by reducing module dependencies. In this post, we explore their benefits and practical usage.",
+      "author": "Jane Doe",
+      "date": "2025-01-01",
+      "tags": ["Angular", "Web Development"],
+      "imageUrl": "./assets/images/motorcycle.png", 
+      "isFeatured": false,
+      "url" : "understanding-angular",
+      "blogText": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/news/news.html"},
+      {"contentType": "news", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/news/page-news.json"}]
+    },
+    {
+      "id": 1,
+      "title": "This is the other thing",
+      "content": "Standalone components in Angular simplify application structure by reducing module dependencies. In this post, we explore their benefits and practical usage.",
+      "author": "Jane Doe",
+      "date": "2025-01-01",
+      "tags": ["Angular", "Web Development"],
+      "imageUrl": "./assets/images/snowtruck.jpg", 
+      "isFeatured": true,
+      "url" : "This-is-the-other-thing",
+      "blogText": [{"contentType": "contentPage", "divId": "contentBlockOne", "contentFile": "content/pages/cms-information/component-samples/faqs/faqs.html"},
+      {"contentType": "faq", "divId": "contentBlockTwo", "contentFile": "content/pages/cms-information/component-samples/faqs/page-faq.json"}]
     }
   ]
