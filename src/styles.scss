@@ -11,7 +11,15 @@ h2 {
   color: $h1TextColor !important;
 }
 
+.pop-in {
+  opacity: 0;
+  transform: scale(0);
+}
 
+.pop-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
   
 // Import Bootstrap SCSS
 @import "bootstrap/scss/bootstrap";

@@ -19,7 +19,7 @@
     @for (post of blogPosts; track post.id) {
       <div class="col-md-6 col-lg-4 mb-4">
 
-        <div #blogItem class="card blog-card h-100 shadow blog-item" 
+        <div #blogItem class="card blog-card h-100 shadow pop-in" 
         [class.visible]="isVisible"
         [class.featured]="post.isFeatured"
         >
@@ -43,7 +43,8 @@
             
             <!-- Blog tags -->
             <div class="tags mb-2">
-                <span *ngFor="let tag of post.tags" class="badge bg-secondary me-1">{{ tag }}</span>
+                <span *ngFor="let tag of post.tags" class="badge bg-secondary me-1"
+                (click)="getTagPosts(tag)">{{ tag }}</span>
             </div>
             
             <!-- Blog preview content -->

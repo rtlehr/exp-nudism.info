@@ -65,13 +65,42 @@ export class BlogListComponent implements OnInit, AfterViewInit {
     });
   }
 
-  toggleFeaturedPosts(): void {
+  getTagPosts(tag: string): void {
     
+    this.removeVisible();
+
+    this.toggleShowAllButton();
+
+    this.blogService.getPostsByTag(this.pageContent[0].contentFile, tag).subscribe({
+      next: (posts) => {
+        this.blogPosts = posts;
+      },
+      error: (err) => {
+        this.error = 'Failed to load blog posts: ' + err.message;
+      },
+    });
+  }
+
+  removeVisible(): void {
     this.blogDivs.forEach((div) => {
       div.nativeElement.classList.remove('visible');
     });
+  }
 
-    this.showFeaturedOnly = !this.showFeaturedOnly;
+  toggleShowAllButton(): void {
+
+    //if(!this.showFeaturedOnly) {
+      this.showFeaturedOnly = !this.showFeaturedOnly;
+    //}
+
+  }
+
+  toggleFeaturedPosts(): void {
+
+    this.removeVisible();
+
+    this.toggleShowAllButton();
+    
     if (this.showFeaturedOnly) {
       this.getFeaturedPosts(); // Show featured posts only
     } else {
