@@ -11,13 +11,13 @@ interface ImageData {
 }
 
 @Component({
-  selector: 'app-info-highlite',
+  selector: 'app-info-highlight',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './info-highlite.component.html',
-  styleUrl: './info-highlite.component.scss'
+  templateUrl: './info-highlight.component.html',
+  styleUrl: './info-highlight.component.scss'
 })
-export class InfoHighliteComponent implements OnInit, OnDestroy{
+export class InfoHighlightComponent implements OnInit, OnDestroy{
 
   @Input() fileToLoad: String = '';
 

@@ -142,14 +142,14 @@ export const routes: Routes = [
         },
         children: [
           { 
-            path: 'info-highlite',
+            path: 'info-highlight',
             component: PageGeneratorComponent,
-            title: 'Info Highlite',
+            title: 'Info Highlight',
             data: {
               menu: true,
               pageContent: [
                 { contentType: "contentPage", divId: "contentBlockOne", contentFile: "content/pages/cms-information/cms-cards/info-highlite/info-highlite.html" },
-                {"contentType": "infoHighlite", "divId": "infoHighlite", "contentFile": "content/pages/cms-information/cms-cards/info-highlite/info-highlite.json"}]
+                {"contentType": "infoHighlight", "divId": "infoHighlight", "contentFile": "content/pages/cms-information/cms-cards/info-highlite/info-highlite.json"}]
             }
           },
           { 

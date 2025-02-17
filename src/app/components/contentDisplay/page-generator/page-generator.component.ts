@@ -9,7 +9,7 @@ import { ImageSliderComponent } from '../../image-slider/image-slider.component'
 import { ContentTabsComponent } from '../../content-tabs/content-tabs.component';
 import { BlogListComponent } from '../../blog/blog-list/blog-list.component'; 
 import { pageContent } from '../../../models/page-content.model';
-import { InfoHighliteComponent } from '../../cards/info-highlite/info-highlite.component';
+import { InfoHighlightComponent } from '../../cards/info-highlight/info-highlight.component';
 import { BusinessCardComponent } from '../../cards/business-card/business-card.component';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -26,7 +26,7 @@ import { ActivatedRoute } from '@angular/router';
     ImageSliderComponent,
     ContentTabsComponent,
     BlogListComponent,
-    InfoHighliteComponent,
+    InfoHighlightComponent,
     BusinessCardComponent],
   templateUrl: './page-generator.component.html',
   styleUrl: './page-generator.component.css'
