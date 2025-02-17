@@ -57,7 +57,7 @@
       "content": "Standalone components in Angular simplify application structure by reducing module dependencies. In this post, we explore their benefits and practical usage.",
       "author": "Jane Doe",
       "date": "2025-01-01",
-      "tags": ["Angular", "Web Development"],
+      "tags": ["Angular"],
       "imageUrl": "./assets/images/motorcycle.png", 
       "isFeatured": false,
       "url" : "understanding-angular",

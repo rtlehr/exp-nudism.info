@@ -20,7 +20,7 @@ interface pageContent {
   styleUrls: ['./blog-list.component.scss'],
   providers: [BlogService],
 })
-export class BlogListComponent implements OnInit, AfterViewInit {
+export class BlogListComponent implements OnInit {
 
   constructor(private blogService: BlogService, 
     private router: Router, 
@@ -43,10 +43,27 @@ export class BlogListComponent implements OnInit, AfterViewInit {
     this.getAllPosts();
   }
 
+ // ngAfterViewInit(): void {
+
+    //console.log("ngAfterViewInit");
+
+   /* this.blogDivs.changes.subscribe(() => {
+      console.log("this.blogDivs.length: " + this.blogDivs.length);
+      console.log("this.blogPosts.length: " + this.blogPosts.length);
+      if (this.blogDivs.length === this.blogPosts.length) {
+
+        this.onAllPostsRendered();
+      }
+
+   });*/
+
+  //}
+
   getAllPosts(): void {
     this.blogService.getAllPosts(this.pageContent[0].contentFile).subscribe({
       next: (posts) => {
         this.blogPosts = posts;
+        setTimeout(() => this.onAllPostsRendered());
       },
       error: (err) => {
         this.error = 'Failed to load blog posts: ' + err.message;
@@ -55,25 +72,29 @@ export class BlogListComponent implements OnInit, AfterViewInit {
   }
 
   getFeaturedPosts(): void {
+
     this.blogService.getFeaturedPosts(this.pageContent[0].contentFile).subscribe({
       next: (posts) => {
         this.blogPosts = posts;
+        setTimeout(() => this.onAllPostsRendered());
       },
       error: (err) => {
         this.error = 'Failed to load blog posts: ' + err.message;
       },
     });
+
   }
 
   getTagPosts(tag: string): void {
     
     this.removeVisible();
 
-    this.toggleShowAllButton();
+    this.showFeaturedOnly = true;
 
     this.blogService.getPostsByTag(this.pageContent[0].contentFile, tag).subscribe({
       next: (posts) => {
         this.blogPosts = posts;
+        setTimeout(() => this.onAllPostsRendered());
       },
       error: (err) => {
         this.error = 'Failed to load blog posts: ' + err.message;
@@ -89,9 +110,7 @@ export class BlogListComponent implements OnInit, AfterViewInit {
 
   toggleShowAllButton(): void {
 
-    //if(!this.showFeaturedOnly) {
       this.showFeaturedOnly = !this.showFeaturedOnly;
-    //}
 
   }
 
@@ -106,14 +125,6 @@ export class BlogListComponent implements OnInit, AfterViewInit {
     } else {
       this.getAllPosts(); // Show all posts
     }
-  }
-
-  ngAfterViewInit(): void {
-    this.blogDivs.changes.subscribe(() => {
-      if (this.blogDivs.length === this.blogPosts.length) {
-        this.onAllPostsRendered();
-      }
-    });
   }
 
   onAllPostsRendered(): void {
