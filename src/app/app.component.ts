@@ -12,7 +12,6 @@ import { BusinessCardComponent } from './components/cards/business-card/business
     DisplayLogoComponent,
     DisplayContactInfoComponent,
     RouterOutlet, BusinessCardComponent],
-    
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
