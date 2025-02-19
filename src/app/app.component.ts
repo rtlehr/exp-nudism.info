@@ -22,6 +22,6 @@ export class AppComponent {
 
   config: any;
 
-  ngOnInit() {}
+  ngOnInit() {} 
 
 }
