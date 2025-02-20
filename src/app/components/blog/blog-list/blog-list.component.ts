@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { BlogService } from '../../../services/blog.service';
 import { BlogPost } from '../../../models/blog-post.model';
+import { ModalWindowService } from '../../../services/modal-window.service';
 
 interface pageContent {
   contentType: string;
@@ -25,7 +26,8 @@ export class BlogListComponent implements OnInit {
   constructor(private blogService: BlogService, 
     private router: Router, 
     private activatedRoute: ActivatedRoute,
-    private location: Location) {}
+    private location: Location,
+    private modalWindowService: ModalWindowService) {}
 
   @Input() fileToLoad = '';
 
@@ -139,4 +141,12 @@ export class BlogListComponent implements OnInit {
     const currurl = this.location.path();
     this.router.navigate([currurl, url]);
   }
+
+  openModalWindow(modalContent: any) {
+
+    console.log("openModalWindow from blog-list component");
+
+    this.modalWindowService.openModalWindow(modalContent);
+  }
+
 }

@@ -1,0 +1,46 @@
+/* Background styling for the modal */
+.modal {
+    position: fixed; 
+    z-index: 1050; /* Above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+    display: flex; /* Flexbox to center the modal */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .modal-dialog {
+    position: relative; /* Allow positioning inside the flex container */
+    max-width: 80%; /* Max width of the modal */
+    max-height: 80%; /* Max height of the modal */
+    resize: both;
+    overflow: auto; /* Allow content to overflow when resized */
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+    background-color: white;
+    resize: both; /* Enable resizing */
+    overflow: auto; /* Allow content to overflow when resized */
+  }
+  
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .modal-footer {
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  

@@ -3,6 +3,7 @@ import { HeaderMenuComponent } from './components/header-menu/header-menu.compon
 import { DisplayLogoComponent } from './components/display-logo/display-logo.component';
 import { DisplayContactInfoComponent } from './components/display-contact-info/display-contact-info.component';
 import { RouterOutlet } from '@angular/router';
+import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [HeaderMenuComponent,
     DisplayLogoComponent,
     DisplayContactInfoComponent,
-    RouterOutlet],
+    RouterOutlet,
+    ModalWindowComponent],
     
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
