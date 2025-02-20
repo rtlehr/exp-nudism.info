@@ -81,18 +81,19 @@ export class MainContentComponent {
   attachClickEvents() {
     if (!this.contentContainer) return;
   
-    const buttons = this.contentContainer.nativeElement.querySelectorAll('[data-click]');
+    const elements = this.contentContainer.nativeElement.querySelectorAll('[data-click]');
   
-    buttons.forEach((button: HTMLElement) => {
-      const functionName = button.getAttribute('data-click');
-      const jsonData = button.getAttribute('data-content');
+    elements.forEach((element: HTMLElement) => {
+      const functionName = element.getAttribute('data-click');
+      const jsonData = element.getAttribute('data-content');
   
       if (functionName === 'openModalWindow' && jsonData) {
         try {
-          const parsedData = JSON.parse(jsonData); // Convert string to JSON object
+          const modalData = JSON.parse(jsonData); // Convert JSON string to object
   
-          this.renderer.listen(button, 'click', () => {
-            this.openModalWindow(parsedData);
+          this.renderer.listen(element, 'click', (event) => {
+            event.preventDefault(); // Prevent default link behavior
+            this.openModalWindow(modalData);
           });
   
         } catch (error) {

@@ -1,3 +1,4 @@
+<trigger-modal data-content='{"title": "Auto Modal", "content": "This modal was triggered automatically!"}'></trigger-modal>
 <div>
     <h2>How to Use and Activate the Modal Window</h2>
     <p>
@@ -6,15 +7,32 @@
       and include optional JSON content in <code>data-content</code>.
     </p>
   
-    <h3>Example: Manually Trigger Modal</h3>
+    <h3>Example: Manually Trigger Modal with <button></h3>
     <pre>
       <code>
-  &lt;button data-click="openModalWindow" data-content='{"title": "Hello", "message": "This modal was opened by a button!"}'&gt;
+  &lt;button data-click="openModalWindow" data-content='{"title": "Hello", "content": "This modal was opened by a button!"}'&gt;
     Open Modal
   &lt;/button&gt;
       </code>
     </pre>
-  
+    <button data-click="openModalWindow" data-content='{"title": "Hello", "content": "This modal was opened by a button!"}'>
+      Open Modal
+    </button>
+    <p>&nbsp;</p>
+    <p>
+      <h3>Example: Manually Trigger Modal with <a></h3>
+    <pre>
+      <code>
+  &lt;a href="#" data-click="openModalWindow" data-content='{"title": "Hello", "content": "This modal was opened from a link!"}'&gt;
+  pen Modal from Link
+  &lt;/a&gt;
+      </code>
+    </pre>
+      <a href="#" data-click="openModalWindow" data-content='{"title": "Link Clicked", "content": "This modal was opened from a link!"}'>
+        Open Modal from Link
+      </a>
+    </p>
+    <p>&nbsp;</p>
     <p>
       To automatically trigger the modal when loading a content file, include a <code>&lt;trigger-modal&gt;</code> tag 
       inside the HTML file being loaded. The modal will extract the <code>data-content</code> attribute and display the content.
@@ -23,7 +41,7 @@
     <h3>Example: Auto-Trigger Modal on Load</h3>
     <pre>
       <code>
-  &lt;trigger-modal data-content='{"title": "Auto Modal", "message": "This modal was triggered automatically!"}'&gt;&lt;/trigger-modal&gt;
+  &lt;trigger-modal data-content='{"title": "Auto Modal", "content": "This modal was triggered automatically!"}'&gt;&lt;/trigger-modal&gt;
       </code>
     </pre>
   
