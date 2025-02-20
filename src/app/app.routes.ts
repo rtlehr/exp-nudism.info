@@ -164,6 +164,17 @@ export const routes: Routes = [
             }
           }
         ]
+      },
+      { 
+        path: 'modal-wondow',
+        component: PageGeneratorComponent,
+        title: 'Modal Window',
+        data: {
+          menu: true, 
+          pageContent: [
+            { contentType: "contentPage", divId: "modalWindow", contentFile: "content/pages/cms-information/modal-window/modal-window.html" }
+          ]
+        }
       }
     ]
   },

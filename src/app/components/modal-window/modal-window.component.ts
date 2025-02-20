@@ -27,6 +27,8 @@ export class ModalWindowComponent {
 
       this.modalContent = windowInfo.content;
 
+      this.modalTitle = windowInfo.title;
+
       this.openModalWindow();
 
     });
@@ -40,6 +42,13 @@ export class ModalWindowComponent {
 
     this.isVisible = true;
 
+  }
+
+  closeModalWindow(): void
+  {
+    console.log("closeModalWindow from modal-window component");
+
+    this.isVisible = false;
   }
 
 }

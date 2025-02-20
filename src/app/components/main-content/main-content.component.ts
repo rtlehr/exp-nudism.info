@@ -40,10 +40,11 @@ export class MainContentComponent {
     this.http.get(`assets/${fileName}`, { responseType: 'text' }).subscribe({
       next: (html) => {
         this.htmlContent = this.sanitizer.bypassSecurityTrustHtml(html);
-        
+  
         setTimeout(() => {
           this.attachClickEvents();
           this.highlightCode();
+          this.checkForModalTrigger();
         }, 10);
       },
       error: (err) => {
@@ -52,6 +53,30 @@ export class MainContentComponent {
       }
     });
   }
+  
+  checkForModalTrigger() {
+    if (!this.contentContainer) return;
+  
+    const modalTrigger = this.contentContainer.nativeElement.querySelector('trigger-modal');
+    
+    if (modalTrigger) {
+      const jsonData = modalTrigger.getAttribute('data-content');
+      
+      if (jsonData) {
+        try {
+          const modalData = JSON.parse(jsonData); // Convert JSON string to object
+          this.openModalWindow(modalData);
+        } catch (error) {
+          console.error("Invalid JSON in trigger-modal:", error);
+        }
+      }
+  
+      // Remove the trigger-modal tag to avoid duplicate triggers
+      modalTrigger.remove();
+    }
+  }
+  
+  
 
   attachClickEvents() {
     if (!this.contentContainer) return;
