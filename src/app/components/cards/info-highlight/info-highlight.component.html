@@ -2,12 +2,12 @@
   
   <div class="image-container" [style.width.px]="imageSize" [style.height.px]="imageSize">
 
-    <img [src]="images[currentIndex]?.imageUrl" class="main-image" alt="Displayed Image" [style.width.px]="imageSize" [style.height.px]="imageSize" />
+    <img [src]="images[currentIndex].imageUrl" class="main-image" alt="Displayed Image" [style.width.px]="imageSize" [style.height.px]="imageSize" />
 
-    @if(images.length > 0 && images[currentIndex]?.textBoxes?.length){
+    @if(images.length > 0 && images[currentIndex].textBoxes.length){
 
       <div class="overlay-text">
-        <p [style.font-size.rem]="getFontSize()">{{ images[currentIndex].textBoxes[0].text }}</p> 
+        <p [style.font-size.rem]="getFontSize()">{{ images[currentIndex].textBoxes[0].text }}</p>  
       </div>
     
     }
