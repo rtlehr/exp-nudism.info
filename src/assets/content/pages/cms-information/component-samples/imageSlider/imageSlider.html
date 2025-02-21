@@ -1,33 +1,45 @@
-<p>The <strong>Image Slider Component</strong> is a responsive and customizable carousel designed to display images dynamically. It fetches image data, including captions and additional details, from a JSON file, allowing for easy updates and configuration. The slider supports automatic transitions with a smooth animation effect, cycling through images from right to left after a set interval. Users can also navigate manually using previous and next buttons. The size of the slider is fully adjustable through configurable width and height properties, ensuring compatibility with various screen sizes and layouts. Built with Angular, Bootstrap, and custom CSS, this component blends functionality with a sleek, modern design.</p>
+<h2>Image Slider Component</h2>
 
-JSON Code for the sample below
+<p>The Image Slider component displays a set of images in a sliding format, where the images transition automatically at a set interval. Users can also manually navigate between images using the previous and next buttons.</p>
 
-<pre>
+<h3>Inputs</h3>
+<ul>
+  <li><strong>fileToLoad (string)</strong> - The path to the JSON file containing image data. The JSON file should include the image sources, titles, and additional configuration like slider width, height, and interval.</li>
+  <li><strong>sliderWidth (string)</strong> - The width of the slider. You can set it as a percentage (e.g., '100%') or fixed pixel value (e.g., '800px'). Defaults to '100%'.</li>
+  <li><strong>sliderHeight (string)</strong> - The height of the slider. Set it to your preferred height, such as '400px'. Defaults to '300px'.</li>
+  <li><strong>imagesCount (number)</strong> - The number of images to display in the slider. This value is automatically set based on the loaded images.</li>
+  <li><strong>divId (string)</strong> - An optional ID for the component’s root div element. Use this if you need to reference the slider programmatically.</li>
+</ul>
 
-    <code  class="json">
+<h3>JSON Configuration</h3>
+<p>Here is the structure of the JSON file you should provide to the <code>fileToLoad</code> input:</p>
 
+<pre><code>
 {
-    "width": "800px",
-    "height": "400px",
-    "slideInterval": 3000,
-    "images": [
+  "width": "800px",  <!-- Slider width -->
+  "height": "400px", <!-- Slider height -->
+  "slideInterval": 3000, <!-- Time in milliseconds between slides -->
+  "images": [
     {
-        "src": "./assets/images/flag.jpeg",
-        "alt": "Image 1"
+      "src": "./assets/images/flag.jpeg",  <!-- Image source -->
+      "alt": "Image 1"  <!-- Image alt text -->
     },
     {
-        "src": "./assets/images/airplane.jpeg",
-        "alt": "Image 2"
+      "src": "./assets/images/airplane.jpeg", 
+      "alt": "Image 2"
     },
     {
-        "src": "./assets/images/motorcycle.png",
-        "alt": "Image 3"
+      "src": "./assets/images/motorcycle.png", 
+      "alt": "Image 3"
     }
-    ]
+  ]
 }
+</code></pre>
 
-    </code>
-
-  </pre>
-
-  
+<h3>How It Works</h3>
+<ul>
+  <li>Images are automatically loaded from the provided JSON file.</li>
+  <li>The slider will start with the first image and automatically transition to the next image every few seconds based on the <code>slideInterval</code> value.</li>
+  <li>You can navigate between images manually using the previous and next buttons, or wait for the automatic transition.</li>
+  <li>Each image will be displayed according to the width and height defined in the JSON configuration or passed as input.</li>
+</ul>
