@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ModalWindowService } from '../../services/modal-window.service';
+import { MainContentComponent } from '../main-content/main-content.component';
 
 @Component({
   selector: 'app-modal-window',
   standalone: true,
-  imports: [],
+  imports: [MainContentComponent],
   templateUrl: './modal-window.component.html',
   styleUrl: './modal-window.component.scss'
 })
@@ -12,8 +13,9 @@ export class ModalWindowComponent {
 
   constructor(private modalWindow: ModalWindowService) {}
 
-  modalTitle: String = "THIS IS THE MODAL TITLE"
-  modalContent: String = "THIS IS A TEST";
+  fileToLoad: string = ""
+  divId: string = "";
+  modalTitle: string = "";
   modalHeight: Number = 500;
   modalWidth: Number = 700;
 
@@ -25,9 +27,15 @@ export class ModalWindowComponent {
 
       console.log("openModalWindow from modal-window component subscribe");
 
-      this.modalContent = windowInfo.content;
+      this.fileToLoad = windowInfo.contentFile;
+
+      this.divId = windowInfo.divId;
 
       this.modalTitle = windowInfo.title;
+
+      this.modalHeight = windowInfo.height;
+
+      this.modalWidth = windowInfo.width;
 
       this.openModalWindow();
 

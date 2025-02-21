@@ -1,52 +1,135 @@
-<trigger-modal data-content='{"title": "Auto Modal", "content": "This modal was triggered automatically!"}'></trigger-modal>
-<div>
-    <h2>How to Use and Activate the Modal Window</h2>
-    <p>
-      The modal window can be triggered manually using a button or automatically when loading content.
-      To manually open the modal, add a button with the <code>data-click="openModalWindow"</code> attribute
-      and include optional JSON content in <code>data-content</code>.
-    </p>
-  
-    <h3>Example: Manually Trigger Modal with &lt;button&gt;</h3>
-    <pre>
+<trigger-modal data-content='{  "title": "Auto Triggered Modal Window",
+                                "divId": "modalWindowContent", 
+                                "contentFile": "content/pages/cms-information/modal-window/auto-triggered-modal.html",
+                                "width": 700,
+                                "height": 500 }'>
+</trigger-modal>
+
+<div class="container mt-4">
+  <h2>How to Use and Activate the Modal Window</h2>
+
+  <p>
+      The modal window can be triggered <strong>manually</strong> using a button or link, or <strong>automatically</strong> when loading content.
+  </p>
+
+  <hr>
+
+  <h3>Understanding the <code>data-content</code> JSON Structure</h3>
+  <p>
+      The <code>data-content</code> attribute contains a JSON object that defines the modal’s properties. Below is an explanation of each key:
+  </p>
+
+  <table class="table table-bordered">
+      <thead class="table-dark">
+          <tr>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Description</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><code>title</code></td>
+              <td>String</td>
+              <td>The title displayed in the modal window.</td>
+          </tr>
+          <tr>
+              <td><code>divId</code></td>
+              <td>String</td>
+              <td>The ID of the <code>&lt;div&gt;</code> where dynamic content will be loaded (if applicable).</td>
+          </tr>
+          <tr>
+              <td><code>contentFile</code></td>
+              <td>String</td>
+              <td>A file path pointing to an external HTML file to be loaded inside the modal.</td>
+          </tr>
+          <tr>
+              <td><code>width</code></td>
+              <td>Number</td>
+              <td>The width of the modal window in pixels.</td>
+          </tr>
+          <tr>
+              <td><code>height</code></td>
+              <td>Number</td>
+              <td>The height of the modal window in pixels.</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <hr>
+
+  <h3>Example 1: Button to Open Modal</h3>
+  <p>The following button opens a modal window with predefined settings:</p>
+  <pre>
       <code>
-  &lt;button data-click="openModalWindow" data-content='{"title": "Hello", "content": "This modal was opened by a button!"}'&gt;
-    Open Modal
-  &lt;/button&gt;
+&lt;button data-click="openModalWindow" 
+      data-content='{  
+        "title": "Hello from Button",
+        "contentFile": "content/pages/cms-information/modal-window/button-modal.html",
+        "width": 700,
+        "height": 500 
+      }'&gt;
+  Open Modal
+&lt;/button&gt;
       </code>
-    </pre>
-    <button data-click="openModalWindow" data-content='{"title": "Hello", "content": "This modal was opened by a button!"}'>
+  </pre>
+  <button class="btn btn-primary" data-click="openModalWindow" 
+      data-content='{  
+        "title": "Hello from Button",
+        "contentFile": "content/pages/cms-information/modal-window/button-modal.html",
+        "width": 700,
+        "height": 500 
+      }'>
       Open Modal
-    </button>
-    <p>&nbsp;</p>
-    <p>
-      <h3>Example: Manually Trigger Modal with &lt;a&gt;</h3>
-    <pre>
+  </button>
+
+  <hr>
+
+  <h3>Example 2: Link to Open Modal</h3>
+  <p>You can also open the modal using a standard hyperlink:</p>
+  <pre>
       <code>
-  &lt;a href="#" data-click="openModalWindow" data-content='{"title": "Hello", "content": "This modal was opened from a link!"}'&gt;
-  pen Modal from Link
-  &lt;/a&gt;
+&lt;a href="#" data-click="openModalWindow" 
+ data-content='{  
+   "title": "Hello from Link",
+   "contentFile": "content/pages/cms-information/modal-window/anchor-modal.html",
+   "width": 700,
+   "height": 500 
+ }'&gt;
+  Open Modal from Link
+&lt;/a&gt;
       </code>
-    </pre>
-      <a href="#" data-click="openModalWindow" data-content='{"title": "Link Clicked", "content": "This modal was opened from a link!"}'>
-        Open Modal from Link
-      </a>
-    </p>
-    <p>&nbsp;</p>
-    <p>
-      To automatically trigger the modal when loading a content file, include a <code>&lt;trigger-modal&gt;</code> tag 
-      inside the HTML file being loaded. The modal will extract the <code>data-content</code> attribute and display the content.
-    </p>
-  
-    <h3>Example: Auto-Trigger Modal on Load</h3>
-    <pre>
+  </pre>
+  <a href="#" data-click="openModalWindow" 
+      data-content='{  
+        "title": "Hello from Link",
+        "contentFile": "content/pages/cms-information/modal-window/anchor-modal.html",
+        "width": 700,
+        "height": 500 
+      }'>
+      Open Modal from Link
+  </a>
+
+  <hr>
+
+  <h3>Automatically Triggering the Modal on Page Load</h3>
+  <p>
+      If you want the modal to open <strong>automatically</strong> when a content file is loaded, include a <code>&lt;trigger-modal&gt;</code> tag inside the HTML file.
+  </p>
+
+  <pre>
       <code>
-  &lt;trigger-modal data-content='{"title": "Auto Modal", "content": "This modal was triggered automatically!"}'&gt;&lt;/trigger-modal&gt;
+&lt;trigger-modal data-content='{   "title": "Auto Triggered Modal Window",
+                                  "divId": "modalWindowContent", 
+                                  "contentFile": "content/pages/cms-information/modal-window/auto-triggered-modal.html",
+                                  "width": 700,
+                                  "height": 500 }'&gt;
+                                  &lt;/trigger-modal&gt;
+
       </code>
-    </pre>
-  
-    <p>
+  </pre>
+
+  <p>
       When the content containing <code>&lt;trigger-modal&gt;</code> is loaded, the modal will automatically display with the provided message.
-    </p>
-  </div>
-  
+  </p>
+</div>

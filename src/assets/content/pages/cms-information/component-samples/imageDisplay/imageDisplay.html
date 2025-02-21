@@ -1,37 +1,78 @@
-<p>
-    The <strong>Image Display Component</strong> is an Angular component designed to showcase images dynamically. It reads image data, including file paths, titles, and descriptions, from a JSON file and displays them in a responsive gallery. Each image opens in a modal window when clicked, providing a larger view along with additional details. This component leverages Bootstrap for styling, ensuring a clean and user-friendly interface while promoting scalability and easy content updates.
-  </p>
-   JSON Code for the sample below
+<h2>Image Display Component Instructions</h2>
 
-<pre>
+<p>The <code>ImageDisplayComponent</code> is used to display a gallery of images, with the option to view a larger version in a modal window when clicked. It handles both public and private images, with placeholders for private ones.</p>
 
-  <code  class="json">
+<h3>Usage</h3>
+
+<p>To use the <code>ImageDisplayComponent</code> in your Angular project:</p>
+
+<ol>
+  <li>Import and configure the <code>ImageDisplayComponent</code> in your Angular module.</li>
+  <li>Provide the component with the path to the JSON data file containing image information.</li>
+  <li>Use the component in your HTML by passing the <code>divId</code> and the <code>fileToLoad</code> inputs as required.</li>
+</ol>
+
+<h3>Component Inputs</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Input Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>fileToLoad</code></td>
+      <td>String</td>
+      <td>Path to the JSON file containing image data (e.g., 'assets/images-data.json').</td>
+    </tr>
+    <tr>
+      <td><code>divId</code></td>
+      <td>String</td>
+      <td>Unique ID for the div element containing the gallery of images.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>JSON Data Structure</h3>
+<p>The component expects the following structure for the JSON data file:</p>
+<pre><code class="json">
 [
-  {
-    "id": "1",
-    "src": "./assets/images/Image-Gallery/imageGallery/testImage.jpg",
-    "largeSrc": "./assets/images/Image-Gallery/imageGallery/testImage.jpg",
-    "title": "Image 1",
-    "description": "This is the description for Image 1.",
-    "private": "false" 
-  },
-  {
-    "id": "2",
-    "src": "./assets/images/Image-Gallery/imageGallery/testImage.jpg",
-    "largeSrc": "./assets/images/Image-Gallery/imageGallery/testImage.jpg",
-    "title": "Image 1",
-    "description": "This is the description for Image 1.",
-    "private": "true"
-  },
-  {
-    "id": "3",
-    "src": "./assets/images/Image-Gallery/imageGallery/testImage.jpg",
-    "largeSrc": "./assets/images/Image-Gallery/imageGallery/testImage.jpg",
-    "title": "Image 1",
-    "description": "This is the description for Image 1.",
-    "private": "false"
-  }
+    {
+        "id": "1",
+        "src": "./assets/images/flag.jpeg",
+        "largeSrc": "./assets/images/flag.jpeg",
+        "title": "Image 1",
+        "description": "This is the description for Image 1.",
+        "private": "false" 
+    },
+    {
+        "id": "2",
+        "src": "./assets/images/airplane.jpeg",
+        "largeSrc": "./assets/images/airplane.jpeg",
+        "title": "Image 2",
+        "description": "This is the description for Image 2.",
+        "private": "true"
+    },
+    {
+        "id": "3",
+        "src": "./assets/images/motorcycle.png",
+        "largeSrc": "./assets/images/motorcycle.png",
+        "title": "Image 3",
+        "description": "This is the description for Image 3.",
+        "private": "false"
+    }
 ]
-  </code>
+</code></pre>
 
-</pre>
+<h3>Features</h3>
+<ul>
+  <li>Displays images in a grid layout.</li>
+  <li>Private images are replaced with a placeholder image.</li>
+  <li>Clicking an image opens a modal with a larger view and description.</li>
+  <li>Clicking the close button or anywhere outside the modal closes it.</li>
+</ul>
+
+<h3>Conclusion</h3>
+<p>This <code>ImageDisplayComponent</code> provides an easy way to create an interactive image gallery with modal previews, while also supporting both public and private images.</p>
