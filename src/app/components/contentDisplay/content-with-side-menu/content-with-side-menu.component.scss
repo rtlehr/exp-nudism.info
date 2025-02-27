@@ -1,5 +1,10 @@
 @import "../../../../color-scheme.scss";
 
+.sideMenuPage
+{
+  padding: 25px;
+}
+
 /* Sidebar container */
 .sidebar {
   background-color: $secondaryLight; // Bootstrap light background
@@ -10,7 +15,7 @@
 
 /* Navigation list */
 .sidebar .nav {
-  margin-top: 1rem;
+  margin-top: 1rem; 
 }
 
 /* Navigation items */
