@@ -29,7 +29,7 @@ import { ActivatedRoute } from '@angular/router';
     InfoHighlightComponent,
     BusinessCardComponent],
   templateUrl: './page-generator.component.html',
-  styleUrl: './page-generator.component.css'
+  styleUrl: './page-generator.component.scss'
 })
 export class PageGeneratorComponent {
 

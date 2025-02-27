@@ -1,15 +1,93 @@
 // Import Bootstrap SCSS
 @import "./color-scheme.scss";
 
+/* Modern CSS Reset */
+
+/* Box sizing and spacing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default button and link styling */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive media elements */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent text size adjustments after orientation changes */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Root defaults */
+body {
+  font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #333;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* Remove default table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Remove focus outline except for keyboard users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   background-color: $body-bg !important;
   color: $bodyTextColor !important;
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-sans-serif; 
 }
 
 h2 {
   color: $h1TextColor !important;
 }
+
+/* Used to pop elements in and out */
 
 .pop-in {
   opacity: 0;
@@ -24,4 +102,12 @@ h2 {
 // Import Bootstrap SCSS
 @import "bootstrap/scss/bootstrap";
 
+#homeContentOne
+{
+  background-color: bisque;
+}
 
+#homeContentTwo
+{
+  background-color: blueviolet;
+}

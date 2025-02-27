@@ -1,4 +1,5 @@
 <div class="d-flex flex-column min-vh-100">
+  
   <!-- Header -->
   <header class="bg-primary text-white text-center py-3"> 
     <div class="container mt-3">
@@ -29,16 +30,18 @@
   </nav>
 
   <!-- Main Content -->
-  <div class="content-wrapper flex-grow-1 bg-light p-3">
+  <main class="flex-grow-1 pageContent">
+
     <router-outlet></router-outlet>    
 
     <app-modal-window/>
     
-  </div>
+  </main>
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
     <p>&copy; 2024 My Angular App. All rights reserved.</p>
     <app-display-contact-info [socialOnly]="false"/>
   </footer>
+
 </div>

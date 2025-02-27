@@ -11,7 +11,7 @@ import 'highlight.js/styles/atom-one-dark.css';
   standalone: true,
   imports: [HttpClientModule],
   templateUrl: './main-content.component.html',
-  styleUrl: './main-content.component.css'
+  styleUrl: './main-content.component.scss'
 })
 export class MainContentComponent {
 
