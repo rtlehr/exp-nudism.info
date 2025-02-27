@@ -1,12 +1,16 @@
 @import "../../../../color-scheme.scss";
 
+#blogDetail
+{
+  padding: 25px;
+}
 .container {
     max-width: 800px;
   }
   
   .card {
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden; 
   }
   
   .card-img-top {
