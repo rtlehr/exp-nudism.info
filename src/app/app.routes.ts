@@ -186,7 +186,7 @@ export const routes: Routes = [
     data: {
       menu: true,
       pageContent: [
-        { contentFile: "assets/content/pages/blog/blog-posts.json" }
+        { contentType: "blogList", divId: "blogList", contentFile: "assets/content/pages/blog/blog-posts.json" }
       ]
     }
   },

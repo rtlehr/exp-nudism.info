@@ -32,8 +32,13 @@ export class BlogListComponent implements OnInit {
   @Input() fileToLoad = '';
 
   pageContent: pageContent[] = []; 
+
+  divId: String = "";
+
   blogPosts: BlogPost[] = [];
+
   error: string | null = null;
+
   isVisible: boolean = false;
 
   @ViewChildren('blogItem') blogDivs!: QueryList<ElementRef>;
@@ -42,6 +47,9 @@ export class BlogListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pageContent = this.activatedRoute.snapshot.data['pageContent']; 
+
+    this.divId = this.pageContent[0].divId;
+
     this.getAllPosts();
   }
 
