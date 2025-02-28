@@ -22,7 +22,7 @@ import { JsonDataService } from '../../services/json-data.service';
     FormGeneratorComponent
   ],
   templateUrl: './content-tabs.component.html',
-  styleUrl: './content-tabs.component.css'
+  styleUrl: './content-tabs.component.scss'
 })
 export class ContentTabsComponent { 
 

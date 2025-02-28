@@ -1,5 +1,11 @@
 // Override Bootstrap Variables
-$primary: #FF00FF; // Change primary color
+$primary: #90B53E; // Change primary color
+
+// Alternative SASS-generated equivalents
+$color1: mix(white, $primary, 85%);
+$color2: mix(white, $primary, 60%);
+$color3: mix(gray, $primary, 50%);
+$color4: mix(black, $primary, 50%);
 
 // Monochromatic (shades of primary)
 $mono-light: lighten($primary, 20%);
@@ -23,9 +29,9 @@ $tetradic1: adjust-hue($primary, 60deg);
 $tetradic2: adjust-hue($primary, -60deg);
 $tetradic3: complement($tetradic1);
 
-$cautioncolor: red;
-$warningcolor: yellow;
-$safecolor: green;
+$cautioncolor: mix( red, $primary, 80%);
+$warningcolor: mix( yellow, $primary, 95%);;
+$safecolor: mix( green, $primary, 80%);
 
 //Font Colors
 $bodyTextColor: #666666; // Change body text color
@@ -57,6 +63,12 @@ $font-family-sans-serif: 'Roboto', sans-serif; // Change default font
 
 // Apply to CSS classes
 .color-primary { background-color: $primary; }
+
+.color1 { background-color: $color1; }
+.color2 { background-color: $color2; }
+.color3 { background-color: $color3; }
+.color4 { background-color: $color4; }
+
 .color-mono-light { background-color: $mono-light; }
 .color-mono-dark { background-color: $mono-dark; }
 .color-complement1 { background-color: $complement1; }

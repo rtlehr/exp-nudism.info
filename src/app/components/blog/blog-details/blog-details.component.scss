@@ -71,15 +71,21 @@
   transition: background-color 0.2s, color 0.2s;
 
   &:hover {
-    background-color: $gray-200; // Light hover background
-    color: $primary; // Bootstrap primary color
+    background-color: $color1; // Light hover background
+    color: $complement3; // Bootstrap primary color
     text-decoration: none;
   }
 
   &.active {
-    background-color: $primary; // Bootstrap primary color
+    background-color: $complement3; // Bootstrap primary color
     color: $white; // White text for active link
     font-weight: bold;
     text-decoration: none; // Prevent underline conflicts
   }
+}
+
+.tag
+{
+  background-color: $complement3 !important;
+  color: white !important;
 }

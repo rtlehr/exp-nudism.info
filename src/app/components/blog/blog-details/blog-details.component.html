@@ -41,7 +41,7 @@
                         <h1 class="card-title">{{ blogPost.title }}</h1>
                         <p class="text-muted">By {{ blogPost.author }} | {{ blogPost.date | date:'longDate' }}</p>
                         <div class="mb-3">
-                        <span *ngFor="let tag of blogPost.tags" class="badge bg-primary me-2">{{ tag }}</span>
+                        <span *ngFor="let tag of blogPost.tags" class="tag badge me-2">{{ tag }}</span>
                         </div>
                 
                         @for (pageContent of blogPost.blogText; track pageContent.id) {

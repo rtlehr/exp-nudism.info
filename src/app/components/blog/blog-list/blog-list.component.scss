@@ -1,3 +1,5 @@
+@import "../../../../color-scheme.scss";
+
 .blog-card {
     border-radius: 12px;
     overflow: hidden;
@@ -27,6 +29,7 @@
       flex-wrap: wrap;
       gap: 5px;
       cursor: pointer;
+
     }
   }
   
@@ -46,5 +49,9 @@
     margin-right: 5%;
   }
 
+  .tag{
+    background-color: $complement3 !important;
+    color: white !important;
+  }
 
   

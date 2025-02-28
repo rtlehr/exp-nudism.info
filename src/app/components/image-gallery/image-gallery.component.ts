@@ -6,7 +6,7 @@ import { JsonDataService } from '../../services/json-data.service';
   standalone: true,
   imports: [],
   templateUrl: './image-gallery.component.html',
-  styleUrl: './image-gallery.component.css' 
+  styleUrl: './image-gallery.component.scss' 
 })
 
 export class ImageGalleryComponent {
