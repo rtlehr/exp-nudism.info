@@ -1,9 +1,7 @@
 // Import Bootstrap SCSS
 @import "./color-scheme.scss";
 
-/* Modern CSS Reset */
-
-/* Box sizing and spacing reset */
+/* Box sizing and spacing reset */ 
 *,
 *::before,
 *::after {
@@ -76,15 +74,36 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   background-color: $body-bg !important;
   color: $bodyTextColor !important;
   font-family: $font-family-sans-serif; 
 }
 
-h2 {
+p
+{
+  color: $bodyTextColor;
+}
+
+.hightlightTextColor
+{
+  color: $hightlightTextColor;
+  font-weight: bold;
+}
+
+h1 
+{
   color: $h1TextColor !important;
+}
+
+h2 
+{
+  color: $h2TextColor !important;
+}
+
+h3 
+{
+  color: $h3TextColor !important;
 }
 
 /* Used to pop elements in and out */

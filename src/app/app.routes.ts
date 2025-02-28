@@ -175,6 +175,17 @@ export const routes: Routes = [
             { contentType: "contentPage", divId: "modalWindow", contentFile: "content/pages/cms-information/modal-window/modal-window.html" }
           ]
         }
+      },
+      { 
+        path: 'css-styles',
+        component: PageGeneratorComponent,
+        title: 'Site CSS Styles',
+        data: {
+          menu: true, 
+          pageContent: [
+            { contentType: "contentPage", divId: "css-styles", contentFile: "content/pages/cms-information/css-styles/css-styles.html" }
+          ]
+        }
       }
     ]
   },
