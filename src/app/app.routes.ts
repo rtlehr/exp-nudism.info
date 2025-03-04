@@ -4,6 +4,7 @@ import { BlogListComponent } from './components/blog/blog-list/blog-list.compone
 import { ContentWithSideMenuComponent } from './components/contentDisplay/content-with-side-menu/content-with-side-menu.component';
 import { ContentBlankPageComponent } from './components/contentDisplay/content-blank-page/content-blank-page.component';
 import { BlogDetailsComponent } from './components/blog/blog-details/blog-details.component';
+import { permissionGuard } from './guards/permission.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +17,7 @@ export const routes: Routes = [
       menu: true,
       pageContent: [
         { contentType: "contentPage", divId: "homeContentOne", contentFile: "content/pages/home/home-content-one.html" },
-        { contentType: "contentPage", divId: "homeContentTwo", contentFile: "content/pages/home/home-content-two.html" }
+        { contentType: "contentPage", permission: "admin", divId: "homeContentTwo", contentFile: "content/pages/home/home-content-two.html" }
       ]
     }
   },
